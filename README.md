@@ -8,6 +8,13 @@ Need to install:
     express
     underscore
 
+    angular
+    angular-bootstrap
+    angular-ui-notification
+    bootstrap
+    jquery
+    underscore
+
 Database: Mongo.
 
 Authorizing: Passport with local authorization (Username/Password).

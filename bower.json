@@ -1,0 +1,24 @@
+{
+  "name": "The-WindLog",
+  "description": "A wind sessions logger.",
+  "main": "server.js",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ugeHidalgo/TheWindLog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.5.0",
+    "bootstrap": "^3.3.7",
+    "underscore": "^1.8.3",
+    "angular-ui-notification": "^0.3.5"
+  }
+}

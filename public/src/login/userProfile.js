@@ -1,18 +1,28 @@
 (function (angular) {
-    var theModule = angular.module ('userProfile', ['ui.bootstrap']); 
+    var theModule = angular.
+        module ('userProfile', ['ui.bootstrap', 'ui-notification']).
+        config (function (NotificationProvider) {
+            NotificationProvider.setOptions ({
+                delay: 3000,
+                startTop: 20,
+                startRight: 10,
+                verticalSpacing: 20,
+                horizontalSpacing: 20,
+                positionX: 'center',
+                positionY: 'top'
+            });
+        });
     
     theModule.controller ('userProfileController',  [
-         '$scope', '$window', '$http',
-         function ($scope, $window, $http) {
+         '$scope', '$window', '$http', 'Notification',
+         function ($scope, $window, $http, Notification) {
             var urlParts = $window.location.pathname.split('/'),
                 userName = urlParts[urlParts.length-1],
                 userProfileUrl = '/api/user/'+userName;
 
-            $scope.notes = [];
-            $scope.colors= ['yellow', 'blue', 'orange', 'green'];
             $scope.user = {};
             $scope.changePassword = function() {
-                alert ('Change password.');
+                Notification.success('Change password.');
             };
 
             $http.get(userProfileUrl).
