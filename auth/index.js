@@ -94,7 +94,14 @@
 
         app.post ('/login/register', function (req, res) {
 
-            var salt = hasher.createSalt(),
+            var salt;
+            if (req.body.password !== req.body.retypePassword){
+                req.flash('registrationError', 'Password and confirmed password are not equal.');
+                res.redirect('/login/register');
+                return;
+            }
+
+            salt = hasher.createSalt(),
 
                 user =  {
                 name: req.body.name,
@@ -107,7 +114,7 @@
             data.addUser( user, function (err) {
                 if (err){
                     req.flash('registrationError', 'Could not save user to database.');
-                    res.redirect('/register');
+                    res.redirect('/login/register');
                 } else {
                     res.redirect('/login/login');
                 }

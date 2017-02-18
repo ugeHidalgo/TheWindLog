@@ -2,9 +2,23 @@
   @html.block("body", function (model) {
     <h3>Register</h3>
     @if (model.message) {
-      <p>@model.message</p>
+      <p class="errorMessage">@model.message</p>
     }
     <form action="/login/register" method="post" role="form" class="form-horizontal">
+
+      <div class="form-group">
+        <label class="control-label col-lg-1">Name</label>
+        <div class="col-lg-5">
+          <input type="text" name="name" class="form-control" placeholder="your name" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-lg-1">e-mail</label>
+        <div class="col-lg-5">
+          <input type="text" name="email" class="form-control" placeholder="email" />
+        </div>
+      </div>
 
       <div class="form-group">
         <label class="control-label col-lg-1">Username</label>
@@ -21,16 +35,9 @@
       </div>
 
       <div class="form-group">
-        <label class="control-label col-lg-1">Name</label>
+        <label class="control-label col-lg-1">Confirm password</label>
         <div class="col-lg-5">
-          <input type="text" name="name" class="form-control" placeholder="your name" />
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="control-label col-lg-1">e-mail</label>
-        <div class="col-lg-5">
-          <input type="text" name="email" class="form-control" placeholder="email" />
+          <input type="password" name="confirmPassword" class="form-control" placeholder="confirm password" />
         </div>
       </div>
       

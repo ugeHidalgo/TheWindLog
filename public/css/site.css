@@ -1,16 +1,24 @@
 /*site.css*/
 @import url(http://fonts.googleapis.com/css?family=Schoolbell);
 
-.logo {
-    margin-top: -10px;
-    margin-right: 20px;
-}
-
 body {
   font: 14px Helvetica, Arial, sans-serif;
   color: #222222;
   margin-top: 50px;
 }
+
+.logo {
+    margin-top: -10px;
+    margin-right: 20px;
+}
+
+.errorMessage {
+  color: red;
+  font-family: cursive
+}
+
+
+/*-----------*/
 
 .note {
   display: inline-block;
@@ -51,6 +59,7 @@ body {
   color: red;
   font-family: cursive
 }
+
 .maxLengthField {
   color: darkblue;
   font-family: cursive
