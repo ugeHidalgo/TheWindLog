@@ -11,20 +11,40 @@
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
+        <div class="logo"><a href='/'><h3>The WindLog</h3></a>
+        </div>
         <button class="btn btn-success navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="glyphicon glyphicon-chevron-down"></span>
         </button>
-        <div id="logo">
-          <a href='/'>
-            <h4>The WindLog</h4>
-          </a>
-        </div>
       </div>
-      <div class="navbar-collapse collapse">
+      <div class="navbar-collapse collapse" id="navbar-main">
+        @if (model.user) {
+            <ul class="nav navbar-nav">
+                <li><a href='/Sessions'>Sessions</a></li>
+                <li><a href='/Spots'>Spots</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="/materials" id="materials" aria-expanded="false">
+                        Materials
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="Material">
+                        <li>
+                            <a href="/Materials/Boards">Boards</a>
+                        </li>
+                        <li>
+                            <a href="/Materials/Sails">Sails</a>
+                        </li>
+                        <li>
+                            <a href="/Materials/Masts">Masts</a>
+                        </li>
+                        <li>
+                            <a href="/Materials/Booms">Booms</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        }
         <ul class="nav navbar-nav navbar-right">
-          <li class="nav">
-            <a href="/">Home</a>
-          </li>
           @if (model.user) {
             <li class="nav">
               <a href="/logout">Logout</a>
