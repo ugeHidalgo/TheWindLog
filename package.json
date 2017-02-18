@@ -1,0 +1,24 @@
+{
+  "name": "The-WindLog",
+  "version": "0.1.0",
+  "description": "A wind sessions logger.",
+  "main": "server.js",
+  "author": {
+    "name": "Uge Hidalgo",
+    "email": "ugehidalgo@gmail.com"
+  },
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "express": "^4.14.1",
+    "mongodb": "^2.2.24",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "underscore": "^1.8.3",
+    "vash": "^0.12.2"
+  },
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "grunt": "^1.0.1",
+    "grunt-nodemon": "^0.4.2"
+  }
+}

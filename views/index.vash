@@ -1,0 +1,7 @@
+@html.extend('layout', function(model) {
+  @html.block("body", function (model) {
+        @if (model.error) {
+            <p class="text-error">Error occurred: @model.error</p>
+        }
+    })
+  })

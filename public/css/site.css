@@ -1,0 +1,52 @@
+/*site.css*/
+@import url(http://fonts.googleapis.com/css?family=Schoolbell);
+
+body {
+  font: 14px Helvetica, Arial, sans-serif;
+  color: #222222;
+  margin-top: 50px;
+}
+
+.note {
+  display: inline-block;
+  font-family: 'Schoolbell',cursive;
+  font-size: 20px;
+  height: 265px;
+  padding: 16px 28px;
+  position: relative;
+  vertical-align: text-top;
+  width: 265px;
+}
+
+.note-yellow {
+  background: url(../images/note-yellow.png) no-repeat;
+}
+
+.note-blue {
+  background: url(../images/note-blue.png) no-repeat;
+}
+
+.note-orange {
+  background: url(../images/note-orange.png) no-repeat;
+}
+
+.note-green {
+  background: url(../images/note-green.png) no-repeat;
+}
+
+.note-author {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  bottom: 50px;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+}
+
+.requiredField {
+  color: red;
+  font-family: cursive
+}
+.maxLengthField {
+  color: darkblue;
+  font-family: cursive
+}
