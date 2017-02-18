@@ -1,0 +1,44 @@
+@html.extend("layout", function(model) {
+
+    @html.block("scripts", function (model){
+        <script src="/src/login/userProfile.js"></script>
+    })
+
+    @html.block("body", function (model) {
+    <div ng-app="userProfile">
+        <div ng-controller="userProfileController">
+
+            <form role="form" class="form-horizontal" name="userProfileForm" ng-submit="saveUser()">
+
+                <div class="form-group">
+                    <label class="control-label col-lg-1">Username</label>
+                    <div class="col-lg-5">
+                    <input type="text" name="username" class="form-control" placeholder="username" ng-model="user.username" readonly/>
+                    </div>
+                </div>
+                        
+                <div class="form-group">
+                    <label class="control-label col-lg-1">Name</label>
+                    <div class="col-lg-5">
+                        <input type="text" name="name" class="form-control" placeholder="Your name" ng-model="user.name"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-lg-1">e-mail</label>
+                    <div class="col-lg-5">
+                        <input type="text" name="email" class="form-control" placeholder="e-mail" ng-model="user.email"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="nav navbar-nav navbar-left">
+                        <button id="changePasswordBtn" type="button" class="btn btn-warning" ng-click="changePassword()">Change password</button>
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+        </div> 
+    </div> 
+  })
+})

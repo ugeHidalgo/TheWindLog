@@ -46,11 +46,20 @@
         }
         <ul class="nav navbar-nav navbar-right">
           @if (model.user) {
-            <li class="nav">
-              <a href="/logout">Logout</a>
-            </li>
-            <li class="nav">
-              <a href="/login/userProfile/@model.user.username">@model.user.username</a>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/login/userProfile/@model.user.username" 
+                   id="userMenu" aria-expanded="false">
+                        @model.user.username
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="UserMenu">
+                        <li class="nav">
+                            <a href="/login/userProfile/@model.user.username">@model.user.username</a>
+                        </li>
+                        <li class="nav">
+                            <a href="/logout">Logout</a>
+                        </li>
+                    </ul>
             </li>
           } else {
             <li class="nav">
