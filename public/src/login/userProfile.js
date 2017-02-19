@@ -22,7 +22,17 @@
 
             $scope.user = {};
             $scope.changePassword = function() {
-                Notification.success('Change password.');
+                Notification.success('Change password pressed.');
+            };
+
+            $scope.saveUser = function() {
+
+                $http.post( userProfileUrl, $scope.user).
+                    then(function (result) {
+                        Notification.success('User successfully updated.');
+                    }, function (error) {
+                        Notification.error('User was not updated: ' + error.statusText);
+                    }); 
             };
 
             $http.get(userProfileUrl).
@@ -31,7 +41,7 @@
                     $scope.user = result.data;
                 }, function (error) {
                     //Error
-                    alert (error);
+                    Notification.error('Unable to get ' + userName + ' data: ' + error.statusText);
                 });
         }
     ]);

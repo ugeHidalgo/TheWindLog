@@ -19,6 +19,31 @@
         });
     };
 
+    data.updateUser = function (user, callbackFn) {
+        database.getDb(function (error, db) {
+            if (error){
+                console.log('Failed to update user to BD');
+                callbackFn(error);
+            } else {
+                db.users.update(
+                    {username: user.username}, 
+                    {
+                        $set: {
+                            name: user.name,
+                            email: user.email
+                        }
+                    },
+                    function (error){
+                    if (error){
+                        callbackFn(error);
+                    } else {
+                        callbackFn(null)
+                    }
+                });
+            }
+        });
+    };
+
     data.getUser = function (username, callbackFn) {
         database.getDb(function (error, db) {
             if (error){

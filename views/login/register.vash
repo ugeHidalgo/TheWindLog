@@ -4,7 +4,6 @@
     })
 
   @html.block("body", function (model) {
-    <h3>Register</h3>
     @if (model.message) {
       <p class="errorMessage">@model.message</p>
     }
@@ -24,7 +23,7 @@
               <div class="form-group">
                 <label class="control-label col-lg-1">e-mail</label>
                 <div class="col-lg-5">
-                  <input type="email" name="emailField" class="form-control" placeholder="email" required ng-model="email"/>
+                  <input type="email" name="email" class="form-control" placeholder="email" required ng-model="email"/>
                   <span ng-show="registerForm.emailField.$error.required" class="errorMessage">The email is a required value.</span>
                   <span ng-show="registerForm.emailField.$error.mail" class="errorMessage">This is not a valid email.</span>
                 </div>
@@ -33,7 +32,7 @@
               <div class="form-group">
                 <label class="control-label col-lg-1">Username</label>
                 <div class="col-lg-5">
-                  <input type="text" name="usernameField" class="form-control" placeholder="username" required ng-model="username"/>
+                  <input type="text" name="userName" class="form-control" placeholder="username" required ng-model="userName"/>
                   <span ng-show="registerForm.usernameField.$error.required" class="errorMessage">Username is a required value.</span>
                 </div>
               </div>

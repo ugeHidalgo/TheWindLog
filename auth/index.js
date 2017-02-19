@@ -8,13 +8,14 @@
 
     function userVerify( username, password, callbackFn) {
         data.getUser(username, function (err, user) {
-            if (!err) {
+            if (!err && user) {
                 var testHash = hasher.computeHash(password, user.salt);
                 if (testHash === user.passwordHash) {
                     callbackFn (null, user);
                     return;
                 }
             }
+
             callbackFn (null, false, {message:'Invalid username/password.'});
         });
     }
@@ -46,7 +47,7 @@
         });
         passport.deserializeUser(function (key, callbackFn){
             data.getUser( key, function (err, user) {
-                if (err) {
+                if (err || !user) {
                     callbackFn(null, false, { message: 'Failed to retrieve user.'});
                 } else {
                     callbackFn(null, user);
@@ -64,6 +65,9 @@
         });
 
         app.post ('/login/login' , function (req, res, callbackFn) {
+
+            var userName = req.body.userName;
+
             var authFunction = passport.authenticate('local', function (err, user, info) {
                 if (err) {
                     callbackFn(err);
@@ -87,7 +91,7 @@
 
         app.get ('/login/register', function (req, res) {
             res.render ('login/register', { 
-                title: 'Register into the board',
+                title: 'Register into the WindLog',
                 message: req.flash('registrationError')
             });
         });
@@ -95,7 +99,7 @@
         app.post ('/login/register', function (req, res) {
 
             var salt;
-            if (req.body.password !== req.body.retypePassword){
+            if (req.body.password !== req.body.confirmPassword){
                 req.flash('registrationError', 'Password and confirmed password are not equal.');
                 res.redirect('/login/register');
                 return;
@@ -106,7 +110,7 @@
                 user =  {
                 name: req.body.name,
                 email: req.body.email,
-                username: req.body.username,
+                username: req.body.userName,
                 passwordHash: hasher.computeHash(req.body.password, salt) ,
                 salt: salt
             };
