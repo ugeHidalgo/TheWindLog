@@ -1,13 +1,13 @@
 (function (database){
 
-    var mongoDb = require ('mongodb');
-    var mongoUrl = 'mongodb://localhost:27017/windlogDB';
-    var theDb = null;
+    var mongoDb = require ('mongodb'),
+        dbConfig = require ('./db.js'),
+        theDb = null;
 
     database.getDb = function (callbackFn) {
         if (!theDb){
             //Connecto to db
-            mongoDb.MongoClient.connect(mongoUrl, function (error, db) {
+            mongoDb.MongoClient.connect(dbConfig.url, function (error, db) {
                 if (error){
                     callbackFn(error,null);
                 } else {

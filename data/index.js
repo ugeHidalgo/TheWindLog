@@ -68,7 +68,7 @@
                         if (data===0){
                             console.log ('Seeding boards data into database.');
                             seedData.initialBoards.forEach (function (board) {
-                                 db.boards.insert(note,function (error){
+                                 db.boards.insert(board,function (error){
                                      if (error){
                                          console.log ('Failed to insert board in database: ' + error);
                                      }
