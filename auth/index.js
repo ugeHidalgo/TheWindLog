@@ -5,18 +5,17 @@
         passport = require ('passport');
         localStrategy = require ('passport-local').Strategy;
 
-
-    function userVerify( username, password, callbackFn) {
+    function userVerify(req, username, password, callbackFn) {
         data.getUser(username, function (err, user) {
-            if (!err && user) {
-                var testHash = hasher.computeHash(password, user.salt);
-                if (testHash === user.passwordHash) {
-                    callbackFn (null, user);
-                    return;
-                }
-            }
 
-            callbackFn (null, false, {message:'Invalid username/password.'});
+            if (err) { return callbackFn(err); }
+            if (!user) { return callbackFn(null, false, req.flash( 'loginErrorMessage', 'Incorrect username.' )); }
+                
+            var testHash = hasher.computeHash(password, user.salt);
+            if (testHash !== user.passwordHash) {
+                    return callbackFn (null, false, req.flash( 'loginErrorMessage', 'Incorrect password.' ));
+            }
+            return callbackFn (null, user);
         });
     }
 
@@ -41,10 +40,12 @@
 
         //setup passport authentication, por ahora solo local strategy, pero si quisieramos usar
         // facebook, google, etc además, se inicializaría aquí también.
-        passport.use(new localStrategy(userVerify));
-        passport.serializeUser(function(user, callbackFn) {
-            callbackFn(null,user.username);
+        passport.use(new localStrategy( { passReqToCallback: true }, userVerify ));
+
+        passport.serializeUser(function(user, callbackFn) { 
+            callbackFn(null,user.username); 
         });
+
         passport.deserializeUser(function (key, callbackFn){
             data.getUser( key, function (err, user) {
                 if (err || !user) {
@@ -54,35 +55,23 @@
                 }
             });
         });
+
         app.use(passport.initialize());
         app.use(passport.session());
 
         app.get ('/login/login' , function (req, res) {
             res.render ('login/login', {
                title: 'Logging',
-               message: req.flash('loginError') 
+               message: req.flash('loginErrorMessage') 
             });
         });
 
-        app.post ('/login/login' , function (req, res, callbackFn) {
-
-            var userName = req.body.userName;
-
-            var authFunction = passport.authenticate('local', function (err, user, info) {
-                if (err) {
-                    callbackFn(err);
-                } else {
-                    req.logIn (user, function (err){
-                        if (err){
-                            callbackFn(err);
-                        } else {
-                            res.redirect('/');
-                        }
-                    });
-                }
-            });
-            authFunction (req, res, callbackFn);
-        });
+        app.post ('/login/login' , passport.authenticate('local', {
+                successRedirect: '/',
+                failureRedirect: '/login/login',
+                failureFlash: true
+            })
+        );
 
         app.get ('/logout' , function (req, res) {
             req.logout();
@@ -92,7 +81,7 @@
         app.get ('/login/register', function (req, res) {
             res.render ('login/register', { 
                 title: 'Register into the WindLog',
-                message: req.flash('registrationError')
+                message: req.flash('registrationErrorMessage')
             });
         });
 
@@ -100,7 +89,7 @@
 
             var salt;
             if (req.body.password !== req.body.confirmPassword){
-                req.flash('registrationError', 'Password and confirmed password are not equal.');
+                req.flash('registrationErrorMessage', 'Password and confirmed password are not equal.');
                 res.redirect('/login/register');
                 return;
             }
@@ -117,7 +106,7 @@
 
             data.addUser( user, function (err) {
                 if (err){
-                    req.flash('registrationError', 'Could not save user to database.');
+                    req.flash('registrationErrorMessage', 'Could not save user to database.');
                     res.redirect('/login/register');
                 } else {
                     res.redirect('/login/login');

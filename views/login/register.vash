@@ -4,9 +4,6 @@
     })
 
   @html.block("body", function (model) {
-    @if (model.message) {
-      <p class="errorMessage">@model.message</p>
-    }
 
     <div ng-app="register">
         <div ng-controller="registerController">
@@ -54,6 +51,10 @@
                   <span class="errorMessage">{{ errorMessage }}</span>
                 </div>
               </div>
+
+              @if (model.message) {
+                <p class="errorMessage">@model.message</p>
+              }
               
               <div class="form-group">
                 <div class="col-lg-offset-1 col-lg-5">
