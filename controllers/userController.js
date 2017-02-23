@@ -13,13 +13,9 @@
                 if (error){
                     response.send(400, error);
                 } else {
-                    // response.set('Content-Type','application/json');
-                    // response.send(user);
                     res.render ('login/userProfile', { title: userName, user: user });
                  }
             });
-
-            //res.render ('login/userProfile', { title: userName, user: req.user });
         });
 
          app.post('/login/userProfile/:userName', auth.ensureAuthenticated, function (req, res) {

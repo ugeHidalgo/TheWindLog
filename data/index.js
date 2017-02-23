@@ -1,6 +1,7 @@
 (function (data){
-    var seedData = require ('./seedData');
-    var database = require ('./database');
+    var seedData = require ('./seedData'),
+        hasher = require ('../auth/hasher'),
+        database = require ('./database');
 
     data.addUser = function (user, callbackFn) {
         database.getDb(function (error, db) {
@@ -20,19 +21,29 @@
     };
 
     data.updateUser = function (user, callbackFn) {
+        var updatedValues = {};
+
         database.getDb(function (error, db) {
             if (error){
                 console.log('Failed to update user to BD');
                 callbackFn(error);
             } else {
+                if (user.password.length>0){
+                    updatedValues = {
+                        name: user.name,
+                        email: user.email,
+                        passwordHash: hasher.computeHash(user.password, user.salt),
+                        salt: user.salt
+                    };
+                } else {
+                    updatedValues = {
+                        name: user.name,
+                        email: user.email
+                    };
+                }
                 db.users.update(
                     {username: user.username}, 
-                    {
-                        $set: {
-                            name: user.name,
-                            email: user.email
-                        }
-                    },
+                    { $set: updatedValues },
                     function (error){
                     if (error){
                         callbackFn(error);

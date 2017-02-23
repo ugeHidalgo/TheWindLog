@@ -21,9 +21,6 @@
                 userProfileUrl = '/api/user/'+userName;
 
             $scope.user = {};
-            $scope.changePassword = function() {
-                Notification.success('Change password pressed.');
-            };
 
             $scope.saveUser = function() {
 
@@ -39,6 +36,8 @@
                 then(function (result) {
                     //Success
                     $scope.user = result.data;
+                    $scope.user.password ='';
+                    $scope.user.confirmPassword ='';
                 }, function (error) {
                     //Error
                     Notification.error('Unable to get ' + userName + ' data: ' + error.statusText);
