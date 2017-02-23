@@ -15,13 +15,12 @@
         </div>
       </div>
 
-      @if (model.message) {
-        <p class="errorMessage">@model.message</p>
-      }
-
       <div class="form-group">
         <div class="col-lg-offset-1 col-lg-5"><input type="submit" value="login" class="btn btn-primary" /></div>
       </div>
+      @if (model.message) {
+          <p class="errorMessage col-lg-offset-1">@model.message</p>
+      }
     </form>
   })
 })
