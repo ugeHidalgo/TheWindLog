@@ -81,7 +81,6 @@
     </div>
     @html.block("body")
   </section>
-  <hr />
   <footer class="container">
     <p>The WindLog 2017</p>
   </footer>

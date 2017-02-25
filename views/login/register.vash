@@ -66,7 +66,7 @@
               </div>
               
               <div class="form-group">
-                <p class="text-muted col-lg-offset-1">Or <a href="/login/login">login</a> if you already have an account.</p>
+                <h3><p class="col-lg-offset-1">Or <a href="/login/login">login</a> if you already have an account.</p></h3>
               </div>
             </form>
           </div>
