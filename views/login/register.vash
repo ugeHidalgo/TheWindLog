@@ -8,7 +8,8 @@
     <div ng-app="register">
         <div ng-controller="registerController">
           <div id="registerForm">
-            <form action="/login/register" method="post" role="form" class="form-horizontal">
+            <!--form action="/login/register" method="post" role="form" class="form-horizontal"-->
+            <form role="form" class="form-horizontal" name="userRegisterForm" ng-submit="saveUser()">
 
               <div class="form-group">
                 <label class="control-label col-lg-1">Name</label>

@@ -24,23 +24,30 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                <label class="control-label col-lg-1">Password</label>
-                <div class="col-lg-5">
-                  <input type="password" name="password" class="form-control" placeholder="password" 
-                         ng-model="user.password" ng-change="changedPassword()"/>
-                  <span class="errorMessage">{{ errorMessage }}</span>
-                </div>
-              </div>
+                <div class="passwordBox">
+                    <p class="infoMessage">Leave these fields empty if you don´t want to change the password</p>
 
-              <div class="form-group">
-                <label class="control-label col-lg-1">Confirm password</label>
-                <div class="col-lg-5">
-                  <input type="password" name="confirmPassword" class="form-control" placeholder="confirm password" 
-                         ng-model="user.confirmPassword" ng-change="changedPassword()"/>
-                  <span class="errorMessage">{{ errorMessage }}</span>
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">Password</label>
+                        <div class="col-lg-10">
+                            <input type="password" name="password" class="form-control" placeholder="password" 
+                                    ng-model="user.password" ng-change="changedPassword()"/>
+                            <span class="errorMessage">{{ errorMessage }}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">Confirm password</label>
+                        <div class="col-lg-10">
+                            <input type="password" name="confirmPassword" class="form-control" placeholder="confirm password" 
+                                ng-model="user.confirmPassword" ng-change="changedPassword()"/>
+                            <span class="errorMessage">{{ errorMessage }}</span>
+                        </div>
+                    </div>
+                    @if (model.message) {
+                        <p class="errorMessage">@model.message</p>
+                    }
                 </div>
-              </div>
 
                 <div class="form-group">
                     <label class="control-label col-lg-1">e-mail</label>

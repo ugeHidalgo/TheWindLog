@@ -17,6 +17,18 @@ body {
   font-family: cursive
 }
 
+.infoMessage {
+  color: gray;
+  font-family: cursive
+}
+
+.passwordBox {
+  border:1px solid lightgrey;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px;
+  width: 550px;
+}
 
 /*-----------*/
 
