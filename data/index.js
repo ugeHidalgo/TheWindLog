@@ -4,13 +4,14 @@
         database = require ('./database');
 
     data.addUser = function (user, callbackFn) {
+
         database.getDb(function (error, db) {
-            if (error){
+            if (error) {
                 console.log('Failed to add user to BD');
                 callbackFn(error);
             } else {
-                db.users.insert(user, function (error){
-                    if (error){
+                db.users.insert(user, function (error) {
+                    if (error) {
                         callbackFn(error);
                     } else {
                         callbackFn(null)
@@ -24,11 +25,11 @@
         var updatedValues = {};
 
         database.getDb(function (error, db) {
-            if (error){
+            if (error) {
                 console.log('Failed to update user to BD');
                 callbackFn(error);
             } else {
-                if (user.password.length>0){
+                if (user.password.length>0) {
                     updatedValues = {
                         name: user.name,
                         email: user.email,
@@ -62,6 +63,17 @@
                 callbackFn(error);
             } else {
                 db.users.findOne({username:username}, callbackFn);
+            }
+        });
+    };
+
+    data.usedUsername = function (username, callbackFn) {
+        database.getDb(function (error, db) {
+            if (error){
+                console.log('Failed to get user from DB');
+                callbackFn(error)
+            } else {
+                db.users.findOne({username:username}, callbackFn );
             }
         });
     };

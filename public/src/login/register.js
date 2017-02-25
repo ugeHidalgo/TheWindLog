@@ -16,36 +16,38 @@
     theModule.controller ('registerController',  [
          '$scope', '$window', '$http', 'Notification',
          function ($scope, $window, $http, Notification) {
-            var urlParts = $window.location.pathname.split('/'),
-                userName = urlParts[urlParts.length-1],
-                userProfileUrl = '/api/user/'+userName;
-
+ 
             $scope.email = '';
             $scope.username= '';
             $scope.errorMessage;
 
             $scope.changedPassword = function() {
-                var pass = $scope.password,
-                    confirm = $scope.confirmPassword;
+                var pass = $scope.user.password,
+                    confirm = $scope.user.confirmPassword;
+                    
+                $scope.passwordErrorMessage = '';
 
                 if ( pass.length != confirm.length || pass !== confirm ) {
-                    $scope.errorMessage = 'Password and confirm are not equal.';
-                } else {
-                    $scope.errorMessage = '';
+                    $scope.passwordErrorMessage = 'Password and confirm are not equal.';
                 }
             };
 
             $scope.saveUser = function() {
-                if ( $scope.password !== $scope.confirmPassword ) {
-                    $scope.errorMessage = 'Password and confirm are not equal.';
+                $scope.usernameErrorMessage = '';
+                $scope.passwordErrorMessage = '';
+
+                if ( $scope.user.password !== $scope.user.confirmPassword ) {
+                    $scope.passwordErrorMessage = 'Password and confirm are not equal.';
                     Notification.error('User was not updated: Password and confirm are not equal. ');
                     return;
                 }
-                $http.post( userProfileUrl, $scope.user ).
+
+                $http.post( '/login/register', $scope.user ).
                     then(function (result) {
-                        Notification.success('User successfully updated.');
+                        Notification.success('User "' + result.data.username + '" successfully created.');
                     }, function (error) {
-                        Notification.error('User was not updated: ' + error.statusText);
+                        $scope.usernameErrorMessage = error.data;
+                        Notification.error('User "' + $scope.user.username + '" was not created : ' + error.data);
                     }); 
             };
         }

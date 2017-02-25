@@ -16,10 +16,10 @@
     theModule.controller ('userProfileController',  [
          '$scope', '$window', '$http', 'Notification',
          function ($scope, $window, $http, Notification) {
-             
+
             var urlParts = $window.location.pathname.split('/'),
                 userName = urlParts[urlParts.length-1],
-                userProfileUrl = '/api/user/'+userName;
+                userProfileUrl = '/api/user/' + userName;
 
             $scope.user = {};
 

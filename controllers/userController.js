@@ -18,10 +18,6 @@
             });
         });
 
-         app.post('/login/userProfile/:userName', auth.ensureAuthenticated, function (req, res) {
-
-         });
-
         app.get('/api/user/:userName', auth.ensureApiAuthenticated, function(request, response){
 
             var userName = request.params.userName;

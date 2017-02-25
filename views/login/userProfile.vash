@@ -25,8 +25,7 @@
                 </div>
 
                 <div class="passwordBox">
-                    <p class="infoMessage">Leave these fields empty if you don´t want to change the password</p>
-
+                    
                     <div class="form-group">
                         <label class="control-label col-lg-2">Password</label>
                         <div class="col-lg-10">
@@ -44,6 +43,7 @@
                             <span class="errorMessage">{{ errorMessage }}</span>
                         </div>
                     </div>
+                    <p class="infoMessage col-lg-offset-2">Leave these fields empty to keep actual password.</p>
                     @if (model.message) {
                         <p class="errorMessage">@model.message</p>
                     }

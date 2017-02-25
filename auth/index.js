@@ -87,31 +87,35 @@
 
         app.post ('/login/register', function (req, res) {
 
-            var salt;
+            var salt, user;
             if (req.body.password !== req.body.confirmPassword){
-                req.flash('registrationErrorMessage', 'Password and confirmed password are not equal.');
-                res.redirect('/login/register');
+                res.status(500).send('Password and confirmed password are not equal.');
                 return;
             }
 
-            salt = hasher.createSalt(),
-
-                user =  {
-                name: req.body.name,
-                email: req.body.email,
-                username: req.body.userName,
-                passwordHash: hasher.computeHash(req.body.password, salt) ,
-                salt: salt
-            };
-
-            data.addUser( user, function (err) {
-                if (err){
-                    req.flash('registrationErrorMessage', 'Could not save user to database.');
-                    res.redirect('/login/register');
+            if (data.usedUsername(req.body.username, function (error, result){
+                if (error || result) {
+                    res.status(500).send('Username "' + req.body.username + '" is in use. Please change it.');
                 } else {
-                    res.redirect('/login/login');
+                    salt = hasher.createSalt(),
+
+                    user =  {
+                        name: req.body.name,
+                        email: req.body.email,
+                        username: req.body.username,
+                        passwordHash: hasher.computeHash(req.body.password, salt) ,
+                        salt: salt
+                    };
+
+                    data.addUser( user, function (err) {
+                        if (err){
+                            res.status(500).send('Could not save user to database.');
+                        } else {
+                            res.status(201).send (user)
+                        }
+                    });
                 }
-            });
+            }));
         });
 
     };

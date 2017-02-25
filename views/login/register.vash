@@ -14,14 +14,14 @@
               <div class="form-group">
                 <label class="control-label col-lg-1">Name</label>
                 <div class="col-lg-5">
-                  <input type="text" name="name" class="form-control" placeholder="your name" />
+                  <input type="text" name="name" class="form-control" placeholder="your name" ng-model="user.name" />
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="control-label col-lg-1">e-mail</label>
                 <div class="col-lg-5">
-                  <input type="email" name="email" class="form-control" placeholder="email" required ng-model="email"/>
+                  <input type="email" name="email" class="form-control" placeholder="email" required ng-model="user.email"/>
                   <span ng-show="registerForm.emailField.$error.required" class="errorMessage">The email is a required value.</span>
                   <span ng-show="registerForm.emailField.$error.mail" class="errorMessage">This is not a valid email.</span>
                 </div>
@@ -30,8 +30,9 @@
               <div class="form-group">
                 <label class="control-label col-lg-1">Username</label>
                 <div class="col-lg-5">
-                  <input type="text" name="userName" class="form-control" placeholder="username" required ng-model="userName"/>
+                  <input type="text" name="userName" class="form-control" placeholder="username" required ng-model="user.username"/>
                   <span ng-show="registerForm.usernameField.$error.required" class="errorMessage">Username is a required value.</span>
+                  <span class="errorMessage">{{ usernameErrorMessage }}</span>
                 </div>
               </div>
               
@@ -39,8 +40,8 @@
                 <label class="control-label col-lg-1">Password</label>
                 <div class="col-lg-5">
                   <input type="password" name="password" class="form-control" placeholder="password" 
-                         required ng-model="password" ng-change="changedPassword()"/>
-                  <span class="errorMessage">{{ errorMessage }}</span>
+                         required ng-model="user.password" ng-change="changedPassword()"/>
+                  <span class="errorMessage">{{ passwordErrorMessage }}</span>
                 </div>
               </div>
 
@@ -48,8 +49,8 @@
                 <label class="control-label col-lg-1">Confirm password</label>
                 <div class="col-lg-5">
                   <input type="password" name="confirmPassword" class="form-control" placeholder="confirm password" 
-                         required ng-model="confirmPassword" ng-change="changedPassword()"/>
-                  <span class="errorMessage">{{ errorMessage }}</span>
+                         required ng-model="user.confirmPassword" ng-change="changedPassword()"/>
+                  <span class="errorMessage">{{ passwordErrorMessage }}</span>
                 </div>
               </div>
 
