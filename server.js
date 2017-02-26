@@ -1,5 +1,7 @@
 var http = require ('http'),
     express = require ('express'),
+    mongoose = require ('mongoose'),
+    dbConfig = require ('./data/dbConfig'),
     controllers = require ('./controllers'),
     bodyParser = require('body-parser');
     flash = require('connect-flash');
@@ -7,6 +9,8 @@ var http = require ('http'),
     expressSession = require('express-session');
     app = express(),
     port = process.env.port || 3000;
+
+mongoose.connect (dbConfig.url);
 
 //Set the view engine.
 app.set('view engine', 'vash');

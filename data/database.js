@@ -1,7 +1,7 @@
 (function (database){
 
     var mongoDb = require ('mongodb'),
-        dbConfig = require ('./db.js'),
+        dbConfig = require ('./dbConfig.js'),
         theDb = null;
 
     database.getDb = function (callbackFn) {
@@ -14,9 +14,7 @@
                     theDb = {
                         db: db,
                         users : db.collection('users'),
-                        boards : db.collection('boards'),
-                        sails : db.collection('sails'),
-                        spots : db.collection('spots')
+                        boards : db.collection('boards')
                     };
                     callbackFn(null,theDb);
                 }
@@ -24,7 +22,6 @@
         } else {
             callbackFn (null, theDb);
         }
-
-    }
+    };
 
 })(module.exports);
