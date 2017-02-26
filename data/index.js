@@ -3,6 +3,7 @@
         mongoose = require ('mongoose'),
         Board = require ('../models/board'),
         User = require ('../models/user'),
+        Sail = require ('../models/sail'),
         hasher = require ('../auth/hasher');
 
     data.addUser = function (user, callbackFn) {
@@ -70,6 +71,14 @@
                 seedBoardsData(boards);
             }
         });
+
+        Sail.find ({username: 'ugeHidalgo'}, function(error, sails) {
+            if (error){
+                console.log ('Failed to count sails in database: ' + error);
+            } else {
+                seedSailsData(sails);
+            }
+        });
     };
 
     function seedUsersData (users) {
@@ -105,6 +114,24 @@
                     });
                 } else {
                     console.log ('Boards database already seeded.');
+                }
+    };
+
+    function seedSailsData (sails) {
+        var newSail;
+
+        if (sails.length===0) {
+                    console.log ('Seeding sails data into database.');
+                    seedData.initialSails.forEach (function (sail) {
+                        newSail = new Sail(sail);
+                        newSail.save(function (error){
+                            if (error){
+                                console.log ('Failed to insert sail in database: ' + error);
+                            }
+                        });
+                    });
+                } else {
+                    console.log ('Sails database already seeded.');
                 }
     };
 
