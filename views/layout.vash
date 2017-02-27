@@ -82,7 +82,11 @@
   </section>
 
   <footer class="container">
-    <p>The WindLog 2017</p>
+      <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+          <p class="navbar-text pull-left">© 2017 - The Wind log By Uge Hidalgo</p>
+        </div>
+      </div>
   </footer>
   <script src="/lib/jquery/dist/jquery.min.js"></script>
   <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>

@@ -62,7 +62,16 @@
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
+          </div>
         </div>
-      </div>
+
+        <div class="col-md-12 text-center">
+          <br/>
+          <h3>Please register if you don´t have an account</h3>
+          <a id="singlebutton" name="singlebutton" class="btn btn-primary" href="/login/register">Register</a>
+          <br/>
+          <h3>If you have an account login here </h3>
+          <a id="singlebutton" name="singlebutton" class="btn btn-primary" href="/login/login">Login</a>
+        </div>
     })
   })
