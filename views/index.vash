@@ -1,6 +1,5 @@
 @html.extend('layout', function(model) {
   @html.block("scripts", function (model){
-        <link href="/css/index.css" rel="stylesheet" />
         <link href="/css/carousel.css" rel="stylesheet" />
     })
 

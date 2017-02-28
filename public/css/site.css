@@ -5,6 +5,9 @@ body {
   font: 14px Helvetica, Arial, sans-serif;
   color: #222222;
   margin-top: 50px;
+/*  background-image: url('../img/backgrounds/bg1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;*/
 }
 
 .navbar-default {
