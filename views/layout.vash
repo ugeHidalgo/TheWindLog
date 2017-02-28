@@ -21,8 +21,9 @@
       <div class="navbar-collapse collapse" id="navbar-main">
         @if (model.user) {
             <ul class="nav navbar-nav">
-                <li><a href='/Sessions'>Sessions</a></li>
-                <li><a href='/Spots'>Spots</a></li>
+                <li><a href='/userMain/@model.user.username'>Dashboard</a></li>
+                <li><a href='/Sessions/@model.user.username'>Sessions</a></li>
+                <li><a href='/Spots/@model.user.username'>Spots</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="/materials" id="materials" aria-expanded="false">
                         Materials
@@ -30,16 +31,16 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="Material">
                         <li>
-                            <a href="/Materials/Boards">Boards</a>
+                            <a href="/Materials/Boards/@model.user.username">Boards</a>
                         </li>
                         <li>
-                            <a href="/Materials/Sails">Sails</a>
+                            <a href="/Materials/Sails/@model.user.username">Sails</a>
                         </li>
                         <li>
-                            <a href="/Materials/Masts">Masts</a>
+                            <a href="/Materials/Masts/@model.user.username">Masts</a>
                         </li>
                         <li>
-                            <a href="/Materials/Booms">Booms</a>
+                            <a href="/Materials/Booms/@model.user.username">Booms</a>
                         </li>
                     </ul>
                 </li>
