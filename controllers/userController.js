@@ -18,6 +18,19 @@
             });
         });
 
+        app.get ('/userMain/:userName', auth.ensureAuthenticated, function (req, res) {
+
+            var userName = req.params.userName;
+
+            data.getUser ( userName, function(error, user){
+                if (error){
+                    response.send(400, error);
+                } else {
+                    res.render ('userMain', { title: '', user: user });
+                 }
+            });
+        });
+
         app.get('/api/user/:userName', auth.ensureApiAuthenticated, function(request, response){
 
             var userName = request.params.userName;

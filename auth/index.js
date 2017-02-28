@@ -66,11 +66,16 @@
             });
         });
 
-        app.post ('/login/login' , passport.authenticate('local', {
-                successRedirect: '/',
+        app.post ('/login/login' , passport.authenticate('local', 
+            { 
                 failureRedirect: '/login/login',
                 failureFlash: true
-            })
+            }), 
+            function (req, res) {
+                if (req.user) {
+                    res.redirect ('/userMain/' + req.user.username);
+                } 
+            }
         );
 
         app.get ('/logout' , function (req, res) {
