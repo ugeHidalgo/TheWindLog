@@ -1,0 +1,18 @@
+@html.extend('layout', function(model) {
+
+  @html.block("scripts", function (model){
+    }) <!-- scripts -->
+
+  @html.block("body", function (model) {
+        @if (model.error) {
+            <p class="text-error">Error occurred: @model.error</p>
+        }
+        
+        <div>
+            <h3>Spots for user: @model.user.username</h3>
+            <h1>Under construction</h1> 
+            <img src="/img/underConstruction.jpg" alt="under construction" height="453" width="700"/>
+        </div>
+    }) <!-- body -->
+
+  }) <!-- Layout -->
