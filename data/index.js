@@ -4,6 +4,8 @@
         Board = require ('../models/board'),
         User = require ('../models/user'),
         Sail = require ('../models/sail'),
+        Mast = require ('../models/mast'),
+        Boom = require ('../models/boom'),
         hasher = require ('../auth/hasher');
 
     data.addUser = function (user, callbackFn) {
@@ -79,6 +81,22 @@
                 seedSailsData(sails);
             }
         });
+
+        Mast.find ({username: 'ugeHidalgo'}, function(error, masts) {
+            if (error){
+                console.log ('Failed to count masts in database: ' + error);
+            } else {
+                seedMastsData(masts);
+            }
+        });
+
+        Boom.find ({username: 'ugeHidalgo'}, function(error, booms) {
+            if (error){
+                console.log ('Failed to count booms in database: ' + error);
+            } else {
+                seedBoomsData(booms);
+            }
+        });
     };
 
     function seedUsersData (users) {
@@ -132,6 +150,42 @@
                     });
                 } else {
                     console.log ('Sails database already seeded.');
+                }
+    };
+
+    function seedMastsData (masts) {
+        var newMast;
+
+        if (masts.length===0) {
+                    console.log ('Seeding masts data into database.');
+                    seedData.initialMasts.forEach (function (mast) {
+                        newMast = new Mast(mast);
+                        newMast.save(function (error){
+                            if (error){
+                                console.log ('Failed to insert mast in database: ' + error);
+                            }
+                        });
+                    });
+                } else {
+                    console.log ('Masts database already seeded.');
+                }
+    };
+
+    function seedBoomsData (booms) {
+        var newBoom;
+
+        if (booms.length===0) {
+                    console.log ('Seeding booms data into database.');
+                    seedData.initialBooms.forEach (function (boom) {
+                        newBoom = new Boom(boom);
+                        newBoom.save(function (error){
+                            if (error){
+                                console.log ('Failed to insert boom in database: ' + error);
+                            }
+                        });
+                    });
+                } else {
+                    console.log ('Booms database already seeded.');
                 }
     };
 

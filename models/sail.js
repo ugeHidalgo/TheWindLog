@@ -9,11 +9,14 @@ var moongoose = require ('mongoose'),
         boom : Number,
         adapter: Number,
         year : Number,
+        battens : Number, 
+        cams : { type:  Number, default: 0 },
+        imcs: Number,
         purchase : Date,
         price : Number,
-        secondHand : { type : Boolean, default : false },
-        active : { type : Boolean, default : true },
-        updated : { type : Date, default : Date.now },
+        secondHand : { type: Boolean, default: false },
+        active : { type: Boolean, default: true },
+        updated : { type: Date, default: Date.now },
         username : String
     });
 
