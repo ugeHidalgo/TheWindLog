@@ -62,6 +62,21 @@
             name: 'B3160', model: 'Wave', brand: 'B3', maxLength: 160, minLength: 210, type: "Aluminium", year: 2016,
             purchase: new Date(2016,6,14), price: 127.76, secondHand: false, active: true, username: 'ugeHidalgo'
         }];
+
+    seedData.initialSpots = [
+        { name: 'Torrenueva', city: 'Torrenueva', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Rules', city: '', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'AWA', city: 'Motril', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Ponde', city: 'Almuñecar', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Valdevaqueros', city: 'Tarifa', province: 'Cádiz', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Lances Norte', city: 'Tarifa', province: 'Cádiz', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'ArteVida', city: 'Tarifa', province: 'Cádiz', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Almerimar (Victor Center)', city: 'El Ejido', province: 'Almería', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Almerirmar (Camping)', city: 'El Ejido', province: 'Almería', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Almerimar (Pinchos)', city: 'El Ejido', province: 'Almería', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Almerimar (Casilla)', city: 'El Ejido', province: 'Almería', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        { name: 'Castel (Peñón)', city: 'Castell de Ferro', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: 'ugeHidalgo' },
+        ];
         
 
     })(module.exports);

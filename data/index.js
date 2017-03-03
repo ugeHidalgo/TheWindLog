@@ -6,6 +6,7 @@
         Sail = require ('../models/sail'),
         Mast = require ('../models/mast'),
         Boom = require ('../models/boom'),
+        Spot = require ('../models/spot'),
         hasher = require ('../auth/hasher');
 
     data.addUser = function (user, callbackFn) {
@@ -97,6 +98,14 @@
                 seedBoomsData(booms);
             }
         });
+
+        Spot.find ({username: 'ugeHidalgo'}, function(error, spots) {
+            if (error){
+                console.log ('Failed to count spots in database: ' + error);
+            } else {
+                seedSpotsData(spots);
+            }
+        });
     };
 
     function seedUsersData (users) {
@@ -186,6 +195,24 @@
                     });
                 } else {
                     console.log ('Booms database already seeded.');
+                }
+    };
+
+    function seedSpotsData (spots) {
+        var newSpot;
+
+        if (spots.length===0) {
+                    console.log ('Seeding spots data into database.');
+                    seedData.initialSpots.forEach (function (spot) {
+                        newSpot = new Spot(spot);
+                        newSpot.save(function (error){
+                            if (error){
+                                console.log ('Failed to insert spot in database: ' + error);
+                            }
+                        });
+                    });
+                } else {
+                    console.log ('Spots database already seeded.');
                 }
     };
 

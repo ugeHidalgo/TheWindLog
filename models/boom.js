@@ -13,6 +13,7 @@ var moongoose = require ('mongoose'),
         secondHand : { type : Boolean, default : false },
         active : { type : Boolean, default : true },
         updated : { type : Date, default : Date.now },
+        comment: String,
         username : String
     });
 
