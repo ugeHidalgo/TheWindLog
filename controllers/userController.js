@@ -18,6 +18,19 @@
             });
         });
 
+        app.get ('/login/seedSessionData/:userName', auth.ensureAuthenticated, function (req, res) {
+
+            var userName = req.params.userName;
+
+            data.seedSessionData ( userName, function (){
+                if (error){
+                    response.send(400, error);
+                } else {
+                    res.render ('userMain', { title: '', user: user });
+                 }
+            });
+        });
+
         app.get ('/userMain/:userName', auth.ensureAuthenticated, function (req, res) {
 
             var userName = req.params.userName;
