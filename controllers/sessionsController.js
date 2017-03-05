@@ -1,6 +1,6 @@
 (function (sessionsController) {
 
-    var data = require('../data'),
+    var userData = require('../data/userData'),
         auth = require('../auth');
 
     sessionsController.init = function (app) {
@@ -9,7 +9,7 @@
 
             var userName = req.params.userName;
 
-            data.getUser ( userName, function(error, user){
+            userData.getUser ( userName, function(error, user){
                 if (error){
                     response.send(400, error);
                 } else {

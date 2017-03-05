@@ -1,12 +1,12 @@
 (function (auth) {
 
-    var data = require ('../data'),
+    var userData = require ('../data/userData'),
         hasher = require ('./hasher'),
         passport = require ('passport');
         localStrategy = require ('passport-local').Strategy;
 
     function userVerify(req, username, password, callbackFn) {
-        data.getUser(username, function (err, user) {
+        userData.getUser(username, function (err, user) {
 
             if (err) { return callbackFn(err); }
             if (!user) { return callbackFn(null, false, req.flash( 'loginErrorMessage', 'Incorrect username.' )); }
@@ -47,7 +47,7 @@
         });
 
         passport.deserializeUser(function (key, callbackFn){
-            data.getUser( key, function (err, user) {
+            userData.getUser( key, function (err, user) {
                 if (err || !user) {
                     callbackFn(null, false, { message: 'Failed to retrieve user.'});
                 } else {
@@ -98,7 +98,7 @@
                 return;
             }
 
-            if (data.usedUsername(req.body.username, function (error, result){
+            if (userData.usedUsername(req.body.username, function (error, result){
                 if (error || result) {
                     res.status(500).send('Username "' + req.body.username + '" is in use. Please change it.');
                 } else {
@@ -112,7 +112,7 @@
                         salt: salt
                     };
 
-                    data.addUser( user, function (err) {
+                    userData.addUser( user, function (err) {
                         if (err){
                             res.status(500).send('Could not save user to database.');
                         } else {

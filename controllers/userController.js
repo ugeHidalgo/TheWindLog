@@ -1,6 +1,7 @@
 (function (userController) {
 
-    var data = require('../data'),
+    var userData = require('../data/userData'),
+        SeedTools = require ('../data/seedTools'),
         auth = require('../auth');
 
     userController.init = function (app) {
@@ -9,7 +10,7 @@
 
             var userName = req.params.userName;
 
-            data.getUser ( userName, function(error, user){
+            userData.getUser ( userName, function(error, user){
                 if (error){
                     response.send(400, error);
                 } else {
@@ -22,7 +23,7 @@
 
             var userName = req.params.userName;
 
-            data.seedSessionData ( userName, function (){
+            SeedTools.seedSessionsData ( userName, function (){
                 if (error){
                     response.send(400, error);
                 } else {
@@ -35,7 +36,7 @@
 
             var userName = req.params.userName;
 
-            data.getUser ( userName, function(error, user){
+            userData.getUser ( userName, function(error, user){
                 if (error){
                     response.send(400, error);
                 } else {
@@ -48,7 +49,7 @@
 
             var userName = request.params.userName;
 
-            data.getUser ( userName, function(error, user){
+            userData.getUser ( userName, function(error, user){
                 if (error){
                     response.send(400, error);
                 } else {
@@ -64,7 +65,7 @@
             var userName = request.params.userName,
                 userToUpdate =  request.body;
 
-            data.updateUser ( userToUpdate, function(error){
+            userData.updateUser ( userToUpdate, function(error){
                  if (error){
                     response.status(400).send('Failed to update user: ' + userName);
                 } else {
