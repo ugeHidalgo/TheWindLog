@@ -7,6 +7,10 @@
     "name": "Uge Hidalgo",
     "email": "ugehidalgo@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ugehidalgo/TheWindlog"
+  },
   "dependencies": {
     "connect-flash": "^0.1.1",
     "express": "^4.14.1",
