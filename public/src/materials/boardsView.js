@@ -1,7 +1,7 @@
 (function(angular) {
-    var theModule = angular.module ('boardsView', ['ui.bootstrap', 'smart-table']);
-
-    theModule.controller ('boardsViewController',  [
+    angular
+        .module ('boardsView', ['ui.bootstrap', 'smart-table'])
+        .controller ('boardsViewController',  [
          '$scope', '$window', '$http',
          function ($scope, $window, $http) {
 

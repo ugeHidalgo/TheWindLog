@@ -9,6 +9,9 @@
              Board.find({username:username}, callbackFn);
         };
 
+        boardData.getBoardById = function (username, boardId, callbackFn) {
+             Board.findOne({username:username, _id: boardId}, callbackFn);
+        };
     };
 
 })(module.exports);

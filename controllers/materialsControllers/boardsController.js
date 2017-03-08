@@ -19,6 +19,29 @@
             });
         });
 
+        app.get ('/boardEditor/:userName/:boardId', auth.ensureAuthenticated, function (req, res) {
+
+            var userName = req.params.userName,
+                boardId = req.params.boardId;
+
+
+            userData.getUser ( userName, function(error, user){
+                if (error){
+                    response.send(400, error);
+                } else {
+                    //Todo load board data
+                    boardData.getBoardById ( userName, boardId, function(error, board){
+                        if (error){
+                            response.send(400, error);
+                        } else {
+                            res.render ('materials/boards/boardsEditor', { title: '', user: user, board: board });
+                        }
+                    });
+                 }
+            });
+        });
+
+
         app.get('/api/boards/:userName', auth.ensureApiAuthenticated, function(request, response){
 
             var userName = request.params.userName;

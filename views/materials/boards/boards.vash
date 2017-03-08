@@ -43,7 +43,7 @@
                               <td class="col-xs-1">
                                   <div>
                                       <div class="btn-group btn-group-xs btn-group-justified">
-                                          <a type="button" class="btn-sm btn-info" href="/">
+                                          <a type="button" class="btn-sm btn-info" href="/boardEditor/@model.user.username/{{board._id}}">
                                               <i class="glyphicon glyphicon-edit" title="Select"></i>
                                           </a>
                                       </div>
