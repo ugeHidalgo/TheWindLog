@@ -1,18 +1,19 @@
 @html.extend('layout', function(model) {
-
-  @html.block("scripts", function (model){
-    }) <!-- scripts -->
-
-  @html.block("body", function (model) {
+    @html.block("body", function (model) {
         @if (model.error) {
             <p class="text-error">Error occurred: @model.error</p>
         }
-        
-        <div>
-            <h3>Sails for user: @model.user.username</h3>
-            <h1>Under construction</h1> 
-            <img src="/img/underConstruction.jpg" alt="under construction" height="453" width="700"/>
+        <div ng-app="sailsApp">
+            <div ng-view></div>
         </div>
-    }) <!-- body -->
 
-  }) <!-- Layout -->
+        @html.block("scripts", function (model){
+            <script src="/lib/angular-smart-table/dist/smart-table.min.js"></script>
+            <script src="/src/materials/sails/sailsApp.js"></script>
+            <script src="/src/materials/sails/sailsViewController.js"></script>
+            <script src="/src/materials/sails/sailsEditorViewController.js"></script>
+        }) <!-- scripts -->
+    }) <!-- body -->
+}) <!-- Layout -->
+
+  

@@ -31,7 +31,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="Material">
                         <li>
-                            <a href="/Materials/Boards/@model.user.username">Boards</a>
+                            <a href="/Materials/Boards/#@model.user.username">Boards</a>
                         </li>
                         <li>
                             <a href="/Materials/Sails/@model.user.username">Sails</a>
@@ -98,6 +98,7 @@
   <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/lib/underscore/underscore.js"></script>
   <script src="/lib/angular/angular.min.js"></script>
+  <script src="/lib/angular-route/angular-route.min.js"></script>
   <script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script src="/lib/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
   @html.block('scripts')
