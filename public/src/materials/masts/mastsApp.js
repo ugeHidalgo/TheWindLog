@@ -1,9 +1,9 @@
 'use strict';
 
 angular
-    .module('sailsApp', [ 
-        'sailsViewModule', 
-        'sailsEditorViewModule', 
+    .module('mastsApp', [
+        'mastsViewModule',
+        'mastsEditorViewModule',
         'ngRoute',
         'smart-table', //Grids
         'ui-notification'])
@@ -14,19 +14,19 @@ angular
             $locationProvider.hashPrefix('');
             $routeProvider.
                 when('/:userName', {
-                    controller: 'sailsViewController',
-                    templateUrl: '/templates/materials/sails/sails.html'
+                    controller: 'mastsViewController',
+                    templateUrl: '/templates/materials/masts/masts.html'
                 }).
 
-                when('/sailsEditor/:userName/:sailId', {
-                    controller: 'sailsEditorViewController',
-                    templateUrl: '/templates/materials/sails/sailsEditor.html'
+                when('/mastsEditor/:userName/:mastId', {
+                    controller: 'mastsEditorViewController',
+                    templateUrl: '/templates/materials/masts/mastsEditor.html'
                 }).
 
                 otherwise({
                     redirectTo: '/'
                 });
-            
+
             NotificationProvider.setOptions({
                 delay: 3000,
                 startTop: 20,

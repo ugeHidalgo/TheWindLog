@@ -1,11 +1,11 @@
 'use strict';
 
 angular
-    .module ('boardsEditorViewModule', [
+    .module ('mastsEditorViewModule', [
         'ui.bootstrap', 
         'ui-notification'])
 
-    .controller ('boardsEditorViewController',  [
+    .controller ('mastsEditorViewController',  [
         '$scope', 
         '$routeParams', 
         'Notification', 
@@ -13,15 +13,15 @@ angular
         function ($scope, $$routeParams, Notification, $http) {
 
             $scope.userName = $$routeParams.userName;
-            $scope.boardId = $$routeParams.boardId;
+            $scope.mastId = $$routeParams.mastId;
 
-            $http.get( '/api/boards/' + $scope.userName+ '/' + $scope.boardId ).
+            $http.get( '/api/masts/' + $scope.userName+ '/' + $scope.mastId ).
                 then(function (result) {
                     //Success
-                    $scope.board = result.data;
+                    $scope.mast = result.data;
                 }, function (error) {
                     //Error
-                    alert ('Failed to get selected board: ' + error);
+                    alert ('Failed to get selected mast: ' + error);
                 });
         }
 ]);

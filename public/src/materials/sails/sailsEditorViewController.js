@@ -21,7 +21,7 @@ angular
                     $scope.sail = result.data;
                 }, function (error) {
                     //Error
-                    alert (error);
+                    alert ('Failed to get selected sail: ' + error);
                 });
         }
     ]);

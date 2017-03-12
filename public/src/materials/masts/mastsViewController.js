@@ -1,11 +1,11 @@
 'use strict';
 
 angular
-    .module ('boardsViewModule', [
+    .module ('mastsViewModule', [
         'ui.bootstrap', 
         'smart-table'])
 
-    .controller ('boardsViewController',  [
+    .controller ('mastsViewController',  [
         '$scope', 
         '$window', 
         '$http',
@@ -13,17 +13,17 @@ angular
 
             var urlParts = $window.location.hash.split('/'),
                 userName = urlParts[1],
-                url = '/api/boards/' + userName;
+                url = '/api/masts/' + userName;
 
             $scope.userName = userName;
 
             $http.get(url).
                 then(function (result) {
                     //Success
-                    $scope.boards = result.data;
+                    $scope.masts = result.data;
                 }, function (error) {
                     //Error
-                    alert ('Failed to get user boards: ' + error);
+                    alert ('Failed to get user masts: ' + error);
                 });
         }
 ]);

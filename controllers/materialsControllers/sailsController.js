@@ -17,7 +17,7 @@
 
             sailData.getSails ( userName, function(error, sails) {
                 if (error){
-                    response.send(400, error);
+                    response.status(400).send(error);
                 } else {
                     response.set('Content-Type','application/json');
                     response.send(sails);
@@ -32,7 +32,7 @@
             
             sailData.getSailById ( userName, sailId, function(error, sail) {
                 if (error){
-                    response.send(400, error);
+                    response.status(400).send(error);
                 } else {
                     response.set('Content-Type','application/json');
                     response.send(sail);

@@ -17,7 +17,7 @@
 
             boardData.getBoards ( userName, function(error, boards){
                 if (error){
-                    response.send(400, error);
+                    response.status(400).send(error);
                 } else {
                     response.set('Content-Type','application/json');
                     response.send(boards);
@@ -32,7 +32,7 @@
             
             boardData.getBoardById ( userName, boardId, function(error, board){
                 if (error){
-                    response.send(400, error);
+                    response.status(400).send(error);
                 } else {
                     response.set('Content-Type','application/json');
                     response.send(board);
