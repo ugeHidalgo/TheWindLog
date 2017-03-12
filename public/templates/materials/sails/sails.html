@@ -1,8 +1,3 @@
-<!--
-<h2>Sails list</h2>
-<a href="#sailsEditor/ugeHidalgo/69">Sails Editor</a>
-{{ message }}-->
-
 <div class="col-md-12">       
     <table id="sailsGrid" st-table="displayedCollection" st-safe-src="sails"  
             class="table table-responsive table-striped table-condensed">
@@ -57,13 +52,13 @@
                     <td class="col-md-1">{{ sail.adapter }}</td>
                     <td class="col-md-1">{{ sail.year }}</td>
                     <td class="col-md-2">{{ sail.purchase | date : "dd/MM/yyyy"}}</td>
-                    <td class="col-md-1">{{ sail.price }}</td>
+                    <td class="col-md-1">{{ sail.price | currency }}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="8" class="text-center">
-                        <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="7"></div>
+                    <td colspan="14" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="numberOfPages"></div>
                     </td>
                 </tr>
             </tfoot>

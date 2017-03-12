@@ -44,13 +44,13 @@
                     <td class="col-md-1">{{ board.width }}</td>
                     <td class="col-md-1">{{ board.year }}</td>
                     <td class="col-md-2">{{ board.purchase | date : "dd/MM/yyyy"}}</td>
-                    <td class="col-md-1">{{ board.price }}</td>
+                    <td class="col-md-1">{{ board.price | currency }}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="8" class="text-center">
-                        <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="7"></div>
+                    <td colspan="10" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="numberOfPages"></div>
                     </td>
                 </tr>
             </tfoot>

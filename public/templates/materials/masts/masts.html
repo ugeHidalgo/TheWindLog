@@ -46,13 +46,13 @@
                     <td class="col-md-1">{{ mast.type }}</td>
                     <td class="col-md-1">{{ mast.year }}</td>
                     <td class="col-md-2">{{ mast.purchase | date : "dd/MM/yyyy"}}</td>
-                    <td class="col-md-1">{{ mast.price }}</td>
+                    <td class="col-md-1">{{ mast.price | currency }}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="8" class="text-center">
-                        <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="7"></div>
+                    <td colspan="11" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="numberOfPages"></div>
                     </td>
                 </tr>
             </tfoot>

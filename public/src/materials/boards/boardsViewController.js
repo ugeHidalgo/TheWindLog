@@ -16,6 +16,8 @@ angular
                 url = '/api/boards/' + userName;
 
             $scope.userName = userName;
+            $scope.itemsByPage = 10;
+            $scope.numberOfPages = 5;
 
             $http.get(url).
                 then(function (result) {
