@@ -7,15 +7,7 @@
 
         app.get ('/materials/booms/:userName', auth.ensureAuthenticated, function (req, res) {
 
-            var userName = req.params.userName;
-
-            userData.getUser ( userName, function(error, user){
-                if (error){
-                    response.send(400, error);
-                } else {
-                    res.render ('materials/booms/booms', { title: '', user: user });
-                 }
-            });
+            res.render ('materials/booms', { title: '', user: req.user });
         });
 
     };

@@ -7,15 +7,7 @@
 
         app.get ('/sessions/:userName', auth.ensureAuthenticated, function (req, res) {
 
-            var userName = req.params.userName;
-
-            userData.getUser ( userName, function(error, user){
-                if (error){
-                    response.send(400, error);
-                } else {
-                    res.render ('sessions/sessions', { title: '', user: user });
-                 }
-            });
+            res.render ('sessions/sessions', { title: '', user: req.user });
         });
 
     };

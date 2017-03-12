@@ -8,15 +8,7 @@
 
         app.get ('/materials/sails/:userName', auth.ensureAuthenticated, function (req, res) {
 
-            var userName = req.params.userName;
-
-            userData.getUser ( userName, function(error, user){
-                if (error){
-                    response.send(400, error);
-                } else {
-                    res.render ('materials/sails/sails', { title: '', user: user });
-                 }
-            });
+            res.render ('materials/sails', { title: '', user: req.user });            
         });
 
         app.get('/api/sails/:userName', auth.ensureApiAuthenticated, function(request, response){

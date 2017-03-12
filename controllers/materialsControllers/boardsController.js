@@ -8,7 +8,7 @@
 
         app.get ('/materials/boards', auth.ensureAuthenticated, function (req, res) {
 
-            res.render ('materials/boards/boards', { title: '' });
+            res.render ('materials/boards', { title: '', user: req.user });
         });
 
         app.get('/api/boards/:userName', auth.ensureApiAuthenticated, function(request, response){
@@ -29,25 +29,16 @@
 
             var userName = request.params.userName,
                 boardId = request.params.boardId;
-
-
-            userData.getUser ( userName, function(error, user){
+            
+            boardData.getBoardById ( userName, boardId, function(error, board){
                 if (error){
                     response.send(400, error);
                 } else {
-                    //Todo load board data
-                    boardData.getBoardById ( userName, boardId, function(error, board){
-                        if (error){
-                            response.send(400, error);
-                        } else {
-                            response.set('Content-Type','application/json');
-                            response.send(board);
-                        }
-                    });
-                 }
+                    response.set('Content-Type','application/json');
+                    response.send(board);
+                }
             });
         });
-
     };
 
 })(module.exports);

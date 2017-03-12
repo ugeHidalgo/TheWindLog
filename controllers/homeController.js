@@ -6,9 +6,7 @@
 
         app.get ('/', function (request, response){
 
-            response.render ('index', {
-                    user: request.user
-            });
+            response.render ('index', { user: request.user });
         });
     };
 })(module.exports);
