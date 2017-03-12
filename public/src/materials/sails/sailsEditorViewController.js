@@ -15,13 +15,17 @@ angular
             $scope.userName = $$routeParams.userName;
             $scope.sailId = $$routeParams.sailId;
 
-            $http.get( '/api/sails/' + $scope.userName+ '/' + $scope.sailId ).
-                then(function (result) {
-                    //Success
-                    $scope.sail = result.data;
-                }, function (error) {
-                    //Error
-                    alert ('Failed to get selected sail: ' + error);
-                });
+            if ($scope.mastId === '0') {
+
+            } else {
+                $http.get( '/api/sails/' + $scope.userName+ '/' + $scope.sailId ).
+                    then(function (result) {
+                        //Success
+                        $scope.sail = result.data;
+                    }, function (error) {
+                        //Error
+                        alert ('Failed to get selected sail: ' + error);
+                    });
+            }
         }
     ]);

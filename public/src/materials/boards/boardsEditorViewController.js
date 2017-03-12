@@ -15,7 +15,10 @@ angular
             $scope.userName = $$routeParams.userName;
             $scope.boardId = $$routeParams.boardId;
 
-            $http.get( '/api/boards/' + $scope.userName+ '/' + $scope.boardId ).
+            if ($scope.boardId === '0') {
+
+            } else {
+                $http.get( '/api/boards/' + $scope.userName+ '/' + $scope.boardId ).
                 then(function (result) {
                     //Success
                     $scope.board = result.data;
@@ -23,5 +26,6 @@ angular
                     //Error
                     alert ('Failed to get selected board: ' + error);
                 });
+            }
         }
 ]);
