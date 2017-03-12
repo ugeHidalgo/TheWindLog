@@ -34,7 +34,7 @@
                             <a href="/Materials/Boards/#@model.user.username">Boards</a>
                         </li>
                         <li>
-                            <a href="/Materials/Sails/@model.user.username">Sails</a>
+                            <a href="/Materials/Sails/#@model.user.username">Sails</a>
                         </li>
                         <li>
                             <a href="/Materials/Masts/@model.user.username">Masts</a>

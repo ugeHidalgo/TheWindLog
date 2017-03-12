@@ -1,5 +1,43 @@
-<div>
+<!--<div>
     <h2>Editor sails</h2>
 
     {{ message }}
+</div>-->
+
+<div id="sailForm">
+    <form novalidate name="sailForm" ng-submit="" class="form-horizontal">
+        <div id="dateAndNameGroup" class="form-group">
+            <div class="col-md-4 col-md-offset-1">
+                <label class="control-label">Name</label>
+                <input class="form-control" type="text" id="name" name="name"
+                    ng-model="sail.name"
+                    required
+                    ng-minlength="3" />
+                <span ng-show="sailForm.name.$error.required"
+                    class="text-warning">Valor obligatorio.</span>
+                <span ng-show="sailForm.name.$error.minlength"
+                    class="text-warning">Longitud minima de 3 caracteres.</span>
+            </div>
+
+            <div class="col-md-3 col-md-offset-1 date">
+                <label class="control-label">Created</label>
+                <div class="input-group input-append date" id="datePicker">
+                    <input class="form-control" type="date" id="purchase" name="purchase"
+                        required
+                        ng-model="sail.purchase" />
+                    <span class="input-group-addon add-on">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>            
+
+            <div class="col-md-1 col-md-offset-1">
+                <label class="control-label">Active</label>
+                <input class="form-control" type="checkbox" id="active" name="active"
+                    ng-model="sail.active" />
+                <span ng-show="sailForm.active.$error.required"
+                    class="text-warning">Valor obligatorio.</span>
+            </div>
+        </div> <!-- dateAndNameGroup-->
+    </form>       
 </div>

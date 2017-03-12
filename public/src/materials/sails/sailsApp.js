@@ -4,7 +4,8 @@ angular
     .module('sailsApp', [ 
         'sailsViewModule', 
         'sailsEditorViewModule', 
-        'ngRoute', 
+        'ngRoute',
+        'smart-table', //Grids
         'ui-notification'])
 
     .config(['$locationProvider', '$routeProvider', 'NotificationProvider',
@@ -12,7 +13,7 @@ angular
 
             $locationProvider.hashPrefix('');
             $routeProvider.
-                when('/', {
+                when('/:userName', {
                     controller: 'sailsViewController',
                     templateUrl: '/templates/materials/sails/sails.html'
                 }).
@@ -25,5 +26,15 @@ angular
                 otherwise({
                     redirectTo: '/'
                 });
+            
+            NotificationProvider.setOptions({
+                delay: 3000,
+                startTop: 20,
+                startRight: 10,
+                verticalSpacing: 20,
+                horizontalSpacing: 20,
+                positionX: 'center',
+                positionY: 'top'
+            });
         }
     ]);

@@ -23,7 +23,7 @@ angular
                     $scope.boards = result.data;
                 }, function (error) {
                     //Error
-                    alert (error);
+                    alert ('Failed to get user sails: ' + error);
                 });
         }
 ]);

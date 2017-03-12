@@ -1,10 +1,12 @@
 (function (sailData){
+    'use strict;'
+
     sailData.init = function (app) {
 
         var mongoose = require ('mongoose'),
             Sail = require ('../../models/sail');
 
-        sailData.getBoards = function (username, callbackFn) {
+        sailData.getSails = function (username, callbackFn) {
              Sail.find({username:username}, callbackFn);
         };
 

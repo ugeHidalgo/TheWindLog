@@ -1,6 +1,6 @@
 (function (boardsController) {
 
-    var userData = require('../../data/userData'),
+    var //userData = require('../../data/userData'),
         boardData = require('../../data/materials/boardData'),
         auth = require('../../auth');
 
