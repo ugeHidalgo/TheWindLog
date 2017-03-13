@@ -1,8 +1,8 @@
-#The WindLog
+##The WindLog
 
 A windsurfing sessions diary implemented using a MEAN stack:
 
-* Server dependencies:
+- Server dependencies:
     - connect-flash
     - cookie-parser
     - express
@@ -15,7 +15,7 @@ A windsurfing sessions diary implemented using a MEAN stack:
     - vash
     - bower
 
-* Client side dependencies:
+- Client side dependencies:
     - angular
     - angular-ui-notification
     - jquery
@@ -28,21 +28,25 @@ A windsurfing sessions diary implemented using a MEAN stack:
 ___
 
 
-Database: Mongo.
+**Database**: Mongo.
 
-Authorizing: Passport with local authorization (Username/Password).
+**Authorizing**: Passport with local authorization (Username/Password).
 
-View engine: vash.
+**View engine**: vash.
 
 
-Install process:
+#Install process:
 
-Clone repository:
+1 - Clone repository:
 
-    `git clone https://github.com/ugeHidalgo/TheWindLog.git`
+    git clone https://github.com/ugeHidalgo/TheWindLog.git
 
-Install:
+2 - Install:
 
-    ```cd thewindlog
-    npm install
-    bower install```
+    - Install mongodb downloading from http://www.mongodb.org
+
+    - Install dependecies needed:
+
+        cd thewindlog
+        npm install
+        bower install
