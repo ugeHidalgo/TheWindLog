@@ -1,19 +1,32 @@
 #The WindLog
 
-A windsurfing sessions diary implemented using a MEAN stack.
+A windsurfing sessions diary implemented using a MEAN stack:
 
-Need to install:
-    connect-flash
-    cookie-parser
-    express
-    underscore
+* Server dependencies:
+    - connect-flash
+    - cookie-parser
+    - express
+    - underscore
+    - passportjs
+    - mongodb
+    - mongoose
+    - grunt
+    - grunt-nodemon
+    - vash
+    - bower
 
-    angular
-    angular-bootstrap
-    angular-ui-notification
-    bootstrap
-    jquery
-    underscore
+* Client side dependencies:
+    - angular
+    - angular-ui-notification
+    - jquery
+    - angular-smart-table
+    - angular-route
+    - bootstrap
+    - underscore
+    - angular-bootstrap
+    
+___
+
 
 Database: Mongo.
 
@@ -22,5 +35,14 @@ Authorizing: Passport with local authorization (Username/Password).
 View engine: vash.
 
 
+Install process:
 
+Clone repository:
 
+    `git clone https://github.com/ugeHidalgo/TheWindLog.git`
+
+Install:
+
+    ```cd thewindlog
+    npm install
+    bower install```
