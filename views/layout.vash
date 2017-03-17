@@ -4,6 +4,7 @@
   <title>@model.title</title>
   <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+  <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="/lib/angular-ui-notification/dist/angular-ui-notification.min.css" rel="stylesheet" />
   @html.block("head")
   <link href="/css/site.css" rel="stylesheet" />
@@ -101,7 +102,7 @@
   <script src="/lib/angular/angular-locale_es.js"></script>
   <script src="/lib/angular-route/angular-route.min.js"></script>
   <script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
-  <script src="/lib/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+  <script src="/lib/angular-ui-notification/dist/angular-ui-notification.min.js"></script>  
   @html.block('scripts')
 </body>
 </html>

@@ -18,14 +18,18 @@ angular
             $scope.userName = userName;
             $scope.itemsByPage = 10;
             $scope.numberOfPages = 5;
+            $scope.busyIndicator = true;
 
-            $http.get(url).
-                then(function (result) {
+            $http.get(url)
+                .then(function (result) {
                     //Success
                     $scope.boards = result.data;
                 }, function (error) {
                     //Error
                     alert ('Failed to get user boards: ' + error);
+                })
+                .finally(function (){
+                    $scope.busyIndicator = false;
                 });
         }
 ]);

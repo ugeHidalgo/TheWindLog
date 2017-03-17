@@ -12,6 +12,7 @@
             <script src="/src/materials/boards/boardsApp.js"></script>
             <script src="/src/materials/boards/boardsViewController.js"></script>
             <script src="/src/materials/boards/boardsEditorViewController.js"></script>
+            <script src="/src/simpleControls.js"></script>
         }) <!-- scripts -->
     }) <!-- body -->
 }) <!-- Layout -->

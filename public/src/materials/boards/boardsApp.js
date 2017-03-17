@@ -5,6 +5,7 @@ angular
         'boardsViewModule',
         'boardsEditorViewModule',
         'ngRoute',
+        'simpleControls', //WaitCursor
         'smart-table', //Grids
         'ui-notification'])
 
