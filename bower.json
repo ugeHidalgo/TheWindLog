@@ -22,6 +22,7 @@
     "angular-ui-notification": "^0.3.5",
     "angular-smart-table": "^2.1.8",
     "angular-route": "^1.6.3",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "ui-bootstrap": "^2.5.0"
   }
 }

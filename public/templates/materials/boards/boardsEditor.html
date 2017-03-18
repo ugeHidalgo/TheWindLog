@@ -62,17 +62,19 @@
 
             <div id="statesAndDatesGroup" class="form-group">
 
-                <div class="col-md-4 date col-md-offset-1">
+                <div class="col-md-3 date col-md-offset-1">
                     <label class="control-label">Purchased</label>
-                    <div class="input-group input-append date" id="datePicker">
-                        <input class="form-control"
-                               type="date" id="purchase" name="purchase"
-                               required
-                               ng-model="board.purchase"/>
-                        <span class="input-group-addon add-on">
-                            <span class="glyphicon glyphicon-calendar"></span>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="purchaseDate" 
+                               is-open="purchasePopUp.opened" datepicker-options="dateOptions" 
+                               ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" 
+                                    ng-click="openPurchasePopUp()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                         </span>
-                    </div>
+                    </p>
                 </div>
 
                 <div class="col-md-1">

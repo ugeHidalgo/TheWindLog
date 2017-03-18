@@ -27,7 +27,8 @@ A windsurfing sessions diary implemented using a MEAN stack:
     - angular-ui-notification
     - font-awesome
     - bootstrap
-    - jquery            
+    - jquery  
+    - ui-bootstrap          
     - underscore    
 
 ___
