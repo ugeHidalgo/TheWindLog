@@ -102,7 +102,9 @@
   <script src="/lib/angular/angular-locale_es.js"></script>
   <script src="/lib/angular-route/angular-route.min.js"></script>
   <script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
-  <script src="/lib/angular-ui-notification/dist/angular-ui-notification.min.js"></script>  
+  <script src="/lib/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+
+  <script src="/src/simpleControls.js"></script>
   @html.block('scripts')
 </body>
 </html>

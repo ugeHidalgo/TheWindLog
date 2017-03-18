@@ -5,6 +5,7 @@ angular
         'sailsViewModule', 
         'sailsEditorViewModule', 
         'ngRoute',
+        'simpleControls', //WaitCursor
         'smart-table', //Grids
         'ui-notification'])
 

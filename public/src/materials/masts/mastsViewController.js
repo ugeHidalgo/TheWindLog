@@ -18,6 +18,7 @@ angular
             $scope.userName = userName;
             $scope.itemsByPage = 10;
             $scope.numberOfPages = 5;
+            $scope.busyIndicator = true;
 
             $http.get(url).
                 then(function (result) {
@@ -26,6 +27,9 @@ angular
                 }, function (error) {
                     //Error
                     alert ('Failed to get user masts: ' + error);
+                })
+                .finally(function (){
+                    $scope.busyIndicator = true;
                 });
         }
 ]);

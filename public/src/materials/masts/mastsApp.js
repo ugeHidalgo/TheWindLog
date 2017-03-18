@@ -5,6 +5,7 @@ angular
         'mastsViewModule',
         'mastsEditorViewModule',
         'ngRoute',
+        'simpleControls', //WaitCursor
         'smart-table', //Grids
         'ui-notification'])
 
