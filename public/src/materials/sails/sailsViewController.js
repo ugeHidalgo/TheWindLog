@@ -29,7 +29,7 @@ angular
                     alert ('Failed to get user sails: ' + error);
                 })
                 .finally(function (){
-                    $scope.busyIndicator = true;
+                    $scope.busyIndicator = false;
                 });
         }
     ]);

@@ -3,12 +3,14 @@
 angular
     .module ('boardsViewModule', [
         'ui.bootstrap', 
-        'smart-table'])
+        'smart-table',
+        'ui-notification'])
 
     .controller ('boardsViewController',  [
         '$scope', 
         '$window', 
         '$http',
+        'Notification',
         function ($scope, $window, $http) {
 
             var urlParts = $window.location.hash.split('/'),
@@ -26,7 +28,7 @@ angular
                     $scope.boards = result.data;
                 }, function (error) {
                     //Error
-                    alert ('Failed to get user boards: ' + error);
+                    Notification.error ('Failed to get boards !!');
                 })
                 .finally(function (){
                     $scope.busyIndicator = false;

@@ -39,6 +39,20 @@
                 }
             });
         });
+
+        app.post('/api/boards', auth.ensureApiAuthenticated, function(request, response){
+
+            var boardToUpdate =  request.body;
+
+            boardData.updateBoard ( boardToUpdate, function(error){
+                 if (error){
+                    response.status(400).send('Failed to save board: ' + boardToUpdate.name);
+                } else {
+                    response.set('Content-Type','application/json');
+                    response.status(201).send(boardToUpdate);
+                 }
+            });
+        });
     };
 
 })(module.exports);
