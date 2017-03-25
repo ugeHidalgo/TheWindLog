@@ -1,7 +1,6 @@
 (function (boardsController) {
 
-    var //userData = require('../../data/userData'),
-        boardData = require('../../data/materials/boardData'),
+    var boardData = require('../../data/materials/boardData'),
         auth = require('../../auth');
 
     boardsController.init = function (app) {
@@ -44,12 +43,12 @@
 
             var boardToUpdate =  request.body;
 
-            boardData.updateBoard ( boardToUpdate, function(error){
+            boardData.updateBoard ( boardToUpdate, function(error, updatedBoard){
                  if (error){
                     response.status(400).send('Failed to save board: ' + boardToUpdate.name);
                 } else {
                     response.set('Content-Type','application/json');
-                    response.status(201).send(boardToUpdate);
+                    response.status(201).send(updatedBoard);
                  }
             });
         });

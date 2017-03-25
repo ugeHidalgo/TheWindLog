@@ -1,7 +1,6 @@
 (function (mastsController) {
 
-    var userData = require('../../data/userData'),
-        mastData = require('../../data/materials/mastData'),
+    var mastData = require('../../data/materials/mastData'),
         auth = require('../../auth');
 
     mastsController.init = function (app) {
@@ -42,6 +41,20 @@
                     response.set('Content-Type','application/json');
                     response.send(mast);
                 }
+            });
+        });
+
+        app.post('/api/masts', auth.ensureApiAuthenticated, function(request, response){
+
+            var mastToUpdate =  request.body;
+
+            mastData.updateMast ( mastToUpdate, function(error, updatedMast) {
+                 if (error){
+                    response.status(400).send('Failed to save mast: ' + mastToUpdate.name);
+                } else {
+                    response.set('Content-Type','application/json');
+                    response.status(201).send(updatedMast);
+                 }
             });
         });
 

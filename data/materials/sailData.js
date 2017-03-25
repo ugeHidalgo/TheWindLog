@@ -18,6 +18,7 @@
             var updatedValues = {};
 
             if (sail._id) {
+                //Update existing sail.
                 updatedValues = {
                     name: sail.name,
                     model: sail.model,
@@ -37,15 +38,15 @@
                     comment: sail.comment
                 };
 
-                //Update existing sail.
                 Sail.findOneAndUpdate(
                 {_id: sail._id}, 
                 { $set: updatedValues },
                 function (error){
                     if (error){
-                        callbackFn(error);
+                        callbackFn(error, null);
                     } else {
-                        callbackFn(null)
+                        console.log ('Sail data updated -->username = ' + sail.username + ' /id = ' + sail._id);
+                        callbackFn(null, sail)
                     }
                 });
             } else {
@@ -53,14 +54,14 @@
                 var newSail = new Sail(sail);
 
                 newSail.save(function (error) {
-                if (error) {
-                    callbackFn(error);
-                } else {
-                    callbackFn(null)
-                }
-            });
+                    if (error) {
+                        callbackFn(error, null);
+                    } else {
+                        console.log ('New sail saved ----->username = ' + newSail.username + ' /id = ' + newSail._id);                        
+                        callbackFn(null, newSail)
+                    }
+                });
             }
-            console.log ('Sail saved ----->username = ' + sail.username + ' /id = ' + sail._id);
         }
 
     };

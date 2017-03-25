@@ -11,7 +11,7 @@ angular
         '$window', 
         '$http',
         'Notification',
-        function ($scope, $window, $http) {
+        function ($scope, $window, $http, Notification) {
 
             var urlParts = $window.location.hash.split('/'),
                 userName = urlParts[1],

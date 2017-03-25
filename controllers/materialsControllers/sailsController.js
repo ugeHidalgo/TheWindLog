@@ -1,7 +1,6 @@
 (function (sailsController) {
 
-    var //userData = require('../../data/userData'),
-        sailData = require('../../data/materials/sailData'),  
+    var sailData = require('../../data/materials/sailData'),  
         auth = require('../../auth');
 
     sailsController.init = function (app) {
@@ -44,12 +43,12 @@
 
             var sailToUpdate =  request.body;
 
-            sailData.updateSail ( sailToUpdate, function(error){
+            sailData.updateSail ( sailToUpdate, function(error, updatedSail){
                  if (error){
                     response.status(400).send('Failed to save sail: ' + sailToUpdate.name);
                 } else {
                     response.set('Content-Type','application/json');
-                    response.status(201).send(sailToUpdate);
+                    response.status(201).send(updatedSail);
                  }
             });
         });

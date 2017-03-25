@@ -16,6 +16,7 @@
             var updatedValues = {};
 
             if (board._id) {
+                //Update existing board.
                 updatedValues = {
                     name: board.name,
                     model: board.model,
@@ -32,15 +33,15 @@
                     comment: board.comment
                 };
 
-                //Update existing board.
                 Board.findOneAndUpdate(
                 {_id: board._id}, 
                 { $set: updatedValues },
                 function (error){
                     if (error){
-                        callbackFn(error);
+                        callbackFn(error, null);
                     } else {
-                        callbackFn(null)
+                        console.log ('Board data updated -->username = ' + board.username + ' /id = ' + board._id);                        
+                        callbackFn(null, board)
                     }
                 });
             } else {
@@ -48,14 +49,14 @@
                 var newBoard = new Board(board);
 
                 newBoard.save(function (error) {
-                if (error) {
-                    callbackFn(error);
-                } else {
-                    callbackFn(null)
-                }
-            });
+                    if (error) {
+                        callbackFn(error, null);
+                    } else {
+                        console.log ('New board saved ----->username = ' + newBoard.username + ' /id = ' + newBoard._id);
+                        callbackFn(null, newBoard);
+                    }
+                });
             }
-            console.log ('Board saved ----->username = ' + board.username + ' /id = ' + board._id);
         };
     };
 

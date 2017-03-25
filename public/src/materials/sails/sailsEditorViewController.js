@@ -90,6 +90,7 @@ angular
                 $http.post( '/api/sails', $scope.sail ).
                 then(function (result) {
                     //Success
+                    $scope.sail = result.data;
                     Notification.success ('Sail saved successfully !');
                 }, function (error) {
                     //Error

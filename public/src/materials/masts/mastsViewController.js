@@ -9,7 +9,8 @@ angular
         '$scope', 
         '$window', 
         '$http',
-        function ($scope, $window, $http) {
+        'Notification',
+        function ($scope, $window, $http, Notification) {
 
             var urlParts = $window.location.hash.split('/'),
                 userName = urlParts[1],
@@ -26,7 +27,7 @@ angular
                     $scope.masts = result.data;
                 }, function (error) {
                     //Error
-                    alert ('Failed to get user masts: ' + error);
+                    Notification.error ('Failed to get masts !!');
                 })
                 .finally(function (){
                     $scope.busyIndicator = false;

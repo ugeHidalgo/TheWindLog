@@ -90,6 +90,7 @@ angular
                 $http.post( '/api/boards', $scope.board ).
                 then(function (result) {
                     //Success
+                    $scope.board = result.data;
                     Notification.success ('Board saved successfully !');
                 }, function (error) {
                     //Error
