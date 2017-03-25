@@ -41,7 +41,7 @@
                             <a href="/Materials/Masts/#@model.user.username">Masts</a>
                         </li>
                         <li>
-                            <a href="/Materials/Booms/@model.user.username">Booms</a>
+                            <a href="/Materials/Booms/#@model.user.username">Booms</a>
                         </li>
                     </ul>
                 </li>

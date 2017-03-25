@@ -3,6 +3,7 @@
         @if (model.error) {
             <p class="text-error">Error occurred: @model.error</p>
         }
+        
         <div ng-app="boardsApp">
             <div ng-view></div>
         </div>
