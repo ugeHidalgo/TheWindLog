@@ -61,7 +61,7 @@ angular
                 board.updated = new Date();
                 board.userName = userName;
                 board.secondHand = false;
-                board.active = true;
+                board.active = false;
 
                 return board;
             };

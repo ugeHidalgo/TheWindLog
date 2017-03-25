@@ -40,6 +40,20 @@
             });
         });
 
+        app.post('/api/sails', auth.ensureApiAuthenticated, function(request, response){
+
+            var sailToUpdate =  request.body;
+
+            sailData.updateSail ( sailToUpdate, function(error){
+                 if (error){
+                    response.status(400).send('Failed to save sail: ' + sailToUpdate.name);
+                } else {
+                    response.set('Content-Type','application/json');
+                    response.status(201).send(sailToUpdate);
+                 }
+            });
+        });
+
     };
 
 })(module.exports);

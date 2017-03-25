@@ -3,12 +3,14 @@
 angular
     .module ('sailsViewModule', [
         'ui.bootstrap', 
-        'smart-table'])
+        'smart-table',
+        'ui-notification'])
 
     .controller ('sailsViewController', [
         '$scope', 
         '$window', 
         '$http',
+        'Notification',
         function ($scope, $window, $http) {
 
             var urlParts = $window.location.hash.split('/'),
@@ -26,7 +28,7 @@ angular
                     $scope.sails = result.data;
                 }, function (error) {
                     //Error
-                    alert ('Failed to get user sails: ' + error);
+                    Notification.error ('Failed to get sails !!! ');
                 })
                 .finally(function (){
                     $scope.busyIndicator = false;

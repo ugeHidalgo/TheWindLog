@@ -55,8 +55,8 @@
                 }
             });
             }
-            console.log ('board saved ----->username = ' + board.username + ' /id = ' + board._id);
-        }
+            console.log ('Board saved ----->username = ' + board.username + ' /id = ' + board._id);
+        };
     };
 
 })(module.exports);

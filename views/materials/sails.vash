@@ -9,6 +9,8 @@
 
         @html.block("scripts", function (model){
             <script src="/lib/angular-smart-table/dist/smart-table.min.js"></script>
+            <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
             <script src="/src/materials/sails/sailsApp.js"></script>
             <script src="/src/materials/sails/sailsViewController.js"></script>
             <script src="/src/materials/sails/sailsEditorViewController.js"></script>
