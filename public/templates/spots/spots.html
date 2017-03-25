@@ -1,0 +1,49 @@
+<div class="col-md-12">       
+    <wait-cursor display-when="busyIndicator"></wait-cursor>
+    <table id="spotsGrid" st-table="displayedCollection" st-safe-src="spots"  
+            class="table table-responsive table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th><h4>Spots<h4></th>
+                    <th st-sort="name">Name</th>
+                    <th st-sort="city">City</th>
+                    <th st-sort="province">Province</th>
+                    <th st-sort="country">Country</th>
+                </tr>
+                <tr>
+                    <th colspan="1">
+                        <a type="button" class="btn-sm btn-primary" href="#spotsEditor/{{userName}}/0">
+                            <i class="glyphicon glyphicon-plus" title="Add new spot"></i>
+                        </a>
+                    </th>
+                    <th colspan="9">
+                        <input st-search="" class="form-control" placeholder="type here to search ..." type="text" />
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="spot in displayedCollection">
+                    <td class="col-xs-1">
+                        <div>
+                            <div class="btn-group btn-group-xs btn-group-justified">
+                                <a type="button" class="btn-sm btn-info" href="#spotsEditor/{{userName}}/{{spot._id}}">
+                                    <i class="glyphicon glyphicon-edit" title="Select"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="col-md-3">{{ spot.name }}</td>
+                    <td class="col-md-3">{{ spot.city }}</td>
+                    <td class="col-md-3">{{ spot.province }}</td>
+                    <td class="col-md-1">{{ spot.country }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="10" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="numberOfPages"></div>
+                    </td>
+                </tr>
+            </tfoot>
+    </table>
+</div>

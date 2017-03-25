@@ -24,7 +24,7 @@
             <ul class="nav navbar-nav">
                 <li><a href='/userMain/@model.user.username'>Dashboard</a></li>
                 <li><a href='/Sessions/@model.user.username'>Sessions</a></li>
-                <li><a href='/Spots/@model.user.username'>Spots</a></li>
+                <li><a href='/Spots/#@model.user.username'>Spots</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="/materials" id="materials" aria-expanded="false">
                         Materials
