@@ -69,3 +69,8 @@ ___
         npm start
 
     Access site to http://localhost:3000
+
+
+-4 Debug server side with node inspector:
+    node --inspect --debug .
+    Copiar url y pegar en un browser.
