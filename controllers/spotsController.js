@@ -14,7 +14,7 @@
 
             var userName = request.params.userName;
 
-            spotData.getSpots ( userName, function(error, spots){
+            spotData.getSpots ( userName, function(error, spots) {
                 if (error){
                     response.status(400).send(error);
                 } else {

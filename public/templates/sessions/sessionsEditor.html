@@ -1,0 +1,58 @@
+<div id="sessionForm" class="col-md-12">
+    <form novalidate name="sessionForm" ng-submit="addItem()" class="form-horizontal">
+
+        <div id="statesAndDatesGroup" class="form-group">
+
+            <div class="col-md-3 date col-md-offset-1">
+                <label class="control-label">Date</label>
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="sessionDate" 
+                        is-open="datePopUp.opened" datepicker-options="dateOptions" 
+                        ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" 
+                                ng-click="openDatePopUp()">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                    </span>
+                </p>
+            </div>
+
+        </div>
+
+        <div id="memoGroup" class="form-group">
+            <div class="col-md-10 col-md-offset-1">
+                <label class="control-label">Observ.</label>
+                <textarea class="form-control" cols="80" rows="4" id="comment" name="comment"
+                        ng-model="session.comment"></textarea>
+            </div>
+        </div>
+
+        <div id="formButtons" class="form-group">
+            <a class="btn btn-sm btn-default col-md-offset-1"
+            href="/sessions/#{{userName}}">
+                <i class="fa fa-list"></i>
+                Back to sessions list
+            </a>
+            <a class="btn btn-sm btn-default col-md-offset-1"
+            ng-click="newItem(userName)">
+                <i class="fa fa-edit"></i>
+                New
+            </a>
+            <a class="btn btn-sm btn-default"
+            ng-click="clearItem()">
+                <i class="fa fa-eraser"></i>
+                Clear
+            </a>
+            <a class="btn btn-danger btn-sm"
+            ng-click="saveItem()"
+            ng-disabled="sessionForm.$invalid">
+                <i class="fa fa-save"></i>
+                Save
+            </a>
+        </div>
+    </form>   
+    <div class="col-md-12">  
+        <wait-cursor display-when="busyIndicator"></wait-cursor>
+    </div>
+</div>

@@ -5,7 +5,8 @@
         SailData = require ('./materials/sailData');
         MastData = require ('./materials/mastData');
         BoomData = require ('./materials/boomData');
-        SpotData = require ('./spotData');        
+        SpotData = require ('./spotData');   
+        SessionData = require ('./sessionData');     
         SeedTools = require ('./seedTools');
 
     UserData.init();
@@ -13,7 +14,8 @@
     SailData.init();
     MastData.init();
     BoomData.init();    
-    SpotData.init();    
+    SpotData.init();  
+    SessionData.init();  
     SeedTools.seedDataBase();
 
 })(module.exports);
