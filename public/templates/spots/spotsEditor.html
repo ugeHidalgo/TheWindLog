@@ -1,63 +1,75 @@
 <div id="spotForm" class="col-md-12">
     <form novalidate name="spotForm" ng-submit="addItem()" class="form-horizontal">
 
-        <div id="namesGroup" class="form-group">
-            <div class="col-md-5 col-md-offset-1">
-                <label class="control-label">Name</label>
-                <input class="form-control" type="text" id="name" name="name"
-                    ng-model="spot.name"
-                    required
-                    ng-minlength="3" />
-                <span ng-show="spotForm.name.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-                <span ng-show="spotForm.name.$error.minlength"
-                    class="text-warning">Longitud minima de 3 caracteres.</span>
+        <div id="data" class="form-group">
+            <div id="dataColumn" class="col-md-5 col-md-offset-1">
+
+                <div id="namesGroup" class="form-group">
+                    <div class="col-md-8 col-md-offset-1">
+                        <label class="control-label">Name</label>
+                        <input class="form-control" type="text" id="name" name="name"
+                            ng-model="spot.name"
+                            required
+                            ng-minlength="3" />
+                        <span ng-show="spotForm.name.$error.required"
+                            class="text-warning">Valor obligatorio.</span>
+                        <span ng-show="spotForm.name.$error.minlength"
+                            class="text-warning">Longitud minima de 3 caracteres.</span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="control-label">Active</label>
+                        <input class="form-control" type="checkbox" id="active" name="active"
+                            ng-model="spot.active" />
+                        <span ng-show="spotForm.active.$error.required"
+                            class="text-warning">Valor obligatorio.</span>
+                    </div>
+                </div>
+
+                <div id="placeGroup" class="form-group">
+                    <div class="col-md-10 col-md-offset-1">
+                        <label class="control-label">City</label>
+                        <input class="form-control" type="text" id="city" name="city"
+                            ng-model="spot.city"
+                            ng-minlength="3" />
+                        <span ng-show="spotForm.city.$error.minlength"
+                            class="text-warning">Longitud minima de 3 caracteres.</span>
+                    </div>
+                </div>
+
+                <div id="placeGroup" class="form-group">
+                    <div class="col-md-10 col-md-offset-1">
+                        <label class="control-label">Province</label>
+                        <input class="form-control" type="text" id="province" name="province"
+                            ng-model="spot.province"
+                            required
+                            ng-minlength="3" />
+                        <span ng-show="spotForm.province.$error.required"
+                            class="text-warning">Valor obligatorio.</span>
+                        <span ng-show="spotForm.province.$error.minlength"
+                            class="text-warning">Longitud minima de 3 caracteres.</span>
+                    </div>
+                </div>
+
+                <div id="placeGroup" class="form-group">
+                    <div class="col-md-10 col-md-offset-1">
+                        <label class="control-label">Country</label>
+                        <input class="form-control" type="text" id="country" name="country"
+                            ng-model="spot.country"
+                            required
+                            ng-minlength="3" />
+                        <span ng-show="spotForm.country.$error.required"
+                            class="text-warning">Valor obligatorio.</span>
+                        <span ng-show="spotForm.country.$error.minlength"
+                            class="text-warning">Longitud minima de 3 caracteres.</span>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
-        <div id="placeGroup" class="form-group">
-            <div class="col-md-3 col-md-offset-1">
-                <label class="control-label">City</label>
-                <input class="form-control" type="text" id="city" name="city"
-                    ng-model="spot.city"
-                    ng-minlength="3" />
-                <span ng-show="spotForm.city.$error.minlength"
-                    class="text-warning">Longitud minima de 3 caracteres.</span>
-            </div>
-
-            <div class="col-md-3">
-                <label class="control-label">Province</label>
-                <input class="form-control" type="text" id="province" name="province"
-                    ng-model="spot.province"
-                    required
-                    ng-minlength="3" />
-                <span ng-show="spotForm.province.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-                <span ng-show="spotForm.province.$error.minlength"
-                    class="text-warning">Longitud minima de 3 caracteres.</span>
-            </div>
-
-            <div class="col-md-3">
-                <label class="control-label">Country</label>
-                <input class="form-control" type="text" id="country" name="country"
-                    ng-model="spot.country"
-                    required
-                    ng-minlength="3" />
-                <span ng-show="spotForm.country.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-                <span ng-show="spotForm.country.$error.minlength"
-                    class="text-warning">Longitud minima de 3 caracteres.</span>
-            </div>
-        </div>
-
-        <div id="stateGroup" class="form-group">
-
-            <div class="col-md-1 col-md-offset-1">
-                <label class="control-label">Active</label>
-                <input class="form-control" type="checkbox" id="active" name="active"
-                    ng-model="spot.active" />
-                <span ng-show="spotForm.active.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
+            <div id="mapColumn" class="col-md-5">
+                <img src="../img/backgrounds/mapa.png" alt="Bowling"
+                    class="pull-right img-thumbnail" />
             </div>
         </div>
 
