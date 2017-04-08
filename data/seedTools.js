@@ -19,7 +19,9 @@
                     seedMastsData().then (function (){
                         seedBoomsData().then (function (){
                             seedSpotsData().then (function (){
-                                console.log ('0 - All data seeded');
+                                seedSessionsData().then (function (){
+                                    console.log ('0 - All data seeded');
+                                });
                             });
                         });
                     });
@@ -28,7 +30,7 @@
         });
     };
 
-    seedTools.seedSessionsData = function () {
+    function seedSessionsData () {
             var sessions, newSession;
 
             console.log ('7 - Checking if exist session data for user: ' + defaultUser);
