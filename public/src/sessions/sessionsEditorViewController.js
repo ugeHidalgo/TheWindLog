@@ -70,7 +70,7 @@ angular
                 then(function (result) {
                     //Success
                     $scope.session = result.data;
-                    $scope.dateDate = new Date($scope.session.date);
+                    $scope.sessionDate = new Date($scope.session.date);
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get selected session');
