@@ -19,7 +19,7 @@ angular
                     templateUrl: '/templates/sessions/sessions.html'
                 }).
 
-                when('/sessionsEditor/:userName/:boardId', {
+                when('/sessionsEditor/:userName/:sessionId', {
                     controller: 'sessionsEditorViewController',
                     templateUrl: '/templates/sessions/sessionsEditor.html'
                 }).

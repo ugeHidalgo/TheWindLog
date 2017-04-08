@@ -10,7 +10,7 @@
                     <th st-sort="distance">Dist.</th>
                     <th st-sort="time">Time</th>
                     <th st-sort="maxSpeed">Max.</th>
-                    <th st-sort="medSpeed">Avg.</th>
+                    <th st-sort="avgSpeed">Avg.</th>
                     <th st-sort="board.name">Board</th>
                     <th st-sort="sail.name">Sail</th>
                     <th st-sort="windDirection">Dir</th>
@@ -40,13 +40,13 @@
                         </div>
                     </td>
                     <td class="col-md-2">{{ session.date | date : "dd/MM/yyyy" }}</td>
-                    <td class="col-md-2">{{ session.spot.name }}</td>
+                    <td class="col-md-2">{{ session.spot[0].name }}</td>
                     <td class="col-md-2">{{ session.distance }}</td>
                     <td class="col-md-1">{{ session.time }}</td>
                     <td class="col-md-1">{{ session.maxSpeed }}</td>
-                    <td class="col-md-1">{{ session.medSpeed }}</td>
-                    <td class="col-md-1">{{ session.board.name }}</td>
-                    <td class="col-md-2">{{ session.sail.name }}</td>
+                    <td class="col-md-1">{{ session.avgSpeed }}</td>
+                    <td class="col-md-1">{{ session.board[0].name }}</td>
+                    <td class="col-md-2">{{ session.sail[0].name }}</td>
                     <td class="col-md-1">{{ session.windDirection }}</td>
                     <td class="col-md-1">{{ session.windPressure }}</td>
                     <td class="col-md-1">{{ session.value }}</td>

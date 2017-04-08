@@ -68,44 +68,86 @@
         }];
 
     seedData.initialSpots = [
-        { name: 'Torrenueva', city: 'Torrenueva', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Torrenueva', city: 'Torrenueva', province: 'Granada', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.69801666837331, long: -3.482644557952881 },
-        { name: 'Rules', city: '', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Torrenueva (Futbol)', city: 'Torrenueva', province: 'Granada', country: 'Spain', active: true, username: defaultUserName,
+          lat: 36.70777110454221, long: -3.4965880215168 },
+        { name: 'Rules', city: '', province: 'Granada', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.871527372554866, long: -3.482368290424347 },
-        { name: 'AWA', city: 'Motril', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'AWA', city: 'Motril', province: 'Granada', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.714548590417635, long: -3.5529452562332153 },
-        { name: 'Ponde', city: 'Almuñecar', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Azucenas', city: 'Motril', province: 'Granada', country: 'Spain', active: true, username: defaultUserName,
+          lat: 36.71098575438381, long: -3.49970743060112 },
+        { name: 'Ponde', city: 'Almuñecar', province: 'Granada', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.730500844777204, long: -3.6841481924057007 },
-        { name: 'Valdevaqueros', city: 'Tarifa', province: 'Cádiz', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Valdevaqueros', city: 'Tarifa', province: 'Cádiz', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.0663764741249, long: -5.684094429016113 },
-        { name: 'Lances Norte', city: 'Tarifa', province: 'Cádiz', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Lances Norte', city: 'Tarifa', province: 'Cádiz', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.04502188387152, long: -5.6370484828948975 },
-        { name: 'ArteVida', city: 'Tarifa', province: 'Cádiz', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'ArteVida', city: 'Tarifa', province: 'Cádiz', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.05172725943047, long: -5.647417902946472 },
-        { name: 'Almerimar (Victor Center)', city: 'El Ejido', province: 'Almería', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Almerimar (Victor Center)', city: 'El Ejido', province: 'Almería', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.70085216285717, long: -2.7995040267705917 },
-        { name: 'Almerimar (Camping)', city: 'El Ejido', province: 'Almería', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Almerimar (Camping)', city: 'El Ejido', province: 'Almería', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.70684431429625, long: -2.8148965537548065 },
-        { name: 'Almerimar (Pinchos)', city: 'El Ejido', province: 'Almería', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Almerimar (Pinchos)', city: 'El Ejido', province: 'Almería', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.70434773090518, long: -2.8321096301078796 },
-        { name: 'Almerimar (Casilla)', city: 'El Ejido', province: 'Almería', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Almerimar (Casilla)', city: 'El Ejido', province: 'Almería', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.70081237848548, long: -2.8385764360427856 },
-        { name: 'Castel (Peñón)', city: 'Castell de Ferro', province: 'Granada', country: 'Spain', long: 0, lat: 0, active: true, username: defaultUserName,
+        { name: 'Castel', city: 'Castell de Ferro', province: 'Granada', country: 'Spain', active: true, username: defaultUserName,
           lat: 36.720009708134434, long: -3.360695242881775 }
         ];
 
      seedData.initialSessions = [{
-            date: new Date('2017-02-27'), spot: 'Castel (Peñón)', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160',
-            distance: 9.2, time: 1814, value: 6, windDirection: 'Poniente', windPressure: 15, temperature: 20, username: defaultUserName
+            date: new Date('2016-12-08'), spot: 'Almerimar (Pinchos)', board: 'Rocket95', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 41.2, avgSpeed: 23, distance: 41.2, time: 7021, value: 9, windDirection: 'Levante', windPressure: 20, temperature: 20, 
+            comment: 'Levante moderado con mucho choppy. Muy divertido',
+            username: defaultUserName
         },{
-            date: new Date('2016-12-08'), spot: 'Almerimar (Pinchos)', board: 'Rocket95', sail: 'GaC64', mast: 'G430R', boom: 'B3160',
-            distance: 41.2, time: 7021, value: 9, windDirection: 'Levante', windPressure: 20, temperature: 20, username: defaultUserName
-        },{
-            date: new Date('2016-11-20'), spot: 'Almerimar (Camping)', board: 'RRDQuad83', sail: 'P7Slash52', mast: 'P400R', boom: 'B3140',
-            distance: 25.31, time: 5295, value: 7, windDirection: 'Poniente', windPressure: 25, temperature: 22, username: defaultUserName
+            date: new Date('2016-11-20'), spot: 'Almerimar (Camping)', board: 'RRDQuad83', sail: 'P7Slash52', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 36.7, avgSpeed: 15.8, distance: 25.31, time: 5295, value: 7, windDirection: 'Poniente', windPressure: 25, temperature: 22, 
+            comment: 'Poniente flojo a medio/fuerte, con ola grande fuera y mediana en orilla.',
+            username: defaultUserName
         },{
             date: new Date('2016-11-05'), spot: 'Almerimar (Camping)', board: 'RRDQuad83', sail: 'GaMa47', mast: 'P400R', boom: 'B3140',
-            distance: 53.94, time: 10277, value: 9, windDirection: 'Poniente', windPressure: 30, temperature: 21, username: defaultUserName
+            maxSpeed: 36.7, avgSpeed: 18.9, distance: 53.94, time: 10277, value: 9, windDirection: 'Poniente', windPressure: 30, temperature: 21, 
+            comment: 'Poniente medio a fuerte con poca ola.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-02-27'), spot: 'Castel', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 34.7, avgSpeed: 16, distance: 9.2, time: 1814, value: 6, windDirection: 'Poniente', windPressure: 15, temperature: 20, 
+            comment: 'Muy racheado en la orilla y mas fuerte con olas dentro. Se acabó pronto.',
+            username: defaultUserName
+        },,{
+            date: new Date('2017-03-17'), spot: 'Azucenas', board: 'Rocket95', sail: 'NaishF47', mast: 'P400R', boom: 'B3140',
+            maxSpeed: 38.2, avgSpeed: 10.7, distance: 3, time: 960, value: 6, windDirection: 'Levante', windPressure: 40, temperature: 20, 
+            comment: 'Rachas muy muy fuertes.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-03-17'), spot: 'Azucenas', board: 'RRDQuad83', sail: 'NaishF42', mast: 'N380S', boom: 'B3140',
+            maxSpeed: 38.2, avgSpeed: 10.7, distance: 2.7, time: 963, value: 3, windDirection: 'Levante', windPressure: 40, temperature: 20, 
+            comment: 'Rachas muy muy fuertes. (continuación de anterior sesión)',
+            username: defaultUserName
+        },{
+            date: new Date('2017-03-18'), spot: 'Almerimar (Camping)', board: 'Titan', sail: 'P7Sado59', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 33.8, avgSpeed: 10.2, distance: 19.7, time: 6060, value: 6, windDirection: 'Levante', windPressure: 30, temperature: 20, 
+            comment: 'Racheado con muchos agujeros.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-03-26'), spot: 'Torrenueva (Futbol)', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 44.4, avgSpeed: 25, distance: 54.7, time: 6660, value: 10, windDirection: 'Levante', windPressure: 36, temperature: 18, 
+            comment: 'Perfecto, plano y con viento constante.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-04-01'), spot: 'Ponde', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 40.7, avgSpeed: 18.1, distance: 22.2, time: 4560, value: 7, windDirection: 'Poniente', windPressure: 25, temperature: 20, 
+            comment: 'Mucha ola. Flojo al principio, bueno después, y me salgo porque baja',
+            username: defaultUserName
+        },{
+            date: new Date('2017-04-07'), spot: 'Torrenueva', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 32.9, avgSpeed: 12.9, distance: 9.97, time: 2880, value: 3, windDirection: 'Levante', windPressure: 15, temperature: 20, 
+            comment: 'Mucha ola, muy racheado y flojo.',
+            username: defaultUserName
         }];
 
     })(module.exports);

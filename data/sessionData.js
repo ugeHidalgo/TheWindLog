@@ -23,7 +23,7 @@
                     distance: session.distance,
                     time: session.time,
                     maxSpeed: session.maxSpeed,
-                    medSpeed: session.medSpeed,
+                    avgSpeed: session.avgSpeed,
                     board: session.board,
                     sail: session.sail,
                     mast: session.mast,
