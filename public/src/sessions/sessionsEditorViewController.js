@@ -32,14 +32,12 @@ angular
                 $scope.id = 0;
                 $scope.session = prepareForNewItem(username);
                 $scope.sessionDate = new Date($scope.session.date);
-                $scope.sessionTime = 0;
             };
 
             $scope.clearItem = function() {
                 if ($$routeParams.sessionId === '0') {
                     $scope.session = prepareForNewItem($scope.userName);
                     $scope.sessionDate = new Date($scope.session.date);
-                    $scope.sessionTime = 0;
                 } else {
                     loadItem ($$routeParams.sessionId, $$routeParams.userName);
                 }
@@ -74,7 +72,7 @@ angular
                     //Success
                     $scope.session = result.data;
                     $scope.sessionDate = new Date($scope.session.date);
-                    $scope.sessionTime = secondsToTime ($scope.session.time);
+                    //$scope.sessionTime = secondsToTime ($scope.session.time);
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get selected session');
@@ -89,7 +87,7 @@ angular
                 $scope.session.updated = new Date();
                 $scope.session.username = $scope.userName;
                 $scope.session.date = $scope.sessionDate;
-                $scope.session.time = timeToSeconds($scope.sessionTime);
+                //$scope.session.time = timeToSeconds($scope.sessionTime);
                 $http.post( '/api/sessions', $scope.session ).
                 then(function (result) {
                     //Success
@@ -104,12 +102,12 @@ angular
                 });
             };
 
-            function secondsToTime (value) {
+            /*function secondsToTime (value) {
                 return '20:20';
             }
 
             function timeToSeconds (value) {
                 return 2020;
-            }
+            }*/
         }
 ]);
