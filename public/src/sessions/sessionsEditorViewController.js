@@ -72,7 +72,7 @@ angular
                     //Success
                     $scope.session = result.data;
                     $scope.sessionDate = new Date($scope.session.date);
-                    //$scope.sessionTime = secondsToTime ($scope.session.time);
+                    $scope.sessionTime = secondsToTime ($scope.session.time);
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get selected session');
@@ -87,7 +87,7 @@ angular
                 $scope.session.updated = new Date();
                 $scope.session.username = $scope.userName;
                 $scope.session.date = $scope.sessionDate;
-                //$scope.session.time = timeToSeconds($scope.sessionTime);
+                $scope.session.time = timeToSeconds($scope.sessionTime);
                 $http.post( '/api/sessions', $scope.session ).
                 then(function (result) {
                     //Success
@@ -102,12 +102,25 @@ angular
                 });
             };
 
-            /*function secondsToTime (value) {
-                return '20:20';
+            function secondsToTime (secondsAmount) {
+                var days  = 1,
+                    hours = Math.floor (secondsAmount / 3600),
+                    minutes = Math.floor ((secondsAmount % 3600) / 60),
+                    seconds = Math.floor ((secondsAmount % 3600) % 60);
+
+                return new Date(1970, 0, days, hours, minutes, seconds);
             }
 
-            function timeToSeconds (value) {
-                return 2020;
-            }*/
+            function timeToSeconds (timeString) {
+                var hours = 0,
+                    minutes = 0,
+                    seconds = 0;
+                if (timeString) {
+                    hours = timeString.getHours();
+                    minutes = timeString.getMinutes();
+                    seconds = timeString.getSeconds();
+                }
+                return hours + 3600 + minutes * 60 + seconds;
+            }
         }
 ]);

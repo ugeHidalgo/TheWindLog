@@ -37,30 +37,33 @@
                     </div>
                 </div>
 
-                <div id="numbers" class="form-group">
-                    <div class="col-md-3">
-                        <label class="control-label">Dist.</label>
+                <div id="numbers1" class="form-group">
+                    <div class="col-md-4">
+                        <label class="control-label">Distance</label>
                         <input class="form-control rightJustified" type="number" id="distance" name="distance"
                             ng-model="session.distance"
                             min="0" max="99999"/>
                         <span ng-show="sessionForm.distance.$invalid"
                             class="text-warning">Debe ser un número.</span>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <label class="control-label">Time</label>
-                        <input class="form-control" type="time" id="time" name="time"
-                            ng-model="session.time | secondsToDateTime"/>
+                        <input class="form-control rightJustified" type="time" id="time" name="time"
+                            ng-model="sessionTime"/>
                         <span ng-show="sessionForm.time.$invalid"
                             class="text-warning">Debe ser un valor hh:mm:ss.</span>
                     </div>
-                    <div class="col-md-3">
-                        <label class="control-label">Max Speed</label>
+                </div>
+
+                <div id="numbers2" class="form-group">
+                    <div class="col-md-4">
+                        <label class="control-label">Max. Speed</label>
                         <input class="form-control rightJustified" type="number" id="maxSpeed" name="time"
                             ng-model="session.maxSpeed"/>
                         <span ng-show="sessionForm.maxSpeed.$invalid"
                             class="text-warning">Debe ser un número.</span>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <label class="control-label">Avg. Speed</label>
                         <input class="form-control rightJustified" type="number" id="avgSpeed" name="avgSpeed"
                             ng-model="session.avgSpeed"/>
