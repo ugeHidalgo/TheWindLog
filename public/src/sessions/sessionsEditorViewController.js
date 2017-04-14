@@ -44,48 +44,98 @@ angular
                     $scope.session = prepareForNewItem($scope.userName);
                     $scope.sessionDate = new Date($scope.session.date);
                 } else {
-                    loadItem ($$routeParams.sessionId, $$routeParams.userName);
+                    loadSession($$routeParams.sessionId, $$routeParams.userName);
                 }
             };
 
             $scope.saveItem = function() {
-                saveItem ();
+                saveItem();
             };
 
-            if ($scope.sessionId === '0') {
-                $scope.id = 0;
-                prepareForNewItem($scope.userName);
-            } else {
-                loadItem ($scope.sessionId, $scope.userName)
-            }
-
-            function prepareForNewItem (userName) {
-                var session = {};
-
-                session.date = new Date();
-                session.time = 0;
-                session.updated = new Date();
-                session.userName = userName;
-
-                return session;
-            };
-
-            function loadItem (id, userName) {
-                $scope.busyIndicator = true;
-                $http.get( '/api/sessions/' + userName + '/' + id ).
-                then(function (result) {
-                    //Success retrieving sessions
-                    $http.get ('/api/spots/' + userName).
+            var loadSpots = new Promise(function(resolve,reject) {
+                $http.get('/api/spots/' + $scope.userName).
                     then (function(spots) {
                         //Success retrieving spots
-                        $scope.session = result.data;
-                        $scope.sessionDate = new Date($scope.session.date);
-                        $scope.sessionTime = secondsToTime ($scope.session.time);
                         $scope.spots = spots.data;
+                        resolve (spots.data);
                     }, function(error) {
                         //Error retrieving spots
                         Notification.error ('Failed to get spots to be used with sessions');
+                        reject(error);
                     });
+            });
+
+            var loadBoards = new Promise(function(resolve,reject) {
+                $http.get('/api/boards/' + $scope.userName).
+                    then (function(boards) {
+                        //Success retrieving boards
+                        $scope.boards = boards.data;
+                        resolve (boards.data);
+                    }, function(error) {
+                        //Error retrieving boards
+                        Notification.error ('Failed to get boards to be used with sessions');
+                        reject(error);
+                    });
+            });
+
+            var loadSails = new Promise(function(resolve,reject) {
+                $http.get('/api/sails/' + $scope.userName).
+                    then (function(sails) {
+                        //Success retrieving sails
+                        $scope.sails = sails.data;
+                        resolve (sails.data);
+                    }, function(error) {
+                        //Error retrieving sails
+                        Notification.error ('Failed to get sails to be used with sessions');
+                        reject(error);
+                    });
+            });
+
+            var loadBooms = new Promise(function(resolve,reject) {
+                $http.get('/api/booms/' + $scope.userName).
+                    then (function(booms) {
+                        //Success retrieving booms
+                        $scope.booms = booms.data;
+                        resolve (booms.data);
+                    }, function(error) {
+                        //Error retrieving booms
+                        Notification.error ('Failed to get booms to be used with sessions');
+                        reject(error);
+                    });
+            });
+
+            var loadMasts = new Promise(function(resolve,reject) {
+                $http.get('/api/masts/' + $scope.userName).
+                    then (function(masts) {
+                        //Success retrieving masts
+                        $scope.masts = masts.data;
+                        resolve (masts.data);
+                    }, function(error) {
+                        //Error retrieving masts
+                        Notification.error ('Failed to get masts to be used with sessions');
+                        reject(error);
+                    });
+            });
+
+            $scope.busyIndicator = true;
+            Promise.all([loadSpots, loadBoards, loadSails, loadBooms, loadMasts]).then(function(spots) {
+                if ($scope.sessionId === '0') {
+                    $scope.id = 0;
+                    //$scope.spots = response;
+                    prepareForNewItem($scope.userName);
+                } else {
+                    loadSession($scope.sessionId, $scope.userName)
+                }
+            });
+
+            function loadSession(id, userName) {
+                $http.get( '/api/sessions/' + userName + '/' + id ).
+                then(function (result) {
+                    //Success retrieving sessions
+                    $scope.session = result.data;
+                    $scope.sessionDate = new Date($scope.session.date);
+                    $scope.sessionTime = secondsToTime ($scope.session.time);
+                    //$scope.spots = spots.data;
                 }, function (error) {
                     //Error retrieving sessions
                     Notification.error ('Failed to get selected session');
@@ -113,6 +163,17 @@ angular
                 .finally(function (){
                     $scope.busyIndicator = false;
                 });
+            };
+
+            function prepareForNewItem (userName) {
+                var session = {};
+
+                session.date = new Date();
+                session.time = 0;
+                session.updated = new Date();
+                session.userName = userName;
+
+                return session;
             };
 
             function secondsToTime (secondsAmount) {

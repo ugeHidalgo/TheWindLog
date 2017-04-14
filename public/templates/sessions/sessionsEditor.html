@@ -20,7 +20,7 @@
                         <label class="control-label">Spot</label>
                         <select class="form-control" type="text" id="spot" name="spot"
                             ng-model="session.spot[0]"
-                            ng-options="spot.name for spot in spots track by spot._id"
+                            ng-options="spot.name for spot in spots | orderBy:'name' track by spot._id"
                             required>
                         </select>
                         <span ng-show="sessionForm.spot.$error.required"
@@ -57,17 +57,21 @@
                 <div id="materials1" class="form-group">
                     <div class="col-md-6">
                         <label class="control-label">Board</label>
-                        <input class="form-control" type="text" id="board" name="board"
-                            ng-model="session.board[0].name"
-                            required />
+                        <select class="form-control" type="text" id="board" name="board"
+                            ng-model="session.board[0]"
+                            ng-options="board.name for board in boards | orderBy:'name' track by board._id"
+                            required>
+                        </select>
                         <span ng-show="sessionForm.board.$error.required"
                             class="text-warning">Valor obligatorio.</span>
                     </div>
                     <div class="col-md-6">
                         <label class="control-label">Sail</label>
-                        <input class="form-control" type="text" id="sail" name="sail"
-                            ng-model="session.sail[0].name"
-                            required />
+                        <select class="form-control" type="text" id="sail" name="sail"
+                            ng-model="session.sail[0]"
+                            ng-options="sail.name for sail in sails | orderBy:'name' track by sail._id"
+                            required>
+                        </select>
                         <span ng-show="sessionForm.sail.$error.required"
                             class="text-warning">Valor obligatorio.</span>
                     </div>
@@ -76,17 +80,21 @@
                 <div id="materials2" class="form-group">
                     <div class="col-md-6">
                         <label class="control-label">Mast</label>
-                        <input class="form-control" type="text" id="mast" name="mast"
-                            ng-model="session.mast[0].name"
-                            required />
+                        <select class="form-control" type="text" id="mast" name="mast"
+                            ng-model="session.mast[0]"
+                            ng-options="mast.name for mast in masts | orderBy:'name' track by mast._id"
+                            required>
+                        </select>
                         <span ng-show="sessionForm.mast.$error.required"
                             class="text-warning">Valor obligatorio.</span>
                     </div>
                     <div class="col-md-6">
                         <label class="control-label">Boom</label>
-                        <input class="form-control" type="text" id="boom" name="boom"
-                            ng-model="session.boom[0].name"
-                            required />
+                        <select class="form-control" type="text" id="boom" name="boom"
+                            ng-model="session.boom[0]"
+                            ng-options="boom.name for boom in booms | orderBy:'name' track by boom._id"
+                            required>
+                        </select>
                         <span ng-show="sessionForm.boom.$error.required"
                             class="text-warning">Valor obligatorio.</span>
                     </div>
