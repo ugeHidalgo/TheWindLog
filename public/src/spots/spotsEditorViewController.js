@@ -10,10 +10,13 @@ angular
         '$routeParams', 
         'Notification', 
         '$http',
-        function ($scope, $$routeParams, Notification, $http) {
+        'NgMap',
+        function ($scope, $$routeParams, Notification, $http, NgMap) {
 
             $scope.userName = $$routeParams.userName;
             $scope.spotId = $$routeParams.spotId;
+
+            NgMap.getMap();
 
             $scope.newItem = function(username) {
                 $scope.id = 0;

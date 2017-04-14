@@ -68,8 +68,9 @@
             </div>
 
             <div id="mapColumn" class="col-md-7">
-                <img src="../img/backgrounds/mapa.png" alt="Bowling"
-                    class="pull-right img-thumbnail" />
+                <ng-map center="[{{spot.lat}},{{spot.long}}]" zoom="15" map-type-id="MapTypeId.SATELLITE">
+                    <marker position="[{{spot.lat}},{{spot.long}}]"></marker>
+                </ng-map>
             </div>
         </div>
 

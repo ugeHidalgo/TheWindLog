@@ -23,6 +23,7 @@
     "angular-smart-table": "^2.1.8",
     "angular-route": "^1.6.3",
     "font-awesome": "^4.7.0",
-    "ui-bootstrap": "^2.5.0"
+    "ui-bootstrap": "^2.5.0",
+    "ngmap": "^1.18.4"
   }
 }
