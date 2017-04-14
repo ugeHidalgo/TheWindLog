@@ -148,6 +148,21 @@
             maxSpeed: 32.9, avgSpeed: 12.9, distance: 9.97, time: 2880, value: 3, windDirection: 'Levante', windPressure: 15, temperature: 20, 
             comment: 'Mucha ola, muy racheado y flojo.',
             username: defaultUserName
-        }];
+        },{
+            date: new Date('2017-04-09'), spot: 'Almerimar (Casilla)', board: 'Rocket95', sail: 'P7Slash52', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 37.3, avgSpeed: 18.4, distance: 30, time: 5880, value: 7, windDirection: 'Levante', windPressure: 35, temperature: 21, 
+            comment: 'Levante subiendo sin ola.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-04-09'), spot: 'Almerimar (Casilla)', board: 'RRDQuad83', sail: 'P7Slash52', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 37.3, avgSpeed: 18.4, distance: 36.7, time: 7260, value: 9, windDirection: 'Levante', windPressure: 40, temperature: 20, 
+            comment: 'Se pone bién y con ola de un metrillo buena para surfear al volver y para saltar al ir.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-04-013'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 40.2, avgSpeed: 15.1, distance: 21.4, time: 5160, value: 7, windDirection: 'SW', windPressure: 18, temperature: 26, 
+            comment: 'Buen inicio de Rules.',
+            username: defaultUserName
+        }]
 
     })(module.exports);

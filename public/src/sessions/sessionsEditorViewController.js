@@ -118,10 +118,9 @@ angular
             });
 
             $scope.busyIndicator = true;
-            Promise.all([loadSpots, loadBoards, loadSails, loadBooms, loadMasts]).then(function(spots) {
+            Promise.all([loadSpots, loadBoards, loadSails, loadBooms, loadMasts]).then(function() {
                 if ($scope.sessionId === '0') {
                     $scope.id = 0;
-                    //$scope.spots = response;
                     prepareForNewItem($scope.userName);
                 } else {
                     loadSession($scope.sessionId, $scope.userName)
@@ -135,7 +134,6 @@ angular
                     $scope.session = result.data;
                     $scope.sessionDate = new Date($scope.session.date);
                     $scope.sessionTime = secondsToTime ($scope.session.time);
-                    //$scope.spots = spots.data;
                 }, function (error) {
                     //Error retrieving sessions
                     Notification.error ('Failed to get selected session');
