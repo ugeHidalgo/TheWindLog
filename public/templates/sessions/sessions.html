@@ -40,8 +40,8 @@
                         </div>
                     </td>
                     <td class="col-md-2">{{ session.date | date : "dd/MM/yyyy" }}</td>
-                    <td class="col-md-2">{{ session.spot[0].name }}</td>
-                    <td class="col-md-2">{{ session.distance }}</td>
+                    <td class="col-md-3">{{ session.spot[0].name }}</td>
+                    <td class="col-md-1">{{ session.distance }}</td>
                     <td class="col-md-1">{{ session.time | secondsToDateTime | date:'H:mm:ss'}}</td>
                     <td class="col-md-1">{{ session.maxSpeed }}</td>
                     <td class="col-md-1">{{ session.avgSpeed }}</td>
