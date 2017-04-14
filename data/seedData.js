@@ -52,7 +52,7 @@
             name: 'N380S', model: 'Xcelerator', brand: 'North', carbon: 100, length: 380, type: "SDM", imcs: 17, year: '2008',
             purchase: new Date('2016-2-25'), price: 80, secondHand: true, active: true, username: defaultUserName
         }, {
-            name: 'P400R', model: '', brand: 'Point7', carbon: 50, length: 400, type: "RDM", imcs: 21, year: '2014',
+            name: 'P400R', model: 'P400RDM', brand: 'Point7', carbon: 50, length: 400, type: "RDM", imcs: 21, year: '2014',
             purchase: new Date('2016-4-15'), price: 150, secondHand: true, active: true, username: defaultUserName
         }, {
             name: 'G430R', model: 'Cross', brand: 'Gun', carbon: 60, length: 430, type: "RDM", imcs: 21, year: '2016',
