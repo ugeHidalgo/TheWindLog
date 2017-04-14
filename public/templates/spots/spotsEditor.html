@@ -2,10 +2,10 @@
     <form novalidate name="spotForm" ng-submit="addItem()" class="form-horizontal">
 
         <div id="data" class="form-group">
-            <div id="dataColumn" class="col-md-5 col-md-offset-1">
+            <div id="dataColumn" class="col-md-5">
 
                 <div id="namesGroup" class="form-group">
-                    <div class="col-md-8 col-md-offset-1">
+                    <div class="col-md-8">
                         <label class="control-label">Name</label>
                         <input class="form-control" type="text" id="name" name="name"
                             ng-model="spot.name"
@@ -27,7 +27,7 @@
                 </div>
 
                 <div id="placeGroup" class="form-group">
-                    <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-10">
                         <label class="control-label">City</label>
                         <input class="form-control" type="text" id="city" name="city"
                             ng-model="spot.city"
@@ -38,7 +38,7 @@
                 </div>
 
                 <div id="placeGroup" class="form-group">
-                    <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-10">
                         <label class="control-label">Province</label>
                         <input class="form-control" type="text" id="province" name="province"
                             ng-model="spot.province"
@@ -52,7 +52,7 @@
                 </div>
 
                 <div id="placeGroup" class="form-group">
-                    <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-10">
                         <label class="control-label">Country</label>
                         <input class="form-control" type="text" id="country" name="country"
                             ng-model="spot.country"
@@ -67,14 +67,14 @@
 
             </div>
 
-            <div id="mapColumn" class="col-md-5">
+            <div id="mapColumn" class="col-md-7">
                 <img src="../img/backgrounds/mapa.png" alt="Bowling"
                     class="pull-right img-thumbnail" />
             </div>
         </div>
 
         <div id="memoGroup" class="form-group">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
                 <label class="control-label">Observ.</label>
                 <textarea class="form-control" cols="80" rows="4" id="comment" name="comment"
                         ng-model="spot.comment"></textarea>
