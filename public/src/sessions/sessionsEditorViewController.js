@@ -14,6 +14,11 @@ angular
 
             $scope.userName = $$routeParams.userName;
             $scope.sessionId = $$routeParams.sessionId;
+            $scope.spots = [];
+            $scope.boards = [];
+            $scope.sails = [];
+            $scope.masts = [];
+            $scope.booms = [];
 
             $scope.dateOptions = {
                 formatYear: 'yyyy',
@@ -69,12 +74,20 @@ angular
                 $scope.busyIndicator = true;
                 $http.get( '/api/sessions/' + userName + '/' + id ).
                 then(function (result) {
-                    //Success
-                    $scope.session = result.data;
-                    $scope.sessionDate = new Date($scope.session.date);
-                    $scope.sessionTime = secondsToTime ($scope.session.time);
+                    //Success retrieving sessions
+                    $http.get ('/api/spots/' + userName).
+                    then (function(spots) {
+                        //Success retrieving spots
+                        $scope.session = result.data;
+                        $scope.sessionDate = new Date($scope.session.date);
+                        $scope.sessionTime = secondsToTime ($scope.session.time);
+                        $scope.spots = spots.data;
+                    }, function(error) {
+                        //Error retrieving spots
+                        Notification.error ('Failed to get spots to be used with sessions');
+                    });
                 }, function (error) {
-                    //Error
+                    //Error retrieving sessions
                     Notification.error ('Failed to get selected session');
                 })
                 .finally(function (){

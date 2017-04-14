@@ -20,10 +20,11 @@
                     </div>
                     <div class="col-md-6">
                         <label class="control-label">Spot</label>
-                        <input class="form-control" type="text" id="spot" name="spot"
-                            ng-model="session.spot[0].name"
-                            required
-                            ng-minlength="3" />
+                        <select class="form-control" type="text" id="spot" name="spot"
+                            ng-model="session.spot[0]"
+                            ng-options="spot.name for spot in spots track by spot._id"
+                            required>
+                        </select>
                         <span ng-show="sessionForm.spot.$error.required"
                             class="text-warning">Valor obligatorio.</span>
                     </div>
