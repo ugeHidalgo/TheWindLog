@@ -1,10 +1,8 @@
 <div id="sessionForm" class="col-md-12">
     <form novalidate name="sessionForm" ng-submit="addItem()" class="form-horizontal">
 
-        <div id="data" class="form-group">
-            <div id="dataColumn" class="col-md-5 col-md-offset-1">
-                <div id="spotAndDateGroup" class="form-group">
-                    <div class="col-md-4 date">
+        <div id="spotAndDateGroup" class="form-group">
+                    <div class="col-md-3 date">
                         <label class="control-label">Date</label>
                         <p class="input-group">
                             <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="sessionDate" 
@@ -18,7 +16,7 @@
                             </span>
                         </p>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <label class="control-label">Spot</label>
                         <select class="form-control" type="text" id="spot" name="spot"
                             ng-model="session.spot[0]"
@@ -29,6 +27,21 @@
                             class="text-warning">Valor obligatorio.</span>
                     </div>
                     <div class="col-md-2">
+                        <label class="control-label">Distance</label>
+                        <input class="form-control rightJustified" type="number" id="distance" name="distance"
+                            ng-model="session.distance"
+                            min="0" max="99999"/>
+                        <span ng-show="sessionForm.distance.$invalid"
+                            class="text-warning">Debe ser un número.</span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label">Time</label>
+                        <input class="form-control rightJustified" type="time" id="time" name="time"
+                            ng-model="sessionTime"/>
+                        <span ng-show="sessionForm.time.$invalid"
+                            class="text-warning">Debe ser un valor hh:mm:ss.</span>
+                    </div>
+                    <div class="col-md-1">
                         <label class="control-label">Value</label>
                         <input class="form-control rightJustified" type="number" id="value" name="value"
                             ng-model="session.value"
@@ -37,41 +50,9 @@
                             class="text-warning">Debe ser un número entre 0 y 10.</span>
                     </div>
                 </div>
-
-                <div id="numbers1" class="form-group">
-                    <div class="col-md-4">
-                        <label class="control-label">Distance</label>
-                        <input class="form-control rightJustified" type="number" id="distance" name="distance"
-                            ng-model="session.distance"
-                            min="0" max="99999"/>
-                        <span ng-show="sessionForm.distance.$invalid"
-                            class="text-warning">Debe ser un número.</span>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="control-label">Time</label>
-                        <input class="form-control rightJustified" type="time" id="time" name="time"
-                            ng-model="sessionTime"/>
-                        <span ng-show="sessionForm.time.$invalid"
-                            class="text-warning">Debe ser un valor hh:mm:ss.</span>
-                    </div>
-                </div>
-
-                <div id="numbers2" class="form-group">
-                    <div class="col-md-4">
-                        <label class="control-label">Max. Speed</label>
-                        <input class="form-control rightJustified" type="number" id="maxSpeed" name="time"
-                            ng-model="session.maxSpeed"/>
-                        <span ng-show="sessionForm.maxSpeed.$invalid"
-                            class="text-warning">Debe ser un número.</span>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="control-label">Avg. Speed</label>
-                        <input class="form-control rightJustified" type="number" id="avgSpeed" name="avgSpeed"
-                            ng-model="session.avgSpeed"/>
-                        <span ng-show="sessionForm.avgSpeed.$invalid"
-                            class="text-warning">Debe ser un número.</span>
-                    </div>
-                </div>
+        
+        <div id="data" class="form-group">
+            <div id="dataColumn" class="col-md-6">
 
                 <div id="materials1" class="form-group">
                     <div class="col-md-6">
@@ -111,6 +92,23 @@
                     </div>
                 </div>
 
+                <div id="speed" class="form-group">
+                    <div class="col-md-4">
+                        <label class="control-label">Max. Speed</label>
+                        <input class="form-control rightJustified" type="number" id="maxSpeed" name="time"
+                            ng-model="session.maxSpeed"/>
+                        <span ng-show="sessionForm.maxSpeed.$invalid"
+                            class="text-warning">Debe ser un número.</span>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label">Avg. Speed</label>
+                        <input class="form-control rightJustified" type="number" id="avgSpeed" name="avgSpeed"
+                            ng-model="session.avgSpeed"/>
+                        <span ng-show="sessionForm.avgSpeed.$invalid"
+                            class="text-warning">Debe ser un número.</span>
+                    </div>
+                </div>
+
                 <div id="windAndTemperature" class="form-group">
                     <div class="col-md-6">
                         <label class="control-label">Wind type.</label>
@@ -118,7 +116,7 @@
                             ng-model="session.windDirection"/>
                     </div>
                     <div class="col-md-3">
-                        <label class="control-label">Wind force</label>
+                        <label class="control-label">Force</label>
                         <input class="form-control rightJustified" type="number" id="windPressure" name="windPressure"
                             ng-model="session.windPressure"/>
                         <span ng-show="sessionForm.windPressure.$invalid"
@@ -133,15 +131,14 @@
                     </div>
                 </div>
             </div>
-
-            <div id="mapColumn" class="col-md-5">
+            <div id="mapColumn" class="col-md-5 col-md-offset-1">
                 <img src="../img/backgrounds/mapa.png" alt="Bowling"
                     class="pull-right img-thumbnail" />
             </div>
         </div>
 
         <div id="memoGroup" class="form-group">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
                 <label class="control-label">Observ.</label>
                 <textarea class="form-control" cols="80" rows="4" id="comment" name="comment"
                         ng-model="session.comment"></textarea>
@@ -149,7 +146,7 @@
         </div>
 
         <div id="formButtons" class="form-group">
-            <a class="btn btn-sm btn-default col-md-offset-1"
+            <a class="btn btn-sm btn-default"
             href="/sessions/#{{userName}}">
                 <i class="fa fa-list"></i>
                 Back to sessions list
