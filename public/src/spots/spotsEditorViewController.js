@@ -16,8 +16,6 @@ angular
             $scope.userName = $$routeParams.userName;
             $scope.spotId = $$routeParams.spotId;
 
-            NgMap.getMap();
-
             $scope.newItem = function(username) {
                 $scope.id = 0;
                 $scope.spot = prepareForNewItem(username);
@@ -39,7 +37,7 @@ angular
                 $scope.id = 0;
                 prepareForNewItem($scope.userName);
             } else {
-                loadItem ($scope.spotId, $scope.userName)
+                loadItem ($scope.spotId, $scope.userName);
             }
 
             function prepareForNewItem (userName) {
@@ -58,6 +56,14 @@ angular
                 then(function (result) {
                     //Success
                     $scope.spot = result.data;
+                    NgMap.getMap().then(function(map) {
+                        var myLatLng = new google.maps.LatLng($scope.spot.lat,$scope.spot.long);
+                        var marker = new google.maps.Marker({
+                            position: myLatLng,
+                            title: $scope.spot.name
+                        });
+                        marker.setMap(map);
+                    });
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get selected spot');
