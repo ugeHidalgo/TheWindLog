@@ -16,6 +16,13 @@ angular
             $scope.userName = $$routeParams.userName;
             $scope.spotId = $$routeParams.spotId;
 
+            if ($scope.spotId === '0') {
+                $scope.id = 0;
+                prepareForNewItem($scope.userName);
+            } else {
+                loadItem ($scope.spotId, $scope.userName);
+            }
+
             $scope.newItem = function(username) {
                 $scope.id = 0;
                 $scope.spot = prepareForNewItem(username);
@@ -33,13 +40,6 @@ angular
                 saveItem ();
             };
 
-            if ($scope.spotId === '0') {
-                $scope.id = 0;
-                prepareForNewItem($scope.userName);
-            } else {
-                loadItem ($scope.spotId, $scope.userName);
-            }
-
             function prepareForNewItem (userName) {
                 var spot = {};
 
@@ -56,14 +56,7 @@ angular
                 then(function (result) {
                     //Success
                     $scope.spot = result.data;
-                    NgMap.getMap().then(function(map) {
-                        var myLatLng = new google.maps.LatLng($scope.spot.lat,$scope.spot.long);
-                        var marker = new google.maps.Marker({
-                            position: myLatLng,
-                            title: $scope.spot.name
-                        });
-                        marker.setMap(map);
-                    });
+                    initMap($scope.spot);
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get selected spot');
@@ -88,6 +81,20 @@ angular
                 })
                 .finally(function (){
                     $scope.busyIndicator = false;
+                });
+            };
+
+            function initMap(spot) {
+                NgMap.getMap().then(function(map) {
+                    var myLatLng = new google.maps.LatLng(spot.lat,spot.long);
+                    map.setCenter(myLatLng);
+                    map.setZoom(15);
+                    map.setMapTypeId('satellite');
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        title: spot.name + '\nLat: ' + spot.lat + '\nLong: ' + spot.long
+                    });
+                    marker.setMap(map);
                 });
             };
         }
