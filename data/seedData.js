@@ -159,9 +159,19 @@
             comment: 'Se pone bién y con ola de un metrillo buena para surfear al volver y para saltar al ir.',
             username: defaultUserName
         },{
-            date: new Date('2017-04-013'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
-            maxSpeed: 40.2, avgSpeed: 15.1, distance: 21.4, time: 5160, value: 7, windDirection: 'SW', windPressure: 18, temperature: 26, 
+            date: new Date('2017-04-13'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 40.8, avgSpeed: 15.1, distance: 21.4, time: 5160, value: 7, windDirection: 'SW', windPressure: 18, temperature: 26, 
             comment: 'Buen inicio de Rules.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-04-015'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 41.9, avgSpeed: 16.2, distance: 33.93, time: 7680, value: 8, windDirection: 'SW', windPressure: 22, temperature: 25, 
+            comment: 'Sube poco a poco y al final mejor.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-04-016'), spot: 'Torrenueva', board: 'Titan', sail: 'P7Sado59', mast: 'G430R', boom: 'B3140', 
+            maxSpeed: 37.9, avgSpeed: 19.2, distance: 23.99, time: 4620, value: 6, windDirection: 'Levante', windPressure: 36, temperature: 25, 
+            comment: 'Empieza flojo y sube para luego bajar. Mucha ola dentro..',
             username: defaultUserName
         }]
 
