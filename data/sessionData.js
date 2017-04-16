@@ -2,6 +2,11 @@
     sessionData.init = function (app) {
 
         var mongoose = require ('mongoose'),
+            Spot = require ('../models/spot'),
+            Board = require ('../models/board'),
+            Sail = require ('../models/sail'),
+            Boom = require ('../models/boom'),
+            Mast = require ('../models/mast'),
             Session = require ('../models/session');
 
         sessionData.getSessions = function (username, callbackFn) {
@@ -49,6 +54,12 @@
             } else {
                 //Create new session.
                 var newSession = new Session(session);
+
+                newSession.spot[0] = new Spot(session.spot[0]);
+                newSession.board[0] = new Board(session.board[0]);
+                newSession.sail[0] = new Sail(session.sail[0]);
+                newSession.boom[0] = new Boom(session.boom[0]);
+                newSession.mast[0] = new Mast(session.mast[0]);
 
                 newSession.save(function (error) {
                     if (error) {
