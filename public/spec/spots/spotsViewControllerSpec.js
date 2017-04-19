@@ -1,4 +1,4 @@
-describe ('spotsViewModule', function() {
+describe ('spotsView', function() {
 
     var spotsData = [
         { "ID": 1, "Name": "spot1" },

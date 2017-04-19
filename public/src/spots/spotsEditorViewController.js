@@ -18,7 +18,7 @@ angular
 
             if ($scope.spotId === '0') {
                 $scope.id = 0;
-                prepareForNewItem($scope.userName);
+                $scope.spot = prepareForNewItem($scope.userName);
             } else {
                 loadItem ($scope.spotId, $scope.userName);
             }
@@ -56,7 +56,7 @@ angular
                 then(function (result) {
                     //Success
                     $scope.spot = result.data;
-                    initMap($scope.spot);
+                    $scope.initMap($scope.spot);
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get selected spot');
@@ -84,7 +84,7 @@ angular
                 });
             };
 
-            function initMap(spot) {
+            $scope.initMap = function (spot) {
                 NgMap.getMap().then(function(map) {
                     var myLatLng = new google.maps.LatLng(spot.lat,spot.long);
                     map.setCenter(myLatLng);
