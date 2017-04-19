@@ -1,8 +1,8 @@
 var http = require ('http'),
     express = require ('express'),
     mongoose = require ('mongoose'),
-    dbConfig = require ('./data/dbConfig'),
-    controllers = require ('./controllers'),
+    dbConfig = require ('./server/app/data/dbConfig'),
+    controllers = require ('./server/app/controllers'),
     bodyParser = require('body-parser');
     flash = require('connect-flash');
     cookieParser = require('cookie-parser')
@@ -32,7 +32,7 @@ app.use(expressSession({
 app.use(flash());
 
 //Use authentication
-var auth = require ('./auth');
+var auth = require ('./server/app/auth');
 auth.init(app);
 
 //Controllers initialization.
