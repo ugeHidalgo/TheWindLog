@@ -49,7 +49,7 @@ angular
 
             if ($scope.boomId === '0') {
                 $scope.id = 0;
-                prepareForNewItem($scope.userName);
+                $scope.boom = prepareForNewItem($scope.userName);
             } else {
                 loadItem ($scope.boomId, $scope.userName)
             }
