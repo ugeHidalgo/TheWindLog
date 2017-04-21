@@ -49,7 +49,7 @@ angular
 
             if ($scope.mastId === '0') {
                 $scope.id = 0;
-                prepareForNewItem($scope.userName);
+                $scope.mast = prepareForNewItem($scope.userName);
             } else {
                 loadItem ($scope.mastId, $scope.userName)
             }
