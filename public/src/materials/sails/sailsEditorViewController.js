@@ -49,7 +49,7 @@ angular
 
             if ($scope.sailId === '0') {
                 $scope.id = 0;
-                prepareForNewItem($scope.userName);
+                $scope.sail = prepareForNewItem($scope.userName);
             } else {
                 loadItem ($scope.sailId, $scope.userName)
             }
