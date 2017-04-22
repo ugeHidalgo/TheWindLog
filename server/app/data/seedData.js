@@ -173,6 +173,11 @@
             maxSpeed: 37.9, avgSpeed: 19.2, distance: 23.99, time: 4620, value: 6, windDirection: 'Levante', windPressure: 36, temperature: 25, 
             comment: 'Empieza flojo y sube para luego bajar. Mucha ola dentro..',
             username: defaultUserName
+        },{
+            date: new Date('2017-04-22'), spot: 'Almerimar (Casilla)', board: 'RRDQuad83', sail: 'NaishF47', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 38.2, avgSpeed: 19.2, distance: 34.0, time: 6420, value: 7, windDirection: 'Levante', windPressure: 45, temperature: 21, 
+            comment: 'Final de temporal de levante. Mucha ola para saltar y surfear.',
+            username: defaultUserName
         }]
 
     })(module.exports);
