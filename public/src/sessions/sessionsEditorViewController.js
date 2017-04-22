@@ -121,7 +121,7 @@ angular
             Promise.all([loadSpots, loadBoards, loadSails, loadBooms, loadMasts]).then(function() {
                 if ($scope.sessionId === '0') {
                     $scope.id = 0;
-                    prepareForNewItem($scope.userName);
+                    $scope.session = prepareForNewItem($scope.userName);
                 } else {
                     loadSession($scope.sessionId, $scope.userName)
                 }
