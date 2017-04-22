@@ -7,6 +7,7 @@ angular
         'ngRoute',
         'simpleControls', //WaitCursor
         'smart-table', //Grids
+        'ngMap',
         'ui-notification'])
 
     .config(['$locationProvider', '$routeProvider', 'NotificationProvider',

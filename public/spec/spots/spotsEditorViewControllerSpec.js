@@ -48,7 +48,7 @@ describe ('spotsEditorView', function() {
                 $controller = _$controller_;                
                 
                 $routeParamsMock = { userName: 'anyUserName', spotId: '1000'};
-                NgMap = { };
+                NgMap = {};
 
                 httpMock = $httpBackend;
                 

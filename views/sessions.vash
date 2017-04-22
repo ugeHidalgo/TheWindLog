@@ -11,10 +11,15 @@
       @html.block("scripts", function (model){
           <script src="/lib/angular-smart-table/dist/smart-table.min.js"></script>
           <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
+          <script src="/lib/ngmap/build/scripts/ng-map.min.js"></script>
+          
           <script src="/src/sessions/sessionsApp.js"></script>
           <script src="/src/sessions/sessionsViewController.js"></script>
           <script src="/src/sessions/sessionsEditorViewController.js"></script>
+
+          <script async defer
+             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpwEbxcYIR3zF6pj9imc5v44hbDSh43Is">
+          </script>
       }) <!-- scripts -->
   }) <!-- body -->
 }) <!-- Layout -->

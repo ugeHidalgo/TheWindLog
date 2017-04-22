@@ -34,10 +34,11 @@ describe ('sessionsEditorView', function() {
             beforeEach(inject(function(_$controller_, $httpBackend) {
                 $controller = _$controller_; 
                 $scope = {};
+                NgMap = {};
                 $routeParamsMock = { userName: 'anyUserName', sessionId: '0'};
                 httpMock = $httpBackend;
 
-                ctrl = $controller('sessionsEditorViewController', {$scope: $scope, $routeParams: $routeParamsMock, Notification});
+                ctrl = $controller('sessionsEditorViewController', {$scope: $scope, $routeParams: $routeParamsMock, Notification, NgMap});
 
                 httpMock.expectGET('/api/spots/anyUserName').respond(spotsData);
                 httpMock.expectGET('/api/boards/anyUserName').respond(boardsData);
@@ -76,15 +77,17 @@ describe ('sessionsEditorView', function() {
                 $controller = _$controller_;                
                 
                 $routeParamsMock = { userName: 'anyUserName', sessionId: '1000'};
+                NgMap = {};
 
                 httpMock = $httpBackend;
                 
-                ctrl = $controller('sessionsEditorViewController', {$scope: $scope, $routeParams: $routeParamsMock, Notification});
+                ctrl = $controller('sessionsEditorViewController', {$scope: $scope, $routeParams: $routeParamsMock, Notification, NgMap});
             }));            
 
             describe('with a success GET call', function() {
 
-                beforeEach(function(){                    
+                beforeEach(function(){
+                    spyOn( $scope, 'initMap' );              
                     httpMock.expectGET('/api/sessions/anyUserName/1000').respond(sessionData);                                        
                 });
 
@@ -101,7 +104,8 @@ describe ('sessionsEditorView', function() {
                 beforeEach(function(){
                     notificationMock = Notification;
                     notificationMock.error = function () {};
-                    spyOn(notificationMock,'error');                    
+                    spyOn(notificationMock,'error');
+                    spyOn( $scope, 'initMap' );                  
                     httpMock.expectGET('/api/sessions/anyUserName/1000').respond(500,'Error getting session.');                                        
                 });
 
@@ -121,10 +125,10 @@ describe ('sessionsEditorView', function() {
                 notificationMock.success = function () {};
                 spyOn(notificationMock,'success');
                 $routeParamsMock = { userName: 'anyUserName', sessionId: '1000'};               
-
+                NgMap = {};
                 httpMock = $httpBackend;
                 
-                ctrl = $controller('sessionsEditorViewController', {$scope: $scope, $routeParams: $routeParamsMock, Notification});
+                ctrl = $controller('sessionsEditorViewController', {$scope: $scope, $routeParams: $routeParamsMock, Notification, NgMap});
             }));
 
             describe('with a success POST call', function() {

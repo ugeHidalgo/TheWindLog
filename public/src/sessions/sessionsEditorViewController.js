@@ -10,7 +10,8 @@ angular
         '$routeParams', 
         'Notification', 
         '$http',
-        function ($scope, $$routeParams, Notification, $http) {
+        'NgMap',
+        function ($scope, $$routeParams, Notification, $http, NgMap) {
 
             $scope.userName = $$routeParams.userName;
             $scope.sessionId = $$routeParams.sessionId;
@@ -132,6 +133,7 @@ angular
                 then(function (result) {
                     //Success retrieving sessions
                     $scope.session = result.data;
+                    $scope.initMap($scope.session.spot[0]);
                     $scope.sessionDate = new Date($scope.session.date);
                     $scope.sessionTime = secondsToTime ($scope.session.time);
                 }, function (error) {
@@ -172,6 +174,20 @@ angular
                 session.userName = userName;
 
                 return session;
+            };
+
+            $scope.initMap = function (spot) {
+                NgMap.getMap().then(function(map) {
+                    var myLatLng = new google.maps.LatLng(spot.lat,spot.long);
+                    map.setCenter(myLatLng);
+                    map.setZoom(15);
+                    map.setMapTypeId('satellite');
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        title: spot.name + '\nLat: ' + spot.lat + '\nLong: ' + spot.long
+                    });
+                    marker.setMap(map);
+                });
             };
 
             function secondsToTime (secondsAmount) {
