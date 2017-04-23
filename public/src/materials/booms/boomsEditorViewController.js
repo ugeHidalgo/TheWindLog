@@ -35,7 +35,6 @@ angular
             };
 
             $scope.clearItem = function() {
-                $scope.busyIndicator = true;
                 if ($$routeParams.boomId === '0') {
                     $scope.boom = prepareForNewItem($scope.userName);
                     $scope.purchaseDate = new Date($scope.boom.purchase);

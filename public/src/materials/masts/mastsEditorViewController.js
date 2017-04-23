@@ -35,7 +35,6 @@ angular
             };
 
             $scope.clearItem = function() {
-                $scope.busyIndicator = true;
                 if ($$routeParams.mastId === '0') {
                     $scope.mast = prepareForNewItem($scope.userName);
                     $scope.purchaseDate = new Date($scope.mast.purchase);

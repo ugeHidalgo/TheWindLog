@@ -36,16 +36,16 @@ angular
 
             $scope.newItem = function(username) {
                 $scope.id = 0;
-                $scope.session = prepareForNewItem(username);
+                $scope.session = $scope.prepareForNewItem(username);
                 $scope.sessionDate = new Date($scope.session.date);
             };
 
             $scope.clearItem = function() {
-                $scope.busyIndicator = true;
                 if ($$routeParams.sessionId === '0') {
-                    $scope.session = prepareForNewItem($scope.userName);
+                    $scope.session = $scope.prepareForNewItem($scope.userName);
                     $scope.sessionDate = new Date($scope.session.date);
                 } else {
+                    $scope.busyIndicator = true;
                     $scope.loadSession($$routeParams.sessionId, $$routeParams.userName);
                 }
             };
@@ -115,12 +115,12 @@ angular
                     });
             });
 
-            $scope.busyIndicator = true;
             Promise.all([loadSpots, loadBoards, loadSails, loadBooms, loadMasts]).then(function() {
                 if ($scope.sessionId === '0') {
                     $scope.id = 0;
-                    $scope.session = prepareForNewItem($scope.userName);
+                    $scope.session = $scope.prepareForNewItem($scope.userName);
                 } else {
+                    $scope.busyIndicator = true;
                     $scope.loadSession($scope.sessionId, $scope.userName)
                 }
             });

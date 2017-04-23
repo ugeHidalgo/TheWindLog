@@ -35,7 +35,6 @@ angular
             };
 
             $scope.clearItem = function() {
-                $scope.busyIndicator = true;
                 if ($$routeParams.sailId === '0') {
                     $scope.sail = prepareForNewItem($scope.userName);
                     $scope.purchaseDate = new Date($scope.sail.purchase);
