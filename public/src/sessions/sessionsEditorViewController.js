@@ -34,6 +34,10 @@ angular
                 opened: false
             };
 
+            $scope.changeSpot = function() {
+                $scope.initMap($scope.session.spot[0]);
+            };
+
             $scope.newItem = function(username) {
                 $scope.id = 0;
                 $scope.session = $scope.prepareForNewItem(username);

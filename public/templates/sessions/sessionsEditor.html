@@ -23,6 +23,7 @@
                         <select class="form-control" type="text" id="spot" name="spot"
                             ng-model="session.spot[0]"
                             ng-options="spot.name for spot in spots | orderBy:'name' track by spot._id"
+                            ng-change="changeSpot()"
                             required>
                         </select>
                         <span ng-show="sessionForm.spot.$error.required"
