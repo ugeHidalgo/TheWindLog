@@ -29,6 +29,7 @@ angular
             };
 
             $scope.clearItem = function() {
+                $scope.busyIndicator = true;
                 if ($$routeParams.spotId === '0') {
                     $scope.spot = prepareForNewItem($scope.userName);
                 } else {

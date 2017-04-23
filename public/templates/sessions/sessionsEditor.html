@@ -1,6 +1,8 @@
 <div id="sessionForm" class="col-md-12">
     <form novalidate name="sessionForm" ng-submit="addItem()" class="form-horizontal">
-
+        <div class="col-md-12">  
+            <wait-cursor display-when="busyIndicator"></wait-cursor>
+        </div>
         <div id="spotAndDateGroup" class="form-group">
                     <div class="col-md-3 date">
                         <label class="control-label">Date</label>
@@ -178,7 +180,4 @@
             </a>
         </div>
     </form>   
-    <div class="col-md-12">  
-        <wait-cursor display-when="busyIndicator"></wait-cursor>
-    </div>
 </div>

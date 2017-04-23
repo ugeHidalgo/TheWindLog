@@ -1,6 +1,8 @@
 <div id="spotForm" class="col-md-12">
+    <div class="col-md-12">  
+        <wait-cursor display-when="busyIndicator"></wait-cursor>
+    </div>
     <form novalidate name="spotForm" ng-submit="addItem()" class="form-horizontal">
-
         <div id="data" class="form-group">
             <div id="dataColumn" class="col-md-5">
 
@@ -104,7 +106,4 @@
             </a>
         </div>
     </form>   
-    <div class="col-md-12">  
-        <wait-cursor display-when="busyIndicator"></wait-cursor>
-    </div>
 </div>

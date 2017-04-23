@@ -41,11 +41,12 @@ angular
             };
 
             $scope.clearItem = function() {
+                $scope.busyIndicator = true;
                 if ($$routeParams.sessionId === '0') {
                     $scope.session = prepareForNewItem($scope.userName);
                     $scope.sessionDate = new Date($scope.session.date);
                 } else {
-                    loadSession($$routeParams.sessionId, $$routeParams.userName);
+                    $scope.loadSession($$routeParams.sessionId, $$routeParams.userName);
                 }
             };
 
@@ -120,7 +121,7 @@ angular
                     $scope.id = 0;
                     $scope.session = prepareForNewItem($scope.userName);
                 } else {
-                    loadSession($scope.sessionId, $scope.userName)
+                    $scope.loadSession($scope.sessionId, $scope.userName)
                 }
             });
 
