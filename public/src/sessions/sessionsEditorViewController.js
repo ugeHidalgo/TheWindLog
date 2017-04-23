@@ -49,10 +49,6 @@ angular
                 }
             };
 
-            $scope.saveItem = function() {
-                saveItem();
-            };
-
             var loadSpots = new Promise(function(resolve,reject) {
                 $http.get('/api/spots/' + $scope.userName).
                     then (function(spots) {
@@ -128,7 +124,7 @@ angular
                 }
             });
 
-            function loadSession(id, userName) {
+            $scope.loadSession =  function (id, userName) {
                 $http.get( '/api/sessions/' + userName + '/' + id ).
                 then(function (result) {
                     //Success retrieving sessions
@@ -145,7 +141,7 @@ angular
                 });
             };
 
-            function saveItem () {
+            $scope.saveItem = function () {
                 $scope.busyIndicator = true;
                 $scope.session.updated = new Date();
                 $scope.session.username = $scope.userName;
@@ -165,7 +161,7 @@ angular
                 });
             };
 
-            function prepareForNewItem (userName) {
+            $scope.prepareForNewItem = function (userName) {
                 var session = {};
 
                 session.date = new Date();

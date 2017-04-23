@@ -1,6 +1,6 @@
 describe ('sessionsEditorView', function() {
 
-    var sessionData = { "id": 1000, "name": "session1", "username": "anyUserName"},
+    var sessionData = { "id": 1000, "name": "session1", "username": "anyUserName", "spot": []},
         spotsData = [{ "id": 1000, "name": "spot1", "username": "anyUserName"},
                      { "id": 1001, "name": "spot2", "username": "anyUserName"} ],
         boardsData = [{ "id": 1000, "name": "board1", "username": "anyUserName"},
@@ -11,9 +11,12 @@ describe ('sessionsEditorView', function() {
                      { "id": 1001, "name": "masts2", "username": "anyUserName"} ],
         boomsData = [{ "id": 1000, "name": "booms1", "username": "anyUserName"},
                      { "id": 1001, "name": "booms2", "username": "anyUserName"} ],
-        savedSpotData = { "id": 1000, "name": "session1-saved", "username": "anyUserName"};
+        savedSessionData = { "id": 1000, "name": "session1-saved", "username": "anyUserName", 'spot': []};
 
     
+        sessionData.spot.push(spotsData[0]);
+        savedSessionData.spot.push(spotsData[0]);
+
     beforeEach(function() {
         angular.module('ui.bootstrap',[]);
         angular.module('ui-notification',[]);
@@ -45,29 +48,24 @@ describe ('sessionsEditorView', function() {
                 httpMock.expectGET('/api/sails/anyUserName').respond(sailsData);
                 httpMock.expectGET('/api/booms/anyUserName').respond(boomsData);
                 httpMock.expectGET('/api/masts/anyUserName').respond(mastsData);
+                httpMock.flush(5);
             }));
 
             it('should create the controller', function() {        
                 expect(ctrl).toBeDefined();
             });
 
-            it('should load data for spots, boards, sails, booms and masts', function() {        
-                
-                httpMock.flush();
+            it('should activate the busy indicator before save', function() {
+                expect($scope.busyIndicator).toBeTruthy();
+            });
+
+            it('should load data for spots, boards, sails, booms and masts', function() {
                 expect($scope.spots.length).toBe(2);
                 expect($scope.boards.length).toBe(2);
                 expect($scope.sails.length).toBe(2);
                 expect($scope.masts.length).toBe(2);
                 expect($scope.booms.length).toBe(2);
             });
-
-            /*it('should prepare a new session to be used by the controller', function() {        
-                
-                httpMock.flush();
-                expect($scope.session.updated).toBeDefined();
-                expect($scope.session.userName).toBe('anyUserName');
-                expect($scope.session.active).toBe(false);
-            });*/
         });
 
         describe('when loading an existing session', function() {
@@ -91,10 +89,17 @@ describe ('sessionsEditorView', function() {
                     httpMock.expectGET('/api/sessions/anyUserName/1000').respond(sessionData);                                        
                 });
 
-                /*it('should load the session to be updated', function() {        
-                    httpMock.flush();      
+                it('should load the session to be updated', function() { 
+                    $scope.loadSession('1000','anyUserName');       
+                    httpMock.flush(1);      
                     expect($scope.session).toEqual(sessionData);
-                });*/
+                });
+
+                it('should deactivate the busy indicator after load the session to be updated', function() { 
+                    $scope.loadSession('1000','anyUserName');       
+                    httpMock.flush(1);      
+                    expect($scope.busyIndicator).toBeFalsy();
+                });
             });
 
             describe('with a failure GET call', function() {
@@ -109,10 +114,11 @@ describe ('sessionsEditorView', function() {
                     httpMock.expectGET('/api/sessions/anyUserName/1000').respond(500,'Error getting session.');                                        
                 });
 
-                /*it('should get an error using Notification', function() {        
+                it('should get an error using Notification', function() {        
+                    $scope.loadSession('1000','anyUserName'); 
                     httpMock.flush();      
                     expect(Notification.error).toHaveBeenCalled();
-                });*/
+                });
             });
         });
 
@@ -135,40 +141,31 @@ describe ('sessionsEditorView', function() {
 
                 beforeEach(function(){
                     sessionData.updated = undefined;
-                    httpMock.expectPOST('/api/sessions', savedSpotData).respond(200,savedSpotData);
-                });
+                    sessionData.date = undefined;
+                    sessionData.time = undefined;
 
-                /*it('should save the session', function() {
+                    httpMock.expectPOST('/api/sessions', savedSessionData).respond(200,savedSessionData);
+                    $scope.session = sessionData;
                     $scope.session.name = 'session1-saved';    
                     $scope.saveItem();
                     $scope.session.updated = undefined; //This is to avoid problems with milisecs.
+                    $scope.session.date = undefined; //This is to avoid problems with milisecs.
+                    $scope.session.time = undefined; //This is to avoid problems with milisecs.
                     httpMock.flush();                         
+                });
+
+                it('should save the session', function() {
                     expect($scope.session.name).toEqual('session1-saved');
+                    expect($scope.session.spot.length).toBe(1);
                 });
 
-                it('should activate the busy indicator before save', function() {
-                    $scope.session.name = 'session1-saved';    
-                    $scope.saveItem();
-                    $scope.session.updated = undefined; //This is to avoid problems with milisecs.
-                    expect($scope.busyIndicator).toBeTruthy();
-                    httpMock.flush();                                             
-                });
-
-                it('should get a Notification success message', function() {
-                    $scope.session.name = 'session1-saved';    
-                    $scope.saveItem();
-                    $scope.session.updated = undefined; //This is to avoid problems with milisecs.
-                    httpMock.flush();                         
+                it('should get a Notification success message', function() {                 
                     expect(Notification.success).toHaveBeenCalled();
                 });
 
                 it('should deactivate the busy indicator after save', function() {
-                    $scope.session.name = 'session1-saved';    
-                    $scope.saveItem();
-                    $scope.session.updated = undefined; //This is to avoid problems with milisecs.                    
-                    httpMock.flush();
                     expect($scope.busyIndicator).toBeFalsy();
-                });*/
+                });
             });
         });
     });
