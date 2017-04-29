@@ -43,7 +43,7 @@ angular
                             $scope.booms.push(item);
                         }
                     });
-                } else $scope.booms = result.data;
+                } else $scope.booms = data;
             }
         }
 ]);

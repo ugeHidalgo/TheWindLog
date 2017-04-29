@@ -43,7 +43,7 @@ angular
                             $scope.sails.push(item);
                         }
                     });
-                } else $scope.sails = result.data;
+                } else $scope.sails = data;
             }
         }
     ]);

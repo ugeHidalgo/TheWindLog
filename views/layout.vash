@@ -8,6 +8,7 @@
   <link href="/lib/angular-ui-notification/dist/angular-ui-notification.min.css" rel="stylesheet" />
   @html.block("head")
   <link href="/css/site.css" rel="stylesheet" />
+  <link href="/css/switchOnOff.css" rel="stylesheet" />
 </head>
 <body id="page-top">
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">

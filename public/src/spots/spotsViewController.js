@@ -43,7 +43,7 @@ angular
                             $scope.spots.push(item);
                         }
                     });
-                } else $scope.spots = result.data;
+                } else $scope.spots = data;
             }
         }
 ]);

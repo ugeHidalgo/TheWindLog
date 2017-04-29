@@ -21,7 +21,6 @@ angular
             $scope.itemsByPage = 15;
             $scope.numberOfPages = 5;
             $scope.busyIndicator = true;
-            $scope.activeMaterials = true;
 
             $http.get(url)
                 .then(function (result) {
@@ -43,7 +42,7 @@ angular
                             $scope.boards.push(item);
                         }
                     });
-                } else $scope.boards = result.data;
+                } else $scope.boards = data;
             }
         }
 ]);

@@ -42,7 +42,7 @@ angular
                             $scope.masts.push(item);
                         }
                     });
-                } else $scope.masts = result.data;
+                } else $scope.masts = data;
             }
         }
 ]);
