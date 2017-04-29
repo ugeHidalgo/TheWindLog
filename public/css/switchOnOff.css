@@ -15,13 +15,13 @@
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    font-size: 17px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
     content: "ON";
     padding-left: 10px;
-    background-color: #34A7C1; color: #FFFFFF;
+    background-color: #EEEEEE; color: #1A1919;
 }
 .onoffswitch-inner:after {
     content: "OFF";
@@ -30,8 +30,8 @@
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 18px; margin: 6px;
-    background: #FFFFFF;
+    display: block; width: 36px; margin: -3px;
+    background: #A1A1A1;
     position: absolute; top: 0; bottom: 0;
     right: 56px;
     border: 2px solid #999999; border-radius: 20px;
@@ -42,4 +42,5 @@
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
+    background-color: #27A1CA; 
 }
