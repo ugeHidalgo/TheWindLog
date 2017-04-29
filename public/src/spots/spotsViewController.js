@@ -21,9 +21,16 @@ angular
             $scope.itemsByPage = 15;
             $scope.numberOfPages = 5;
             $scope.busyIndicator = true;
-            $scope.activeMaterials = true;
+            $scope.activeMaterials = true; 
 
-            $http.get(url)
+            getData();
+
+            $scope.reloadGrid = function () {
+                getData();
+            };
+
+            function getData() {
+                $http.get(url)
                 .then(function (result) {
                     //Success
                     filterNonActiveItems(result.data);
@@ -34,6 +41,7 @@ angular
                 .finally(function (){
                     $scope.busyIndicator = false;
                 });
+            };
 
             function filterNonActiveItems (data) {
                 $scope.spots = []
