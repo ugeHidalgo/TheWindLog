@@ -9,7 +9,7 @@
   @html.block("head")
   <link href="/css/site.css" rel="stylesheet" />
 </head>
-<body>
+<body id="page-top">
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">

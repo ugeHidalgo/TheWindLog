@@ -2,12 +2,10 @@
 @import url(http://fonts.googleapis.com/css?family=Schoolbell);
 
 body {
-  font: 14px Helvetica, Arial, sans-serif;
+  /*font: 14px Helvetica, Arial, sans-serif;*/
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
   color: #222222;
-  margin-top: 50px;
-/*  background-image: url('../img/backgrounds/bg1.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;*/
+  margin-top: 40px;
 }
 
 .rightJustified {
@@ -16,6 +14,96 @@ body {
 
 .navbar-default {
   background-color:transparent;
+}
+
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+    color: #003366;
+}
+.navbar-default {
+  background-color: white;
+  border-color: rgba(34, 34, 34, 0.05);
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.navbar-default .navbar-header .navbar-brand {
+  color: #F05F40;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-header .navbar-brand:hover,
+.navbar-default .navbar-header .navbar-brand:focus {
+  color: #eb3812;
+}
+.navbar-default .navbar-header .navbar-toggle {
+  font-weight: 700;
+  font-size: 12px;
+  color: #222222;
+  text-transform: uppercase;
+}
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+  /*text-transform: uppercase;*/
+  font-weight: 700;
+  font-size: 13px;
+  color: #222222;
+}
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus:hover {
+  color: #F05F40;
+}
+.navbar-default .nav > li.active > a,
+.navbar-default .nav > li.active > a:focus {
+  color: #F05F40 !important;
+  background-color: transparent;
+}
+.navbar-default .nav > li.active > a:hover,
+.navbar-default .nav > li.active > a:focus:hover {
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  .navbar-default {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .navbar-default .navbar-header .navbar-brand {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .navbar-default .navbar-header .navbar-brand:hover,
+  .navbar-default .navbar-header .navbar-brand:focus {
+    color: white;
+  }
+  .navbar-default .nav > li > a,
+  .navbar-default .nav > li > a:focus {
+    color: #222222;
+  }
+  .navbar-default .nav > li > a:hover,
+  .navbar-default .nav > li > a:focus:hover {
+    color: #F05F40;
+  }
+  .navbar-default.affix {
+    background-color: white;
+    border-color: rgba(34, 34, 34, 0.05);
+  }
+  .navbar-default.affix .navbar-header .navbar-brand {
+    color: #F05F40;
+    font-size: 14px;
+  }
+  .navbar-default.affix .navbar-header .navbar-brand:hover,
+  .navbar-default.affix .navbar-header .navbar-brand:focus {
+    color: #eb3812;
+  }
+  .navbar-default.affix .nav > li > a,
+  .navbar-default.affix .nav > li > a:focus {
+    color: #222222;
+  }
+  .navbar-default.affix .nav > li > a:hover,
+  .navbar-default.affix .nav > li > a:focus:hover {
+    color: #F05F40;
+  }
 }
 
 .logo {
@@ -41,6 +129,14 @@ body {
   width: 550px;
 }
 
+.btn {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  border: none;
+  border-radius: 300px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 /* Override for smart table (sort order icons)*/
 .st-sort-ascent:before{
   content: '\25B2'
@@ -52,7 +148,7 @@ body {
 
 /*-----------*/
 
-
+/*
 .note {
   display: inline-block;
   font-family: 'Schoolbell',cursive;
@@ -96,4 +192,4 @@ body {
 .maxLengthField {
   color: darkblue;
   font-family: cursive
-}
+}*/

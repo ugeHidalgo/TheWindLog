@@ -1,13 +1,13 @@
 @html.extend('layout', function(model) {
   @html.block("scripts", function (model){
-        <link href="/css/carousel.css" rel="stylesheet" />
+        // <link href="/css/carousel.css" rel="stylesheet" />
+        <link href="/css/creative.css" rel="stylesheet" />
     })
-
   @html.block("body", function (model) {
         @if (model.error) {
             <p class="text-error">Error occurred: @model.error</p>
         }
-        <div class="container">
+        @*<div class="container">
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -62,40 +62,165 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
+        </div>*@
 
-        <div class="col-md-12 text-center">
-          <br/>
-          <h3>Please register if you don´t have an account</h3>
-          <a id="singlebutton" name="singlebutton" class="btn btn-primary" href="/login/register">Register</a>
-          <br/>
-          <h3>If you have an account login here </h3>
-          <a id="singlebutton" name="singlebutton" class="btn btn-primary" href="/login/login">Login</a>
-        </div>
+        @*<section class="no-padding">
+            <div class="header header-content">
+                <div class="header-content-inner">
+                    <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
+                    <hr>
+                    <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+                    <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                </div>
+            </div>
+        </section>*@
 
-        <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="primary">
-                    <p>Would like to contact with us? That's great! You can see other stuff from us in Github, send us an email, or just tweet us !!</p>
+        <section class="bg-primary" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading">We've got what you need!</h2>
+                        <hr class="light">
+                        <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+                        <a href="#startHere" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-lg-offset-1 text-center">
-                  <i class="fa fa-github fa-3x sr-contact"></i>
-                    <p><a href="github.com/ugeHidalgo">ugehidalgo (Github)</a></p>
-                    <p></p>
+            </div>
+        </section>
+
+        <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/carousel/spot.jpg" class="portfolio-box">
+                        <img src="img/carousel/spot.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Spots
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-lg-3 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:ugehidalgo@hotmail.com">ugehidalgo@hotmail.com</a></p>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/carousel/session.jpg" class="portfolio-box">
+                        <img src="img/carousel/session.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Sessions
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-lg-3 text-center">
-                    <i class="fa fa-twitter fa-3x sr-contact"></i>
-                    <p><a href="https://twitter.com/intent/tweet?screen_name=@@ugeHidalgo">Tweet to @@ugeHidalgo</a></p>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/carousel/stats.jpg" class="portfolio-box">
+                        <img src="img/carousel/stats.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Stats
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/carousel/boards.jpg" class="portfolio-box">
+                        <img src="img/carousel/boards.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Boards
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/carousel/sails.jpg" class="portfolio-box">
+                        <img src="img/carousel/sails.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Sails
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/carousel/boom.jpg" class="portfolio-box">
+                        <img src="img/carousel/boom.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Masts & Booms
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+        <section class="bg-dark" id="startHere">
+            <div class="container text-center">
+                <div class="col-md-12 text-center">
+                  <br/>
+                  <h3>Please register if you don´t have an account</h3>
+                  <a id="singlebutton" name="singlebutton" class="btn btn-primary" href="/login/register">Register</a>
+                  <br/>
+                  <h3>If you have an account login here </h3>
+                  <a id="singlebutton" name="singlebutton" class="btn btn-primary" href="/login/login">Login</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading">Let's Get In Touch!</h2>
+                        <hr class="primary">
+                        <p>Would like to contact with us? That's great! You can see other stuff from us in Github, send us an email, or just tweet us !!</p>
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-1 text-center">
+                      <i class="fa fa-github fa-3x sr-contact"></i>
+                        <p><a href="github.com/ugeHidalgo">ugehidalgo (Github)</a></p>
+                        <p></p>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                        <p><a href="mailto:ugehidalgo@hotmail.com">ugehidalgo@hotmail.com</a></p>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <i class="fa fa-twitter fa-3x sr-contact"></i>
+                        <p><a href="https://twitter.com/intent/tweet?screen_name=@@ugeHidalgo">Tweet to @@ugeHidalgo</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
     })
   })
