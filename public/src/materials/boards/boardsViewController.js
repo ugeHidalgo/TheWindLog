@@ -21,6 +21,7 @@ angular
             $scope.itemsByPage = 15;
             $scope.numberOfPages = 5;
             $scope.busyIndicator = true;
+            $scope.activeMaterials = true;
 
             getData();
 
