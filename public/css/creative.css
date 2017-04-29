@@ -43,7 +43,8 @@ p {
   margin-bottom: 20px;
 }
 .bg-primary {
-  background-color: #003366;/*#F05F40;*/
+  background-color: #003366;
+  margin-top: -50px;
 }
 .bg-dark {
   background-color: #222222;

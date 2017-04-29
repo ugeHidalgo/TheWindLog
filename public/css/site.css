@@ -8,6 +8,10 @@ body {
   margin-top: 40px;
 }
 
+.container {
+  width: 100%;
+}
+
 .rightJustified {
   text-align: right;
 }
