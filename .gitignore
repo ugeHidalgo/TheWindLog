@@ -1,2 +1,5 @@
 /node_modules/
-/public/lib/
+/public/lib/*
+!public/lib/angular
+public/lib/angular/*
+!/public/lib/angular/angular-locale_es.js

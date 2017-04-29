@@ -18,7 +18,7 @@ angular
                 url = '/api/booms/' + userName;
 
             $scope.userName = userName;
-            $scope.itemsByPage = 10;
+            $scope.itemsByPage = 15;
             $scope.numberOfPages = 5;
             $scope.busyIndicator = true;
 
