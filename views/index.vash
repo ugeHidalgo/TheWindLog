@@ -13,8 +13,8 @@
                     <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading">We've got what you need!</h2>
                         <hr class="light">
-                        <p class="text-faded">Keep record of your sailing sessions, including data about your favourite spots, boards, sails, etc.</p>
-                        <p class="text-faded">Get information about distances, speeds, hour of use of your materials, etc.</p>
+                        <p class="text-faded">Keep records of your sailing sessions, including data about your favourite spots, boards, sails, etc.</p>
+                        <p class="text-faded">Get information about distances, speeds, use of your materials (time, distance), localization in maps of your spots, etc.</p>
                         <a href="#startHere" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
                     </div>
                 </div>

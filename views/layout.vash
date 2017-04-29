@@ -57,7 +57,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="UserMenu">
                         <li class="nav">
-                            <a href="/login/userProfile/@model.user.username">@model.user.username</a>
+                            <a href="/login/userProfile/@model.user.username">@model.user.username profile</a>
                         </li>
                         @if (model.user.username=='ugehidalgo') {
                           <li class="nav">

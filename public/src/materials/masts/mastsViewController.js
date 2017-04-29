@@ -20,11 +20,12 @@ angular
             $scope.itemsByPage = 15;
             $scope.numberOfPages = 5;
             $scope.busyIndicator = true;
+            $scope.activeMaterials = true;
 
             $http.get(url).
                 then(function (result) {
                     //Success
-                    $scope.masts = result.data;
+                    filterNonActiveItems(result.data);
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get masts !!');
@@ -32,5 +33,16 @@ angular
                 .finally(function (){
                     $scope.busyIndicator = false;
                 });
+
+            function filterNonActiveItems (data) {
+                $scope.masts = []
+                if ($scope.activeMaterials) {
+                    data.forEach(function(item) {
+                        if (item.active) {
+                            $scope.masts.push(item);
+                        }
+                    });
+                } else $scope.masts = result.data;
+            }
         }
 ]);

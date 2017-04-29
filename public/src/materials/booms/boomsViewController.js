@@ -20,12 +20,13 @@ angular
             $scope.userName = userName;
             $scope.itemsByPage = 15;
             $scope.numberOfPages = 5;
-            $scope.busyIndicator = true;
+            $scope.busyIndicator = true; 
+            $scope.activeMaterials = true;
 
             $http.get(url)
                 .then(function (result) {
                     //Success
-                    $scope.booms = result.data;
+                    filterNonActiveItems(result.data);
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get booms !!');
@@ -33,5 +34,16 @@ angular
                 .finally(function (){
                     $scope.busyIndicator = false;
                 });
+
+            function filterNonActiveItems (data) {
+                $scope.booms = []
+                if ($scope.activeMaterials) {
+                    data.forEach(function(item) {
+                        if (item.active) {
+                            $scope.booms.push(item);
+                        }
+                    });
+                } else $scope.booms = result.data;
+            }
         }
 ]);
