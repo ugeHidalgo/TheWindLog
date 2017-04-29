@@ -67,17 +67,35 @@
                     </div>
                 </div>
 
+                <div id="latGroup" class="form-group">
+                    <div class="col-md-10">
+                        <label class="control-label">Lat</label>
+                        <input class="form-control" type="text" id="lat" name="lat"
+                            ng-model="spot.lat" 
+                            readonly />
+                    </div>
+                </div>
+
+                <div id="longGroup" class="form-group">
+                    <div class="col-md-10">
+                        <label class="control-label">Long</label>
+                        <input class="form-control" type="text" id="long" name="long"
+                            ng-model="spot.long" 
+                            readonly />
+                    </div>
+                </div>
+
             </div>
 
             <div id="mapColumn" class="col-md-7">
-                <ng-map></ng-map>
+                <ng-map class="spot-map"></ng-map>
             </div>
         </div>
 
         <div id="memoGroup" class="form-group">
             <div class="col-md-12">
                 <label class="control-label">Observ.</label>
-                <textarea class="form-control" cols="80" rows="4" id="comment" name="comment"
+                <textarea class="form-control" cols="80" rows="2" id="comment" name="comment"
                         ng-model="spot.comment"></textarea>
             </div>
         </div>

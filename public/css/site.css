@@ -141,6 +141,10 @@ body {
   text-transform: uppercase;
 }
 
+.spot-map {
+  height: 450px;
+}
+
 /* Override for smart table (sort order icons)*/
 .st-sort-ascent:before{
   content: '\25B2'

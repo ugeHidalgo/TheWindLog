@@ -92,10 +92,38 @@ angular
                     map.setMapTypeId('satellite');
                     var marker = new google.maps.Marker({
                         position: myLatLng,
-                        title: spot.name + '\nLat: ' + spot.lat + '\nLong: ' + spot.long
+                        draggable: true,
+                        animation: google.maps.Animation.DROP,
+                        title: 'Spot: ' + spot.name + '\nProvince: ' + spot.province + '\nCountry: ' + spot.country,
+                        map: map
                     });
-                    marker.setMap(map);
+                    map.markers = [];
+                    map.markers.push(marker);
+
+                    google.maps.event.addListener (map, 'click' , function(event) {
+                        addMarker (event.latLng, map, spot);
+                    });
                 });
             };
+
+            function addMarker(positionClicked, map, spot) {
+                var marker;
+
+                $scope.spot.lat = positionClicked.lat();
+                $scope.spot.long = positionClicked.lng();
+
+                if (map.markers.length>0) {
+                    map.markers[0].setMap(null);
+                    map.markers =  [];
+                }
+                marker = new google.maps.Marker({
+                        position: positionClicked,
+                        draggable: true,
+                        animation: google.maps.Animation.DROP,
+                        title: 'Spot: ' + spot.name + '\nProvince: ' + spot.province + '\nCountry: ' + spot.country,
+                        map: map
+                });
+                map.markers.push(marker);
+            }
         }
 ]);
