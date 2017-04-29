@@ -27,7 +27,19 @@
                             </a>
                         </div>
                     </th>
-                    <th colspan="9">
+                    <th colspan="1">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" 
+                                    checked={{activeMaterials}}
+                                    ng-model=activeMaterials
+                                    ng-change="reloadGrid()">
+                            <label class="onoffswitch-label" for="myonoffswitch">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </th>
+                    <th colspan="8">
                         <input st-search="" class="form-control" placeholder="type here to search ..." type="text" />
                     </th>
                 </tr>
