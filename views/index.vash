@@ -1,79 +1,11 @@
 @html.extend('layout', function(model) {
   @html.block("scripts", function (model){
-        // <link href="/css/carousel.css" rel="stylesheet" />
         <link href="/css/creative.css" rel="stylesheet" />
     })
   @html.block("body", function (model) {
         @if (model.error) {
             <p class="text-error">Error occurred: @model.error</p>
         }
-        @*<div class="container">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-              <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <img src="/img/carousel/material.jpeg" alt="Chania" >
-                <div class="carousel-caption">
-                  <h3>Materials</h3>
-                  <p>Store info about your material.</p>
-                </div>
-              </div>
-
-              <div class="item">
-                <img src="/img/carousel/spot.jpg" alt="Chania" >
-                <div class="carousel-caption">
-                  <h3>Spots</h3>
-                  <p>Save your habitual spots.</p>
-                </div>
-              </div>
-            
-              <div class="item">
-                <img src="/img/carousel/session.jpg" alt="Flower">
-                <div class="carousel-caption">
-                  <h3>Sessions</h3>
-                  <p>Record your session data</p>
-                </div>
-              </div>
-
-              <div class="item">
-                <img src="/img/carousel/stats.jpeg" alt="Flower" >
-                <div class="carousel-caption">
-                  <h3>Stats</h3>
-                  <p>Get all info about your sessions, materials, etc..</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>*@
-
-        @*<section class="no-padding">
-            <div class="header header-content">
-                <div class="header-content-inner">
-                    <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
-                    <hr>
-                    <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                    <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-                </div>
-            </div>
-        </section>*@
 
         <section class="bg-primary" id="about">
             <div class="container">
@@ -81,7 +13,8 @@
                     <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading">We've got what you need!</h2>
                         <hr class="light">
-                        <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+                        <p class="text-faded">Keep record of your sailing sessions, including data about your favourite spots, boards, sails, etc.</p>
+                        <p class="text-faded">Get information about distances, speeds, hour of use of your materials, etc.</p>
                         <a href="#startHere" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
                     </div>
                 </div>
@@ -188,12 +121,13 @@
         <section class="bg-dark" id="startHere">
             <div class="container text-center">
                 <div class="col-md-12 text-center">
-                  <br/>
-                  <h3>Please register if you don´t have an account</h3>
-                  <a id="singlebutton" name="singlebutton" class="btn btn-primary" href="/login/register">Register</a>
-                  <br/>
-                  <h3>If you have an account login here </h3>
-                  <a id="singlebutton" name="singlebutton" class="btn btn-primary" href="/login/login">Login</a>
+                  <h2 class="section-heading">Starts here!</h2>
+                  <hr class="light">
+                  <p class="text-faded">Register if you don´t have an account</p>
+                  <a id="singlebutton" name="singlebutton" class="btn btn-default btn-xl sr-button" href="/login/register">Register</a>
+                  <br/><br/>
+                  <p class="text-faded">Or log here if you have one</p>
+                  <a id="singlebutton" name="singlebutton" class="btn btn-default btn-xl sr-button" href="/login/login">Login</a>
                 </div>
             </div>
         </section>
