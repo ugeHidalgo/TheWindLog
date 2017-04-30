@@ -1,26 +1,29 @@
 @html.extend('layout', function(model){
   @html.block("body", function (model) {
-    
-    <form action="/login/login" method="post" role="form" class="form-horizontal">
-      <div class="form-group">
-        <label class="control-label col-lg-1">Username</label>
-        <div class="col-lg-5">
-          <input type="text" name="username" class="form-control" placeholder="username" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-lg-1">Password</label>
-        <div class="col-lg-5">
-          <input type="password" name="password" class="form-control" placeholder="password" />
-        </div>
-      </div>
+        <div class="container col-md-3 col-md-offset-3">
+            <h1>Login</h1>
+            <form action="/login/login" method="post" role="form" class="form-horizontal">
+              <h3>Please enter your username and passworwd to login...</h3>
+              <div class="form-group">
+                <label class="control-label col-lg-1">Username</label>
+                <div class="col-lg-5">
+                  <input type="text" name="username" class="form-control" placeholder="username" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-lg-1">Password</label>
+                <div class="col-lg-5">
+                  <input type="password" name="password" class="form-control" placeholder="password" />
+                </div>
+              </div>
 
-      <div class="form-group">
-        <div class="col-lg-offset-1 col-lg-5"><input type="submit" value="login" class="btn btn-primary" /></div>
-      </div>
-      @if (model.message) {
-          <p class="errorMessage col-lg-offset-1">@model.message</p>
-      }
-    </form>
+              <div class="form-group">
+                <div class="col-lg-offset-1 col-lg-5"><input type="submit" value="login" class="btn btn-primary" /></div>
+              </div>
+              @if (model.message) {
+                  <p class="errorMessage col-lg-offset-1">@model.message</p>
+              }
+            </form>
+        </div>
   })
 })

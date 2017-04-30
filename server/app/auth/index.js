@@ -61,7 +61,7 @@
 
         app.get ('/login/login' , function (req, res) {
             res.render ('login/login', {
-               title: 'Logging',
+               title: '',
                message: req.flash('loginErrorMessage') 
             });
         });

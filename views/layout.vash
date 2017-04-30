@@ -60,11 +60,11 @@
                         <li class="nav">
                             <a href="/login/userProfile/@model.user.username">@model.user.username profile</a>
                         </li>
-                        @if (model.user.username=='ugehidalgo') {
+                        @*@if (model.user.username=='ugehidalgo') {
                           <li class="nav">
                               <a href="/login/seedSessionData/@model.user.username">Seed session data</a>
                           </li>
-                        }
+                        }*@
                         <li class="nav">
                             <a href="/logout">Logout</a>
                         </li>
