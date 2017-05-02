@@ -22,7 +22,7 @@
         },{
             name: 'RRDQuad83', model: 'WaveCult LTD 83', brand: 'RRD', volume: 83, length: 230, width: 59, year: '2014',
             purchase: new Date('2016-9-5'), price: 350, secondHand: true, active: true, username: defaultUserName,
-            maxSpeed: 38.20, avgSpeed: 19.20, distance: 198.31, time: 39211, sessions: 7
+            maxSpeed: 38.20, avgSpeed: 19.20, distance: 240.78, time: 47748, sessions: 7
         },{
             name: 'NaishWave', model: 'Naish 8.5', brand: 'Mistral', volume: 85, length: 256, width: 56, year: '2000',
             purchase: new Date('2016-4-30'), price: 0, secondHand: true, active: false, username: defaultUserName,

@@ -73,6 +73,7 @@ angular
                     //Success
                     $scope.board = result.data;
                     $scope.purchaseDate = new Date($scope.board.purchase);
+                    $scope.boardTime = secondsToTimeString ($scope.board.time);
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get selected board');
@@ -80,6 +81,15 @@ angular
                 .finally(function (){
                     $scope.busyIndicator = false;
                 });
+            };
+
+            function secondsToTimeString (secondsAmount) {
+                var days  = 1,
+                    hours = Math.floor (secondsAmount / 3600),
+                    minutes = Math.floor ((secondsAmount % 3600) / 60),
+                    seconds = Math.floor ((secondsAmount % 3600) % 60);
+
+                return hours + ':' + minutes + ':' + seconds;
             };
 
             function saveItem () {

@@ -20,6 +20,8 @@
         sessionData.updateSession = function (session, callbackFn) {
             var updatedValues = {};
 
+            session.board.distance += session.distance;
+
             if (session._id) {
                 //Update existing session.
                 updatedValues = {
