@@ -16,6 +16,8 @@
           <script src="/src/spots/spotsApp.js"></script>
           <script src="/src/spots/spotsViewController.js"></script>
           <script src="/src/spots/spotsEditorViewController.js"></script>
+          <script src="/src/spots/spotsStatsViewController.js"></script>
+
 
           <script async defer
              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpwEbxcYIR3zF6pj9imc5v44hbDSh43Is">

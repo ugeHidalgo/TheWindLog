@@ -1,5 +1,6 @@
-<div class="col-md-12">       
+<div class="col-md-12">  
     <wait-cursor display-when="busyIndicator"></wait-cursor>
+    
     <table id="spotsGrid" st-table="displayedCollection" st-safe-src="spots"  
             class="table table-responsive table-striped table-condensed">
             <thead>
@@ -15,6 +16,9 @@
                         <div class="btn-group">
                             <a type="button" class="btn btn-primary center-block" href="#spotsEditor/{{userName}}/0">
                                 <i class="glyphicon glyphicon-plus" title="Add new spot"></i>
+                            </a>
+                            <a type="button" class="btn btn-primary center-block" href="#spotsStats/{{userName}}">
+                                <i class="glyphicon glyphicon-stats" title="Stats"></i>
                             </a>
                         </div>
                     </th>

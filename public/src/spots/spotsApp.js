@@ -4,6 +4,7 @@ angular
     .module('spotsApp', [
         'spotsViewModule',
         'spotsEditorViewModule',
+        'spotsStatsViewModule',
         'ngRoute',
         'simpleControls', //WaitCursor
         'smart-table', //Grids
@@ -23,6 +24,11 @@ angular
                 when('/spotsEditor/:userName/:spotId', {
                     controller: 'spotsEditorViewController',
                     templateUrl: '/templates/spots/spotsEditor.html'
+                }).
+
+                when('/spotsStats/:userName', {
+                    controller: 'spotsStatsViewController',
+                    templateUrl: '/templates/spots/spotsStats.html'
                 }).
 
                 otherwise({
