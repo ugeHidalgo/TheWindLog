@@ -1,8 +1,13 @@
-@charset "UTF-8";
+
+$mainBar-color : #F05F40;
+$body-font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+$navbar-font-family : 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+
 /*site.scss*/
 @import url(http://fonts.googleapis.com/css?family=Schoolbell);
+
 body {
-  font-family: "Merriweather", "Helvetica Neue", Arial, sans-serif;
+  font-family: $body-font-family;
   color: #222222;
   margin-top: 60px;
 }
@@ -16,42 +21,38 @@ body {
 }
 
 .navbar-default {
-  background-color: transparent;
+  background-color:transparent;
 }
 
 .navbar-default .nav > li > a,
 .navbar-default .nav > li > a:focus {
-  color: #003366;
+    color: #003366;
 }
 
 .navbar-default {
   background-color: white;
   border-color: rgba(34, 34, 34, 0.05);
-  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: $navbar-font-family;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
 }
-
 .navbar-default .navbar-header .navbar-brand {
-  color: #F05F40;
-  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  color: $mainBar-color;
+  font-family: $navbar-font-family;
   font-weight: 700;
   text-transform: uppercase;
 }
-
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
   color: #eb3812;
 }
-
 .navbar-default .navbar-header .navbar-toggle {
   font-weight: 700;
   font-size: 12px;
   color: #222222;
   text-transform: uppercase;
 }
-
 .navbar-default .nav > li > a,
 .navbar-default .nav > li > a:focus {
   /*text-transform: uppercase;*/
@@ -59,90 +60,78 @@ body {
   font-size: 13px;
   color: #222222;
 }
-
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus:hover {
-  color: #F05F40;
+  color: $mainBar-color;
 }
-
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
-  color: #F05F40 !important;
+  color: $mainBar-color !important;
   background-color: transparent;
 }
-
 .navbar-default .nav > li.active > a:hover,
 .navbar-default .nav > li.active > a:focus:hover {
   background-color: transparent;
 }
-
 @media (min-width: 768px) {
   .navbar-default {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
   }
-
   .navbar-default .navbar-header .navbar-brand {
     color: rgba(255, 255, 255, 0.7);
   }
-
   .navbar-default .navbar-header .navbar-brand:hover,
   .navbar-default .navbar-header .navbar-brand:focus {
     color: white;
   }
-
   .navbar-default .nav > li > a,
   .navbar-default .nav > li > a:focus {
     color: #222222;
   }
-
   .navbar-default .nav > li > a:hover,
   .navbar-default .nav > li > a:focus:hover {
-    color: #F05F40;
+    color: $mainBar-color;
   }
-
   .navbar-default.affix {
     background-color: white;
     border-color: rgba(34, 34, 34, 0.05);
   }
-
   .navbar-default.affix .navbar-header .navbar-brand {
-    color: #F05F40;
+    color: $mainBar-color;
     font-size: 14px;
   }
-
   .navbar-default.affix .navbar-header .navbar-brand:hover,
   .navbar-default.affix .navbar-header .navbar-brand:focus {
     color: #eb3812;
   }
-
   .navbar-default.affix .nav > li > a,
   .navbar-default.affix .nav > li > a:focus {
     color: #222222;
   }
-
   .navbar-default.affix .nav > li > a:hover,
   .navbar-default.affix .nav > li > a:focus:hover {
-    color: #F05F40;
+    color: $mainBar-color;
   }
 }
+
 .logo {
-  margin-top: -10px;
-  margin-right: 20px;
+    margin-top: -10px;
+    margin-right: 20px;
 }
 
 .errorMessage {
   color: red;
-  font-family: cursive;
+  font-family: cursive
 }
 
 .infoMessage {
   color: gray;
-  font-family: cursive;
+  font-family: cursive
 }
 
 .passwordBox {
-  border: 1px solid lightgrey;
+  border:1px solid lightgrey;
   border-radius: 25px;
   padding: 20px;
   margin: 20px;
@@ -150,7 +139,7 @@ body {
 }
 
 .btn {
-  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: $navbar-font-family;
   border: none;
   border-radius: 300px;
   font-weight: 700;
@@ -162,12 +151,10 @@ body {
 }
 
 /* Override for smart table (sort order icons)*/
-.st-sort-ascent:before {
-  content: "▲";
+.st-sort-ascent:before{
+  content: '\25B2'
 }
 
-.st-sort-descent:before {
-  content: "▼";
+.st-sort-descent:before{
+  content: '\25BC'
 }
-
-/*# sourceMappingURL=site.css.map */

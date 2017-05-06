@@ -3,3 +3,5 @@
 !public/lib/angular
 public/lib/angular/*
 !/public/lib/angular/angular-locale_es.js
+/public/css/*
+!/public/css/*.css
