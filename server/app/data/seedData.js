@@ -114,7 +114,7 @@
         ];
 
      seedData.initialSessions = [{
-            date: new Date('2016-12-08'), spot: 'Almerimar (Pinchos)', board: 'Rocket95', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+/*            date: new Date('2016-12-08'), spot: 'Almerimar (Pinchos)', board: 'Rocket95', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
             maxSpeed: 41.2, avgSpeed: 23, distance: 41.2, time: 7021, value: 9, windDirection: 'Levante', windPressure: 20, temperature: 20, 
             comment: 'Levante moderado con mucho choppy. Muy divertido',
             username: defaultUserName
@@ -128,7 +128,7 @@
             maxSpeed: 36.7, avgSpeed: 18.9, distance: 53.94, time: 10277, value: 9, windDirection: 'Poniente', windPressure: 30, temperature: 21, 
             comment: 'Poniente medio a fuerte con poca ola.',
             username: defaultUserName
-        },{
+        },{*/
             date: new Date('2017-02-27'), spot: 'Castel', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
             maxSpeed: 34.7, avgSpeed: 16, distance: 9.2, time: 1814, value: 6, windDirection: 'Poniente', windPressure: 15, temperature: 20, 
             comment: 'Muy racheado en la orilla y mas fuerte con olas dentro. Se acabó pronto.',
@@ -179,12 +179,12 @@
             comment: 'Buen inicio de Rules.',
             username: defaultUserName
         },{
-            date: new Date('2017-04-015'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            date: new Date('2017-04-15'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
             maxSpeed: 41.9, avgSpeed: 16.2, distance: 33.93, time: 7656, value: 8, windDirection: 'SW', windPressure: 22, temperature: 25, 
             comment: 'Sube poco a poco y al final mejor.',
             username: defaultUserName
         },{
-            date: new Date('2017-04-016'), spot: 'Torrenueva', board: 'Titan', sail: 'P7Sado59', mast: 'G430R', boom: 'B3140', 
+            date: new Date('2017-04-16'), spot: 'Torrenueva', board: 'Titan', sail: 'P7Sado59', mast: 'G430R', boom: 'B3140', 
             maxSpeed: 37.9, avgSpeed: 19.2, distance: 23.99, time: 4579, value: 6, windDirection: 'Levante', windPressure: 36, temperature: 25, 
             comment: 'Empieza flojo y sube para luego bajar. Mucha ola dentro..',
             username: defaultUserName
@@ -192,6 +192,31 @@
             date: new Date('2017-04-22'), spot: 'Almerimar (Culoperro)', board: 'RRDQuad83', sail: 'NaishF47', mast: 'P400R', boom: 'B3140', 
             maxSpeed: 38.2, avgSpeed: 19.2, distance: 34.0, time: 6373, value: 7, windDirection: 'Levante', windPressure: 45, temperature: 21, 
             comment: 'Final de temporal de levante. Mucha ola para saltar y surfear.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-04-30'), spot: 'Almerimar (Camping)', board: 'RRDQuad83', sail: 'NaishF47', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 35.8, avgSpeed: 17.6, distance: 42.47, time: 8537, value: 6, windDirection: 'Poniente', windPressure: 50, temperature: 19, 
+            comment: 'Empieza flojo y va subiendo hasta estar muy pasado. Ola grande al final.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-01'), spot: 'Torrenueva', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 44, avgSpeed: 25.4, distance: 10, time: 1800, value: 8, windDirection: 'Levante', windPressure: 35, temperature: 20, 
+            comment: 'Plano y constante para slalom. Cambio a la rocket',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-01'), spot: 'Torrenueva', board: 'Rocket95', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 45.3, avgSpeed: 25.4, distance: 28.2, time: 3621, value: 9, windDirection: 'Levante', windPressure: 35, temperature: 20, 
+            comment: 'Plano y constante para slalom.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-05'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 47.7, avgSpeed: 21.4, distance: 33.93, time: 6367, value: 9, windDirection: 'SW', windPressure: 35, temperature: 22, 
+            comment: 'Se para al poco de empezar y despues se pone muy fuerte.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-07'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 36.2, avgSpeed: 12, distance: 12, time: 3600, value: 4, windDirection: 'SW', windPressure: 20, temperature: 19, 
+            comment: 'Se para al poco de empezar y despues se pone muy fuerte.',
             username: defaultUserName
         }]
 
