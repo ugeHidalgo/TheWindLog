@@ -10,7 +10,8 @@ module.exports = function (grunt){
                 files: {
                     'public/css/site.css' : 'public/scss/site.scss',
                     'public/css/creative.css' : 'public/scss/creative.scss',
-                    'public/css/switchOnOff.css' : 'public/scss/switchOnOff.scss'
+                    'public/css/switchOnOff.css' : 'public/scss/switchOnOff.scss',
+                    'public/css/d3charts.css' : 'public/scss/d3charts.scss'
                 }
             },
             dist: {
@@ -20,7 +21,9 @@ module.exports = function (grunt){
                 files: {
                     'public/css/site.min.css' : 'public/scss/site.scss',
                     'public/css/creative.min.css' : 'public/scss/creative.scss',
-                    'public/css/switchOnOff.min.css' : 'public/scss/switchOnOff.scss'
+                    'public/css/switchOnOff.min.css' : 'public/scss/switchOnOff.scss',
+                    'public/css/d3charts.min.css' : 'public/scss/d3charts.scss'
+                    
                 }
             }
         },
