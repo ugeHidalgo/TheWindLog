@@ -29,7 +29,7 @@
                  {
                     $group: {
                         _id: '$spot',
-                        nOfsessions: {$sum: 1},
+                        sessionsCount: {$sum: 1},
                         totalDistance: {$sum: '$distance'},
                         totalTime: {$sum: '$time'},
                         maxSpeed: {$max: '$maxSpeed'},
