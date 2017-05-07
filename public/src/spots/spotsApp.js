@@ -45,4 +45,10 @@ angular
                 positionY: 'top'
             });
         }
-    ]);
+    ])
+
+    .filter ('secondsToDateTime', function() {
+        return function(seconds) {
+            return new Date(0, 0, 0).setSeconds(seconds)
+        };
+    });

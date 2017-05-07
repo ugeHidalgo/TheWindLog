@@ -18,7 +18,7 @@ angular
                 url = '/api/sessionstotals/' + userName;
 
             $scope.userName = userName;
-            $scope.itemsByPage = 15;
+            $scope.itemsByPage = 10;
             $scope.numberOfPages = 5;
             $scope.busyIndicator = true;
             $scope.sessionsTotals = [];
