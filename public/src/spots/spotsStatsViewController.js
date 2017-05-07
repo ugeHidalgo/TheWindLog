@@ -7,11 +7,31 @@ angular
 
     .controller ('spotsStatsViewController',  [
         '$scope', 
+        '$window',
         '$routeParams', 
         'Notification', 
         '$http',
-        function ($scope, $$routeParams, Notification, $http) {
+        function ($scope, $window, $$routeParams, Notification, $http) {
 
-            $scope.userName = $$routeParams.userName;
+            var urlParts = $window.location.hash.split('/'),
+                userName = urlParts[2],
+                url = '/api/sessionstotals/' + userName;
+
+            $scope.userName = userName;
+            $scope.itemsByPage = 15;
+            $scope.numberOfPages = 5;
+            $scope.busyIndicator = true;
+
+            $http.get(url)
+                .then(function (result) {
+                    //Success
+                    $scope.sessionsTotals = result.data;
+                }, function (error) {
+                    //Error
+                    Notification.error ('Failed to get sessions totals !!');
+                })
+                .finally(function (){
+                    $scope.busyIndicator = false;
+                });
         }
     ]);

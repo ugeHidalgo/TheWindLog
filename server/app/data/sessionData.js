@@ -13,6 +13,33 @@
              Session.find({username:username}, callbackFn);
         };
 
+        sessionData.getSessionsTotals = function (username, callbackFn) {
+             var sessions = Session.aggregate([
+                 {
+                    $project: {
+                        _id: 1,
+                        spot: 1,
+                        distance: 1,
+                        time: 1,
+                        maxSpeed: 1,
+                        avgSpeed: 1,
+                        value: 1
+                    }
+                 },
+                 {
+                    $group: {
+                        _id: '$spot',
+                        nOfsessions: {$sum: 1},
+                        totalDistance: {$sum: '$distance'},
+                        totalTime: {$sum: '$time'},
+                        maxSpeed: {$max: '$maxSpeed'},
+                        avgSpeed: {$avg: '$avgSpeed'},
+                        avgValue: {$avg: '$value'}
+                    }
+                 }
+                ], callbackFn);
+        };
+
         sessionData.getSessionById = function (username, sessionId, callbackFn) {
              Session.findOne({username:username, _id: sessionId}, callbackFn);
         };

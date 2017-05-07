@@ -25,6 +25,20 @@
             });
         });
 
+        app.get('/api/sessionstotals/:userName', auth.ensureApiAuthenticated, function(request, response){
+
+            var userName = request.params.userName;
+
+            sessionData.getSessionsTotals ( userName, function(error, sessionsTotals) {
+                if (error){
+                    response.status(400).send(error);
+                } else {
+                    response.set('Content-Type','application/json');
+                    response.send(sessionsTotals);
+                 }
+            });
+        });
+
         app.get ('/api/sessions/:userName/:sessionId', auth.ensureAuthenticated, function (request, response) {
 
             var userName = request.params.userName,
