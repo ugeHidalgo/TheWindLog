@@ -29,13 +29,14 @@ angular
                 .then(function (result) {
                     //Success
                     $scope.sessionsTotals = result.data;
-                    $scope.sessionsTotals.forEach(function(sessionData) {
+                    drawSessionsCountChart($scope.sessionsTotals);
+                    /*$scope.sessionsTotals.forEach(function(sessionData) {
                         sessions.push (sessionData.sessionsCount);
                         if (sessions.length === $scope.sessionsTotals.length &&
                             sessions.length >0) {
-                                drawSessionsCountChart();
+                                drawSessionsCountChart($scope.sessionsTotals);
                         }
-                    });
+                    });*/
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get sessions totals !!');
@@ -44,46 +45,45 @@ angular
                     $scope.busyIndicator = false;
                 });
 
-            function drawSessionsCountChart() {
+            function drawSessionsCountChart(data) {
 
             
-                var barHeight = 20,
-                    margin = { top: 20, right: 30, bottom: 20, left: 30},
-                    chartWidth = 550 - margin.left - margin.right,
-                    chartHeight = 500 - margin.top - margin.bottom,
+                var margin = { top: 20, right: 30, bottom: 20, left: 30},
+                    chartWidth = 200,
+                    chartHeight = 325,
                     chart, bar,
-                    x = d3.scale.linear()
-                            .domain([0, d3.max(sessions)])
-                            .range([0,chartWidth]);
+                    scaleY = d3.scale.linear() //Escala el width de la barra al alto del div    
+                                .range([chartHeight, 0]);
+                                //alto del div
+                                
+                scaleY.domain([0, d3.max(data, function(d) { return d.sessionsCount; })]);
 
-                var xAxis = d3.svg.axis()
-                                .scale(x)
-                                .orient("left");
+                var barWidth = chartWidth / data.length; //El ancho de la barra
 
                 var chart = d3.select("#ch1.chart")
-                                .attr("width", chartWidth + margin.left + margin.right)
-                                .attr("height", barHeight * sessions.length + margin.top + margin.bottom);
+                                .attr("width", chartWidth )
+                                .attr("height", chartHeight);
                                 
-                chart.append("g")
-                     .attr("class", "x axis")
-                     .attr("transform", "translate (0," + chartWidth + ")")
-                     .call(xAxis);
-
                 var bar = chart.selectAll("div")
-                    .data(sessions)
-                    .enter().append("g")
-                    .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+                                .data(data)
+                                .enter().append("g")
+                                .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; }); //Desplazamiento de la barra hacia la derecha
 
                 bar.append("rect")
-                    .attr("width", x)
-                    .attr("height", barHeight - 1);
+                    .attr("y", function(d) { return scaleY(d.sessionsCount); })
+                    .attr("height", function(d) { return chartHeight - scaleY(d.sessionsCount); }) //Para darle la vuelta a la barra ya que el 0,0 es el top left.
+                    .attr("width", barWidth - 1);
 
                 bar.append("text")
-                    .attr("x", function(d) { return x(d) - 3; }) //style sirve para fijar attributos de HTML
-                    .attr("y", barHeight / 2)
-                    .attr("dy", ".35em")
-                    .text(function(d) { return d; });
+                    .attr("x", barWidth / 2 ) //x left 
+                    .attr("y", function(d) { return scaleY(d.sessionsCount) + 3; }) //y bottom
+                    .attr("dy", ".75em")
+                    .text(function(d) { return d.sessionsCount; });
+            };
 
+            function type(d) {
+                d.sessionsCount = +d.sessionsCount; // coerce to number
+                return d;
             };
         }
     ]);
