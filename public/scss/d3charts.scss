@@ -1,7 +1,7 @@
 
 .chart {
-    border: solid;
-    border-width: 1px;
+    //border: solid;
+    //border-width: 1px;
     //margin: 30px 10px 10px 0px;
     //padding: 5px;
     border-radius: 5px;
@@ -32,6 +32,10 @@
         fill: none;
         stroke: #000;
         shape-rendering: crispEdges
+    }
+
+.x.axis path {
+    display: none;
     }
 }
 
