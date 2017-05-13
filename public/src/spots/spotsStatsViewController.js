@@ -30,6 +30,7 @@ angular
                     $scope.sessionsTotals = result.data;
                     drawSessionsTotalChart($scope.sessionsTotals, "#ch1.chart", "Count");
                     drawSessionsTotalChart($scope.sessionsTotals, "#ch2.chart", "Distance");
+                    drawSessionsTotalChart($scope.sessionsTotals, "#ch3.chart", "Time");
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get sessions totals !!');
@@ -41,7 +42,7 @@ angular
             function drawSessionsTotalChart(data, chartId, fieldData) {
 
                 var margin = { top: 20, right: 30, bottom: 100, left: 40},
-                    chartWidth = 500 - margin.left - margin.right,
+                    chartWidth = 650 - margin.left - margin.right,
                     chartHeight = 325 - margin.top - margin.bottom,
                     chart, chartbar,
                     barWidth = chartWidth / data.length; //El ancho de la barra
@@ -104,6 +105,9 @@ angular
                                 if (fieldData === 'Distance'){
                                     return y(d.totalDistance);
                                 }
+                                if (fieldData === 'Time'){
+                                    return y(d.totalTime);
+                                }
                             })
                             .attr("height", function(d) {
                                 if (fieldData === 'Count'){ 
@@ -112,7 +116,9 @@ angular
                                 if (fieldData === 'Distance'){ 
                                     return chartHeight - y(d.totalDistance) - 1; 
                                 }
-
+                                if (fieldData === 'Time'){ 
+                                    return chartHeight - y(d.totalTime) - 1; 
+                                }
                             }) 
                             .attr("width", x.rangeBand());
             };
@@ -123,8 +129,8 @@ angular
             };
 
             function setNumberOfTicksInVertAxis(maxValue) {
-                if (maxValue > 1000 ){
-                    return maxValue / 100;
+                if (maxValue > 100 ) {
+                    return 10;
                 } 
                 if (maxValue > 10 ){
                     return maxValue / 10;
@@ -138,6 +144,9 @@ angular
                 } 
                 if (fieldData === 'Distance'){
                     return d.totalDistance;
+                }
+                if (fieldData === 'Time'){
+                    return d.totalTime;
                 }
                 return 0;
             };
