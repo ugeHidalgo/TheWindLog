@@ -1,11 +1,10 @@
 .chart {
   border-radius: 5px;
-}
-.chart div {
-  font: 10px sans-serif;
-  background-color: steelblue;
-  text-align: left;
-  color: white;
+  /*    div {
+          font: 10px sans-serif;
+          background-color: steelblue;
+          text-align: right;
+      }*/
 }
 .chart rect {
   fill: steelblue;
@@ -14,7 +13,7 @@
   fill: red;
 }
 .chart text {
-  fill: white;
+  fill: black;
   font: 10px sans-serif;
   text-anchor: end;
 }

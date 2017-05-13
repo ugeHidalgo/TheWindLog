@@ -2,17 +2,12 @@
 .chart {
     //border: solid;
     //border-width: 1px;
-    //margin: 30px 10px 10px 0px;
-    //padding: 5px;
     border-radius: 5px;
-    div {
+/*    div {
         font: 10px sans-serif;
         background-color: steelblue;
-        text-align: left;
-        //padding: 3px;
-        //margin: 1px;
-        color: white;
-    }
+        text-align: right;
+    }*/
     rect {
         fill: steelblue;
         &:hover {
@@ -21,7 +16,7 @@
     }
 
     text {
-        fill: white;
+        fill: black;
         font: 10px sans-serif;
         text-anchor: end;
     }
