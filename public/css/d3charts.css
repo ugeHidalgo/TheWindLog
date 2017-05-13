@@ -1,6 +1,4 @@
 .chart {
-  border: solid;
-  border-width: 1px;
   border-radius: 5px;
 }
 .chart div {
@@ -11,6 +9,9 @@
 }
 .chart rect {
   fill: steelblue;
+}
+.chart rect:hover {
+  fill: red;
 }
 .chart text {
   fill: white;
@@ -25,6 +26,9 @@
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+.axis .x.axis path {
+  display: none;
 }
 
 /*# sourceMappingURL=d3charts.css.map */

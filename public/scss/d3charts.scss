@@ -15,7 +15,11 @@
     }
     rect {
         fill: steelblue;
+        &:hover {
+            fill:  red;
+        }
     }
+
     text {
         fill: white;
         font: 10px sans-serif;

@@ -1,2 +1,2 @@
-.chart{border:solid;border-width:1px;border-radius:5px}.chart div{font:10px sans-serif;background-color:steelblue;text-align:left;color:white}.chart rect{fill:steelblue}.chart text{fill:white;font:10px sans-serif;text-anchor:end}.axis text{font:10px sans-serif}.axis path,.axis line{fill:none;stroke:#000;shape-rendering:crispEdges}
+.chart{border-radius:5px}.chart div{font:10px sans-serif;background-color:steelblue;text-align:left;color:white}.chart rect{fill:steelblue}.chart rect:hover{fill:red}.chart text{fill:white;font:10px sans-serif;text-anchor:end}.axis text{font:10px sans-serif}.axis path,.axis line{fill:none;stroke:#000;shape-rendering:crispEdges}.axis .x.axis path{display:none}
 /*# sourceMappingURL=d3charts.min.css.map */
