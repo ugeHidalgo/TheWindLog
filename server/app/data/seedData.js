@@ -133,7 +133,7 @@
             maxSpeed: 34.7, avgSpeed: 16, distance: 9.2, time: 1814, value: 6, windDirection: 'Poniente', windPressure: 15, temperature: 20, 
             comment: 'Muy racheado en la orilla y mas fuerte con olas dentro. Se acabó pronto.',
             username: defaultUserName
-        },,{
+        },{
             date: new Date('2017-03-17'), spot: 'Azucenas', board: 'Rocket95', sail: 'NaishF47', mast: 'P400R', boom: 'B3140',
             maxSpeed: 38.2, avgSpeed: 10.7, distance: 3, time: 960, value: 6, windDirection: 'Levante', windPressure: 40, temperature: 20, 
             comment: 'Rachas muy muy fuertes.',
@@ -217,6 +217,26 @@
             date: new Date('2017-05-07'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
             maxSpeed: 36.2, avgSpeed: 12, distance: 12, time: 3600, value: 4, windDirection: 'SW', windPressure: 20, temperature: 19, 
             comment: 'Se para al poco de empezar y despues se pone muy fuerte.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-12'), spot: 'Ponde', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 34.4, avgSpeed: 11.18, distance: 5.45, time: 1698, value: 2, windDirection: 'Poniente', windPressure: 15, temperature: 20, 
+            comment: 'Empieza muy bién y dura un largo. Planísimo.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-13'), spot: 'Castel', board: 'Rocket95', sail: 'P7Slash52', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 34.5, avgSpeed: 10.5, distance: 1.79, time: 616, value: 0, windDirection: 'Poniente', windPressure: 30, temperature: 21, 
+            comment: 'Muy racheado y soplando mal en la salida. Me salgo y me voy a la Ponde',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-13'), spot: 'Ponde', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 41.4, avgSpeed: 23.8, distance: 21, time: 3192, value: 8, windDirection: 'Poniente', windPressure: 30, temperature: 21, 
+            comment: 'Muy Plano perfecto.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-13'), spot: 'Ponde', board: 'Rocket95', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 41.4, avgSpeed: 25.8, distance: 21.9, time: 3192, value: 9, windDirection: 'Poniente', windPressure: 35, temperature: 21, 
+            comment: 'Muy Plano perfecto y empieza a subir hasta ir pasado al final.',
             username: defaultUserName
         }]
 

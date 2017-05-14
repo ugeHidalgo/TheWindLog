@@ -40,9 +40,9 @@ angular
 
             $scope.$watch( 'displayedCollection', function (newItems, oldItems) {
                 removeBars();
-                drawSessionsTotalChart(newItems, "#ch1.chart", "Count");
-                drawSessionsTotalChart(newItems, "#ch2.chart", "Distance");
-                drawSessionsTotalChart(newItems, "#ch3.chart", "Time");
+                drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
+                drawSessionsTotalChart(newItems, "#ch-bar-distance.chart", "Distance");
+                drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");
             });
 
             function removeBars() {
