@@ -53,7 +53,7 @@ angular
             function drawSessionsTotalChart(data, chartId, fieldData) {
 
                 var margin = { top: 20, right: 30, bottom: 100, left: 40},
-                    chartWidth = 650 - margin.left - margin.right,
+                    chartWidth = 450 - margin.left - margin.right,
                     chartHeight = 325 - margin.top - margin.bottom,
                     chart, chartbar,
                     barWidth = chartWidth / data.length; //El ancho de la barra
