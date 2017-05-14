@@ -14,7 +14,7 @@ angular
         function ($scope, $window, $$routeParams, Notification, $http) {
 
             var urlParts = $window.location.hash.split('/'),
-                userName = urlParts[2],
+                userName = urlParts[2], data = [],
                 url = '/api/sessionstotals/' + userName;
 
             $scope.userName = userName;
@@ -23,7 +23,6 @@ angular
             $scope.busyIndicator = true;
             $scope.sessionsTotals = [];
             
-
             $http.get(url)
                 .then(function (result) {
                     //Success
@@ -38,6 +37,18 @@ angular
                 .finally(function (){
                     $scope.busyIndicator = false;
                 });
+
+            $scope.$watch( 'displayedCollection', function (newItems, oldItems) {
+                removeBars();
+                drawSessionsTotalChart(newItems, "#ch1.chart", "Count");
+                drawSessionsTotalChart(newItems, "#ch2.chart", "Distance");
+                drawSessionsTotalChart(newItems, "#ch3.chart", "Time");
+            });
+
+            function removeBars() {
+                d3.selectAll(".bar").remove();
+                d3.selectAll("g").remove();
+            };
 
             function drawSessionsTotalChart(data, chartId, fieldData) {
 

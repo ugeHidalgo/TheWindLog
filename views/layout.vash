@@ -98,7 +98,9 @@
   <script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script src="/lib/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
 
-  <script src="/src/simpleControls.js"></script>
+  <script src="/src/directives/simpleControls.js"></script>
+  <script src="/src/directives/filteredCollection.js"></script>
+  <script src="/src/directives/onFilter.js"></script>
   @html.block('scripts')
 </body>
 </html>
