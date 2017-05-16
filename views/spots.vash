@@ -15,6 +15,7 @@
           <script src="/lib/ngmap/build/scripts/ng-map.min.js"></script>
 
           <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+          <script src="/src/directives/d3Charts/d3Charts.js"></script>
 
           <script src="/src/spots/spotsApp.js"></script>
           <script src="/src/spots/spotsViewController.js"></script>

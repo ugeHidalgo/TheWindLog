@@ -6,6 +6,7 @@ angular
         'spotsEditorViewModule',
         'spotsStatsViewModule',
         'ngRoute',
+        'd3Charts',
         'simpleControls', //WaitCursor
         'smart-table', //Grids
         'ngMap',
