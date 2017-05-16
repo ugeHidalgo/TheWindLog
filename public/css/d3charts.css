@@ -8,6 +8,9 @@
 }
 .chart rect {
   fill: steelblue;
+  transition: lengh 1s ease-out;
+  -moz-transition: lengh 1s ease-out;
+  -webkit-transition: lengh 1s ease-out;
 }
 .chart rect:hover {
   fill: red;

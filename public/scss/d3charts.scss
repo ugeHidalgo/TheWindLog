@@ -10,6 +10,10 @@
     }*/
     rect {
         fill: steelblue;
+        transition: lengh 1s ease-out;
+        -moz-transition: lengh 1s ease-out;
+        -webkit-transition: lengh 1s ease-out;
+
         &:hover {
             fill:  red;
         }

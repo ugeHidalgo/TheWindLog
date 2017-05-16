@@ -75,7 +75,8 @@ angular
                             .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, fieldData) })))
                             .tickSize (chartWidth);
 
-                var chart = d3.select(chartId)
+                var chart = d3.select(chartId)                            
+                            .attr("class","chart")
                             .attr("width", chartWidth + margin.left + margin.right )
                             .attr("height", chartHeight + margin.bottom + margin.top )
                             .append("g") //Para centrar el chart con los margenes definidos.
@@ -104,11 +105,26 @@ angular
                             .style("text-anchor","right")
                             .text("Sessions/Spot: " + fieldData);
                                 
-                chart.selectAll(".bar")
+                chart.selectAll("rect")
                         .data(data)
-                        .enter().append("rect")
+                        .enter().append("rect")                            
                             .attr("class","bar")
                             .attr("x", function(d) { return x(d._id[0].name); })
+                            .attr("y", function(d) { return chartHeight; })                                
+                            .attr("width", x.rangeBand())
+                            .attr("height", 0)
+                            .transition().duration(800)
+                            .attr("height", function(d) {
+                                if (fieldData === 'Count'){ 
+                                    return chartHeight - y(d.sessionsCount) - 1; 
+                                }
+                                if (fieldData === 'Distance'){ 
+                                    return chartHeight - y(d.totalDistance) - 1; 
+                                }
+                                if (fieldData === 'Time'){ 
+                                    return chartHeight - y(d.totalTime) - 1; 
+                                }
+                            })
                             .attr("y", function(d) { 
                                 if (fieldData === 'Count'){
                                     return y(d.sessionsCount);
@@ -120,18 +136,6 @@ angular
                                     return y(d.totalTime);
                                 }
                             })
-                            .attr("height", function(d) {
-                                if (fieldData === 'Count'){ 
-                                    return chartHeight - y(d.sessionsCount) - 1; 
-                                }
-                                if (fieldData === 'Distance'){ 
-                                    return chartHeight - y(d.totalDistance) - 1; 
-                                }
-                                if (fieldData === 'Time'){ 
-                                    return chartHeight - y(d.totalTime) - 1; 
-                                }
-                            }) 
-                            .attr("width", x.rangeBand());
             };
 
             function type(d) {
