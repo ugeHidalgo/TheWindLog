@@ -52,7 +52,7 @@ angular
 
             function drawSessionsTotalChart(data, chartId, fieldData) {
 
-                var margin = { top: 20, right: 30, bottom: 100, left: 40},
+                var margin = { top: 20, right: 50, bottom: 100, left: 20},
                     chartWidth = 450 - margin.left - margin.right,
                     chartHeight = 325 - margin.top - margin.bottom,
                     chart, chartbar,
@@ -90,7 +90,7 @@ angular
                         .attr("y", 0)
                         .attr("x", 9)
                         .attr("dy", ".35em")
-                        .attr("transform", "rotate(90)")
+                        .attr("transform", "rotate(45)")
                         
                         .style("text-anchor", "start");
 
@@ -100,20 +100,19 @@ angular
                         .append("text")
                             //.attr("transform", "rotate(-90)")
                             .attr("x",chartWidth)
-                            .attr("y",-10)
+                            .attr("y",-9)
                             .attr("dy", ".71em")
                             .style("text-anchor","right")
                             .text("Sessions/Spot: " + fieldData);
                                 
                 chart.selectAll("rect")
                         .data(data)
-                        .enter().append("rect")                            
-                            .attr("class","bar")
+                        .enter().append("rect")                                                      
                             .attr("x", function(d) { return x(d._id[0].name); })
                             .attr("y", function(d) { return chartHeight; })                                
                             .attr("width", x.rangeBand())
                             .attr("height", 0)
-                            .transition().duration(800)
+                            .transition().ease("elastic")
                             .attr("height", function(d) {
                                 if (fieldData === 'Count'){ 
                                     return chartHeight - y(d.sessionsCount) - 1; 

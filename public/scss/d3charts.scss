@@ -1,19 +1,13 @@
 
 .chart {
-    //border: solid;
-    //border-width: 1px;
-    border-radius: 5px;
-/*    div {
-        font: 10px sans-serif;
-        background-color: steelblue;
-        text-align: right;
-    }*/
+    background: #eee;
+    padding: 3px;
+    
     rect {
         fill: steelblue;
-        transition: lengh 1s ease-out;
-        -moz-transition: lengh 1s ease-out;
-        -webkit-transition: lengh 1s ease-out;
-
+        transition: all .5s ease-out;
+        -moz-transition: all .5s ease-out;
+        -webkit-transition: all .5s ease-out;       
         &:hover {
             fill:  red;
         }
