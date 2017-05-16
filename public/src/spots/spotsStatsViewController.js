@@ -22,11 +22,13 @@ angular
             $scope.numberOfPages = 5;
             $scope.busyIndicator = true;
             $scope.sessionsTotals = [];
+            $scope.myData = [100,20,34,56,34,90];
             
             $http.get(url)
                 .then(function (result) {
                     //Success
                     $scope.sessionsTotals = result.data;
+                    //$scope.myData = [100,20,34,56,34,90];
                     drawSessionsTotalChart($scope.sessionsTotals, "#ch1.chart", "Count");
                     drawSessionsTotalChart($scope.sessionsTotals, "#ch2.chart", "Distance");
                     drawSessionsTotalChart($scope.sessionsTotals, "#ch3.chart", "Time");
