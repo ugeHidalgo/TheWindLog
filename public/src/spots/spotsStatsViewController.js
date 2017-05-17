@@ -28,7 +28,7 @@ angular
                 .then(function (result) {
                     //Success
                     $scope.sessionsTotals = result.data;
-                    //$scope.myData = [100,20,34,56,34,90];
+                    $scope.myData = result.data;
                     drawSessionsTotalChart($scope.sessionsTotals, "#ch1.chart", "Count");
                     drawSessionsTotalChart($scope.sessionsTotals, "#ch2.chart", "Distance");
                     drawSessionsTotalChart($scope.sessionsTotals, "#ch3.chart", "Time");
@@ -41,6 +41,7 @@ angular
                 });
 
             $scope.$watch( 'displayedCollection', function (newItems, oldItems) {
+                $scope.myData = newItems;
                 removeBars();
                 drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
                 drawSessionsTotalChart(newItems, "#ch-bar-distance.chart", "Distance");
