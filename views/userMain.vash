@@ -1,18 +1,27 @@
 @html.extend('layout', function(model) {
+    @html.block("body", function (model) {
+          @if (model.error) {
+              <p class="text-error">Error occurred: @model.error</p>
+          }
 
-  @html.block("scripts", function (model){
-    }) <!-- scripts -->
+          <link href="/css/d3charts.min.css" rel="stylesheet" />
 
-  @html.block("body", function (model) {
-        @if (model.error) {
-            <p class="text-error">Error occurred: @model.error</p>
-        }
-        
-        <div>
-            <h3>Main panel for user: @model.user.username</h3>
-            <h1>Under construction</h1> 
-            <img src="/img/underConstruction.jpg" alt="under construction" height="453" width="700"/>
-        </div>
-    }) <!-- body -->
+          @*<div>
+              <h3>Main panel for user: @model.user.username</h3>
+              <h1>Under construction</h1> 
+              <img src="/img/underConstruction.jpg" alt="under construction" height="453" width="700"/>
+          </div>*@
 
+          <div ng-app="userMainApp">
+                <div ng-view></div>
+          </div>
+
+          @html.block("scripts", function (model){
+               <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+                <script src="/src/directives/d3Charts/d3Charts.js"></script>
+
+                <script src="/src/userMain/userMainApp.js"></script>
+                <script src="/src/userMain/userMainStatsViewController.js"></script>
+          }) <!-- scripts -->
+      }) <!-- body -->
   }) <!-- Layout -->
