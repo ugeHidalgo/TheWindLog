@@ -7,22 +7,21 @@ angular.module('d3Charts', []).
          replace: false,
          template: '<div id="chart2"></div>',
          link: function ($scope, element, attrs) {
-           var data = $scope.myData;
-
-           drawChart(data);
-           //drawSessionsTotalChart($scope.myData, "#ch1.chart", "Count");
+           var data = $scope.myData;          
            
            $scope.$watch( 'myData', function (newItems, oldItems) {
                 removeBars();
-                drawChart(newItems);
-                //drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
+                //drawChart(newItems);
+                drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
+                drawSessionsTotalChart(newItems, "#ch-bar-distance.chart", "Distance");
+                drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");
             });
          }       
       };      
    });
 
 
-function drawChart (data){
+/*function drawChart (data){
     //var data = attrs.data.split(','),
     chart = d3.select('#chart2')
       .append("div").attr("class", "chart2")
@@ -32,10 +31,12 @@ function drawChart (data){
       .transition().ease("elastic")
       .style("width", function(d) { return d.sessionsCount * 50; })
       .text(function(d) { return d.sessionsCount; });
-}
+}*/
 
 function removeBars() {
-    d3.select("#chart2").selectAll("div").remove();
+    //d3.select("#chart2").selectAll("div").remove();
+    d3.selectAll(".bar").remove();
+    d3.selectAll("g").remove();
 };
 
 function drawSessionsTotalChart(data, chartId, fieldData) {
@@ -48,14 +49,15 @@ function drawSessionsTotalChart(data, chartId, fieldData) {
         chart, chartbar,
         barWidth = chartWidth / data.length; //El ancho de la barra
 
-    var x = d3.scale.ordinal()
+
+    var x = d3.scale.ordinal() //Scale dimensions to max values 
                     .rangeRoundBands([0,chartWidth], .1)
                     .domain(data.map( function(d) { return d._id[0].name; })),
-        y = d3.scale.linear() //Escala el width de la barra al alto del div    
+        y = d3.scale.linear()    
                     .range([chartHeight, 0])
                     .domain([0, d3.max(data, function(d) { return sessionDataCount(d, fieldData) })]);
 
-    var xAxis = d3.svg.axis()
+    var xAxis = d3.svg.axis() //Define axis
                 .scale(x)
                 .orient("bottom"),
         yAxis = d3.svg.axis()
@@ -65,14 +67,14 @@ function drawSessionsTotalChart(data, chartId, fieldData) {
                 .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, fieldData) })))
                 .tickSize (chartWidth);
 
-    var chart = d3.select(chartId)                            
+    var chart = d3.select(chartId)  //Center chart using margins                          
                 .attr("class","chart")
                 .attr("width", chartWidth + margin.left + margin.right )
                 .attr("height", chartHeight + margin.bottom + margin.top )
-                .append("g") //Para centrar el chart con los margenes definidos.
+                .append("g") 
                     .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
-    chart.append("g")
+    chart.append("g") //Append axis and define texts
             .attr("class", "x axis")
             .attr("transform", "translate (0," + chartHeight + ")")
             .call(xAxis)
@@ -80,22 +82,20 @@ function drawSessionsTotalChart(data, chartId, fieldData) {
             .attr("y", 0)
             .attr("x", 9)
             .attr("dy", ".35em")
-            .attr("transform", "rotate(45)")
-            
+            .attr("transform", "rotate(45)")            
             .style("text-anchor", "start");
 
     chart.append("g")
             .attr("class", "y axis")
             .call(yAxis)
             .append("text")
-                //.attr("transform", "rotate(-90)")
                 .attr("x",chartWidth)
                 .attr("y",-9)
                 .attr("dy", ".71em")
                 .style("text-anchor","right")
                 .text("Sessions/Spot: " + fieldData);
                     
-    chart.selectAll("rect")
+    chart.selectAll("rect") //Draw bar positioning first and resizing to value with animation
             .data(data)
             .enter().append("rect")                                                      
                 .attr("x", function(d) { return x(d._id[0].name); })

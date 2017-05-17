@@ -21,8 +21,9 @@ angular
             $scope.itemsByPage = 10;
             $scope.numberOfPages = 5;
             $scope.busyIndicator = true;
-            $scope.sessionsTotals = [];
-            $scope.myData = [100,20,34,56,34,90];
+            //$scope.sessionsTotals = [];
+            $scope.myData = [];
+            //$scope.myData = [100,20,34,56,34,90];
             
             $http.get(url)
                 .then(function (result) {
@@ -48,7 +49,7 @@ angular
                 drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");*/
             });
 
-            function removeBars() {
+            /*function removeBars() {
                 d3.selectAll(".bar").remove();
                 d3.selectAll("g").remove();
             };
@@ -166,6 +167,6 @@ angular
                     return d.totalTime;
                 }
                 return 0;
-            };
+            };*/
         }
     ]);
