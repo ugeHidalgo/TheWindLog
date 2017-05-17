@@ -29,9 +29,9 @@ angular
                     //Success
                     $scope.sessionsTotals = result.data;
                     $scope.myData = result.data;
-                    drawSessionsTotalChart($scope.sessionsTotals, "#ch1.chart", "Count");
-                    drawSessionsTotalChart($scope.sessionsTotals, "#ch2.chart", "Distance");
-                    drawSessionsTotalChart($scope.sessionsTotals, "#ch3.chart", "Time");
+                    //drawSessionsTotalChart($scope.sessionsTotals, "#ch1.chart", "Count");
+                    /*drawSessionsTotalChart($scope.sessionsTotals, "#ch2.chart", "Distance");
+                    drawSessionsTotalChart($scope.sessionsTotals, "#ch3.chart", "Time");*/
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get sessions totals !!');
@@ -43,9 +43,9 @@ angular
             $scope.$watch( 'displayedCollection', function (newItems, oldItems) {
                 $scope.myData = newItems;
                 removeBars();
-                drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
-                drawSessionsTotalChart(newItems, "#ch-bar-distance.chart", "Distance");
-                drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");
+                //drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
+                /*drawSessionsTotalChart(newItems, "#ch-bar-distance.chart", "Distance");
+                drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");*/
             });
 
             function removeBars() {
