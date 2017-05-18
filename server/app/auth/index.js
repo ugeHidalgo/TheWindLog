@@ -73,7 +73,7 @@
             }), 
             function (req, res) {
                 if (req.user) {
-                    res.redirect ('/userMain/' + req.user.username);
+                    res.redirect ('/userMain/#' + req.user.username);
                 } 
             }
         );

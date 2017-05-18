@@ -13,7 +13,7 @@ angular
 
             $locationProvider.hashPrefix('');
             $routeProvider.
-                when('/userMain/:userName', {
+                when('/:userName', {
                     controller: 'userMainStatsViewController',
                     templateUrl: '/templates/userMain/userMainStats.html'
                 }).

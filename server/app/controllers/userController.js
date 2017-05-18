@@ -6,7 +6,7 @@
 
     userController.init = function (app) {
 
-        app.get ('/userMain/:userName', auth.ensureAuthenticated, function (req, res) {
+        app.get ('/userMain', auth.ensureAuthenticated, function (req, res) {
 
             var userName = req.params.userName;
 
@@ -45,7 +45,7 @@
             });
         });*/
 
-        app.get ('/userMain/:userName', auth.ensureAuthenticated, function (req, res) {
+        /*app.get ('/userMain/:userName', auth.ensureAuthenticated, function (req, res) {
 
             var userName = req.params.userName;
 
@@ -56,7 +56,7 @@
                     res.render ('userMain', { title: '', user: user });
                  }
             });
-        });
+        });*/
 
         app.get('/api/user/:userName', auth.ensureApiAuthenticated, function(request, response){
 
