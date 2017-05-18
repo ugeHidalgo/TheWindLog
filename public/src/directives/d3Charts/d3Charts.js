@@ -1,45 +1,31 @@
 angular.module('d3Charts', []).
 
-   directive('bars', function ($parse) {
+   directive('bars', function ($window) {
       return {
          restrict: 'E',
          scope: {myData: '=chartData'},
          replace: false,
-         template: '<div id="chart2"></div>',
+         template: '<svg id="chart"></svg>',
          link: function ($scope, element, attrs) {
-           var data = $scope.myData;                    
+           var data = $scope.myData;                   
            
            $scope.$watch( 'myData', function (newItems, oldItems) {
                 removeBars();
-                //drawChart(newItems);
-                drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
-                drawSessionsTotalChart(newItems, "#ch-bar-distance.chart", "Distance");
-                drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");
+                drawSessionsTotalChart(newItems, element, 0, "#ch-bar-count.chart", "Count");
+                //drawSessionsTotalChart(newItems, element, 1, "#ch-bar-distance.chart", "Distance");
+                //drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");
             }, true);
          }       
       };      
    });
 
 
-/*function drawChart (data){
-    //var data = attrs.data.split(','),
-    chart = d3.select('#chart2')
-      .append("div").attr("class", "chart2")
-      .selectAll('div')
-      .data(data).enter()
-      .append("div")
-      .transition().ease("elastic")
-      .style("width", function(d) { return d.sessionsCount * 50; })
-      .text(function(d) { return d.sessionsCount; });
-}*/
-
 function removeBars() {
-    //d3.select("#chart2").selectAll("div").remove();
     d3.selectAll(".bar").remove();
     d3.selectAll("g").remove();
 };
 
-function drawSessionsTotalChart(data, chartId, fieldData) {
+function drawSessionsTotalChart(data, element, elementId, chartId, fieldData) {
 
     if (data.length === 0) return;
 
@@ -67,7 +53,9 @@ function drawSessionsTotalChart(data, chartId, fieldData) {
                 .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, fieldData) })))
                 .tickSize (chartWidth);
 
-    var chart = d3.select(chartId)  //Center chart using margins                          
+    var chart = d3.select(element[0])//chartId)  //Center chart using margins                          
+                .append("svg")
+                .attr("id",chartId)
                 .attr("class","chart")
                 .attr("width", chartWidth + margin.left + margin.right )
                 .attr("height", chartHeight + margin.bottom + margin.top )

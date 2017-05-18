@@ -16,7 +16,10 @@
                 <div ng-view></div>
           </div>
 
-          @html.block("scripts", function (model){                
+          @html.block("scripts", function (model){ 
+                <script src="/lib/angular-smart-table/dist/smart-table.min.js"></script>
+                <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
                 <script src="/src/userMain/userMainApp.js"></script>
                 <script src="/src/userMain/userMainStatsViewController.js"></script>
 
