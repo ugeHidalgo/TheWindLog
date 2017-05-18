@@ -36,9 +36,9 @@ angular
                     $scope.busyIndicator = false;
                 });
 
-            $scope.$watch( 'displayedCollection', function (newItems, oldItems) {
-                $scope.myData = newItems;
-                removeBars();
-            });
+            /*$scope.$watch( 'sessionsTotals', function (newItems, oldItems) {
+                 $scope.myData = newItems;
+                 //removeBars();
+             }, true);*/
         }
     ]);

@@ -16,12 +16,12 @@
                 <div ng-view></div>
           </div>
 
-          @html.block("scripts", function (model){
-               <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-                <script src="/src/directives/d3Charts/d3Charts.js"></script>
-
+          @html.block("scripts", function (model){                
                 <script src="/src/userMain/userMainApp.js"></script>
                 <script src="/src/userMain/userMainStatsViewController.js"></script>
+
+                <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+                <script src="/src/directives/d3Charts/d3Charts.js"></script>
           }) <!-- scripts -->
       }) <!-- body -->
   }) <!-- Layout -->

@@ -43,7 +43,7 @@ angular
 
             $scope.$watch( 'displayedCollection', function (newItems, oldItems) {
                 $scope.myData = newItems;
-                removeBars();
+                //removeBars();
                 //drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
                 /*drawSessionsTotalChart(newItems, "#ch-bar-distance.chart", "Distance");
                 drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");*/

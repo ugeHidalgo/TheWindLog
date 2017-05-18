@@ -7,7 +7,7 @@ angular.module('d3Charts', []).
          replace: false,
          template: '<div id="chart2"></div>',
          link: function ($scope, element, attrs) {
-           var data = $scope.myData;          
+           var data = $scope.myData;                    
            
            $scope.$watch( 'myData', function (newItems, oldItems) {
                 removeBars();
@@ -15,7 +15,7 @@ angular.module('d3Charts', []).
                 drawSessionsTotalChart(newItems, "#ch-bar-count.chart", "Count");
                 drawSessionsTotalChart(newItems, "#ch-bar-distance.chart", "Distance");
                 drawSessionsTotalChart(newItems, "#ch-bar-time.chart", "Time");
-            });
+            }, true);
          }       
       };      
    });
