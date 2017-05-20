@@ -12,6 +12,8 @@
           <script src="/lib/angular-smart-table/dist/smart-table.min.js"></script>
           <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
           <script src="/lib/ngmap/build/scripts/ng-map.min.js"></script>
+
+          <script src="/src/helpers/timeHelpers.js"></script>
           
           <script src="/src/sessions/sessionsApp.js"></script>
           <script src="/src/sessions/sessionsViewController.js"></script>
