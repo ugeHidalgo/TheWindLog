@@ -15,8 +15,7 @@ angular.module('d3Charts', [])
            var data = $scope.myData;                   
            
            $scope.$watch( 'myData', function (newItems, oldItems) {
-                //removeBars();
-                //var a = $scope.barId;
+                removeBars();
                 drawSessionsTotalChart(newItems, element, $scope.barId, $scope.barData, $scope.width, $scope.height);
             }, true);
          }       

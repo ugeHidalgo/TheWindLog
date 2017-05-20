@@ -238,6 +238,11 @@
             maxSpeed: 41.4, avgSpeed: 25.8, distance: 21.9, time: 3192, value: 9, windDirection: 'Poniente', windPressure: 35, temperature: 21, 
             comment: 'Muy Plano perfecto y empieza a subir hasta ir pasado al final.',
             username: defaultUserName
+        },{
+            date: new Date('2017-05-19'), spot: 'Torrenueva', board: 'Rocket95', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 44.7, avgSpeed: 25.5, distance: 54.43, time: 7691, value: 9, windDirection: 'Levante', windPressure: 40, temperature: 23, 
+            comment: 'Muy plano y perfecto. Al final pierdo la aleta y me vuelvo como puedo.',
+            username: defaultUserName
         }]
 
     })(module.exports);
