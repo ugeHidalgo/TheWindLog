@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*site.scss*/
 @import url(http://fonts.googleapis.com/css?family=Schoolbell);
 body {
@@ -32,7 +33,7 @@ body {
   transition: all 0.35s;
 }
 .navbar-default .navbar-header .navbar-brand {
-  color: #f05f40;
+  color: #F05F40;
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -55,11 +56,11 @@ body {
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus:hover {
-  color: #f05f40;
+  color: #F05F40;
 }
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
-  color: #f05f40 !important;
+  color: #F05F40 !important;
   background-color: transparent;
 }
 .navbar-default .nav > li.active > a:hover,
@@ -84,7 +85,7 @@ body {
   }
   .navbar-default .nav > li > a:hover,
   .navbar-default .nav > li > a:focus:hover {
-    color: #f05f40;
+    color: #F05F40;
   }
 
   .navbar-default.affix {
@@ -92,7 +93,7 @@ body {
     border-color: rgba(34, 34, 34, 0.05);
   }
   .navbar-default.affix .navbar-header .navbar-brand {
-    color: #f05f40;
+    color: #F05F40;
     font-size: 14px;
   }
   .navbar-default.affix .navbar-header .navbar-brand:hover,
@@ -105,7 +106,7 @@ body {
   }
   .navbar-default.affix .nav > li > a:hover,
   .navbar-default.affix .nav > li > a:focus:hover {
-    color: #f05f40;
+    color: #F05F40;
   }
 }
 .logo {
@@ -145,9 +146,11 @@ body {
 
 /* Override for smart table (sort order icons)*/
 .st-sort-ascent:before {
-  content: "\25B2";
+  content: "▲";
 }
 
 .st-sort-descent:before {
-  content: "\25BC";
+  content: "▼";
 }
+
+/*# sourceMappingURL=site.css.map */

@@ -58,6 +58,14 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                 .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, barData) })))
                 .tickSize (chartWidth);
 
+    var tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([0, 0])
+                .html(function(d) {
+                    return "<strong>" + d._id[0].name + "</strong></br>" +
+                            "<strong>" + barData + ":</strong> <span style='color:red'>" + sessionDataCount(d, barData) + "</span>";
+                });
+
     var chart = d3.select("." + chartId) //element[0] //Center chart using margins                          
                 //.append("svg")
                 //.attr("id",chartId)
@@ -67,6 +75,8 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                 .attr("height", chartHeight + margin.bottom + margin.top )
                 .append("g") 
                     .attr("transform","translate(" + margin.left + "," + margin.top + ")");
+
+    chart.call(tip);
 
     chart.append("g") //Append axis and define texts
             .attr("class", "x axis")
@@ -96,6 +106,8 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                 .attr("y", function(d) { return chartHeight; })                                
                 .attr("width", x.rangeBand())
                 .attr("height", 0)
+                .on('mouseover', tip.show)
+                .on('mouseout', tip.hide)
                 .transition().ease("elastic")
                 .attr("height", function(d) {
                     if (barData === 'Count'){ 
@@ -118,7 +130,7 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                     if (barData === 'Time'){
                         return y(d.totalTime);
                     }
-                })
+                });
 };
 
 function type(d) {
