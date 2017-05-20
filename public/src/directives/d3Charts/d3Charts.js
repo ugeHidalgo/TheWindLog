@@ -15,16 +15,15 @@ angular.module('d3Charts', [])
            var data = $scope.myData;                   
            
            $scope.$watch( 'myData', function (newItems, oldItems) {
-                removeBars();
+                removeBars($scope.barId);
                 drawSessionsTotalChart(newItems, element, $scope.barId, $scope.barData, $scope.width, $scope.height);
             }, true);
          }       
       };      
    });
 
-function removeBars() {
-    d3.selectAll(".bar").remove();
-    d3.selectAll("g").remove();
+function removeBars(barId) {
+    d3.selectAll("." + barId).selectAll("g").remove();
 };
 
 function drawSessionsTotalChart(data, element, chartId, barData, width, height) { //, fieldData) {
@@ -66,10 +65,7 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                 });
 
     var chart = d3.select("." + chartId) //element[0] //Center chart using margins                          
-                //.append("svg")
-                //.attr("id",chartId)
                 .attr("class","chart "+ chartId)
-                //.attr("class",$scope.barId)
                 .attr("width", chartWidth + margin.left + margin.right )
                 .attr("height", chartHeight + margin.bottom + margin.top )
                 .append("g") 
