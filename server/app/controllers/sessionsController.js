@@ -39,6 +39,20 @@
             });
         });
 
+        app.get('/api/sessionstotalsbyspot/:userName', auth.ensureApiAuthenticated, function(request, response){
+
+            var userName = request.params.userName;
+
+            sessionData.getSessionsTotalsBySpot ( userName, function(error, sessionsTotalsBySpot) {
+                if (error){
+                    response.status(400).send(error);
+                } else {
+                    response.set('Content-Type','application/json');
+                    response.send(sessionsTotalsBySpot);
+                 }
+            });
+        });
+
         app.get ('/api/sessions/:userName/:sessionId', auth.ensureAuthenticated, function (request, response) {
 
             var userName = request.params.userName,

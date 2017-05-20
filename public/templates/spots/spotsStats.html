@@ -9,7 +9,7 @@
     </div>
     <wait-cursor display-when="busyIndicator"></wait-cursor>
     <div class="col-md-6">
-        <table id="sessionsTotalsGrid" st-table="displayedCollection" st-safe-src="sessionsTotals"
+        <table id="sessionsTotalsGrid" st-table="displayedCollection" st-safe-src="sessionsTotalsBySpot"
                 class="table table-responsive table-striped table-condensed">
                 <thead>
                     <tr>
@@ -17,10 +17,17 @@
                         <th st-sort="sessionsCount" class="rightJustified">Sessions</th>
                         <th st-sort="totalDistance" class="rightJustified">Distance</th>
                         <th st-sort="totalTime" class="rightJustified">Time</th>
-                        <th st-sort="maxSpeed" class="rightJustified">Max. Spd.</th>
-                        <th st-sort="avgSpeed" class="rightJustified">Avg. Spd.</th>
+                        <th st-sort="maxSpeed" class="rightJustified">Max.Spd.</th>
+                        <th st-sort="avgSpeed" class="rightJustified">Avg.Spd.</th>
                         <th st-sort="avgValue" class="rightJustified">Value</th>
                     </tr>
+                        <th></th>
+                        <th class="rightJustified">{{sessionsTotals[0].sessionsCount}}</th>
+                        <th class="rightJustified">{{sessionsTotals[0].totalDistance | number:2}}</th>
+                        <th class="rightJustified">{{sessionsTotals[0].totalTime | secondsToDateTime | date:'H:mm:ss'}}</th>
+                        <th class="rightJustified">{{sessionsTotals[0].maxSpeed | number:2}}</th>
+                        <th class="rightJustified">{{sessionsTotals[0].avgSpeed | number:2}}</th>
+                        <th class="rightJustified">{{sessionsTotals[0].avgValue | number:2}}</th>
                     <tr>
                     <th colspan="8">
                         <input st-search="" class="form-control" placeholder="type here to search ..." type="text" />
@@ -56,7 +63,7 @@
         <bars chart-data="myData" bar-id="ch-bar-distance" bar-data="Distance" width="420" height="250"></bars>
     </div>
     <div class="col-md-6">
-        <bars chart-data="myData" bar-id="ch-bar-time" bar-data="Distance" width="420" height="250"></bars>
+        <bars chart-data="myData" bar-id="ch-bar-time" bar-data="Time" width="420" height="250"></bars>
     </div>       
 </div>
 <div class="col-md-12"> 

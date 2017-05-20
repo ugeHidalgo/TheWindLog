@@ -14,8 +14,7 @@ angular
         function ($scope, $window, $$routeParams, Notification, $http) {
 
             var urlParts = $window.location.hash.split('/'),
-                userName = urlParts[2], data = [],
-                url = '/api/sessionstotals/' + userName;
+                userName = urlParts[2], data = [];
 
             $scope.userName = userName;
             $scope.itemsByPage = 10;
@@ -23,11 +22,23 @@ angular
             $scope.busyIndicator = true;
             $scope.myData = [];
             
-            $http.get(url)
+            $http.get('/api/sessionstotalsbyspot/' + userName)
+                .then(function (result) {
+                    //Success
+                    $scope.sessionsTotalsBySpot = result.data;
+                    $scope.myData = result.data;
+                }, function (error) {
+                    //Error
+                    Notification.error ('Failed to get spots sessions totals !!');
+                })
+                .finally(function (){
+                    $scope.busyIndicator = false;
+                });
+
+            $http.get('/api/sessionstotals/' + userName)
                 .then(function (result) {
                     //Success
                     $scope.sessionsTotals = result.data;
-                    $scope.myData = result.data;
                 }, function (error) {
                     //Error
                     Notification.error ('Failed to get sessions totals !!');

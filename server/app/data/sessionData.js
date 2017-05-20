@@ -14,6 +14,32 @@
         };
 
         sessionData.getSessionsTotals = function (username, callbackFn) {
+            var sessions = Session.aggregate([
+                 {
+                    $project: {
+                        _id: 1,
+                        distance: 1,
+                        time: 1,
+                        maxSpeed: 1,
+                        avgSpeed: 1,
+                        value: 1
+                    }
+                 },
+                 {
+                    $group: {
+                        _id: '$username',
+                        sessionsCount: {$sum: 1},
+                        totalDistance: {$sum: '$distance'},
+                        totalTime: {$sum: '$time'},
+                        maxSpeed: {$max: '$maxSpeed'},
+                        avgSpeed: {$avg: '$avgSpeed'},
+                        avgValue: {$avg: '$value'}
+                    }
+                 }
+                ], callbackFn);
+        };
+
+        sessionData.getSessionsTotalsBySpot = function (username, callbackFn) {
              var sessions = Session.aggregate([
                  {
                     $project: {
@@ -25,8 +51,11 @@
                         avgSpeed: 1,
                         value: 1
                     }
-                 },
-                 {
+                //  },{
+                //     $match: {
+                //         username: username
+                //     }
+                 },{
                     $group: {
                         _id: '$spot',
                         sessionsCount: {$sum: 1},
