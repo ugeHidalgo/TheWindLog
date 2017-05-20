@@ -1,17 +1,22 @@
 <div class="col-md-12">  
     <wait-cursor display-when="busyIndicator"></wait-cursor>
-
+    <div class="col-md-3">
+        <bars chart-data="myData" bar-id="ch-bar-count" width="350" height="250"></bars>
+    </div>  
+    <div class="col-md-3">
+        <bars chart-data="myData" bar-id="ch-bar-distance" width="350" height="250"></bars>
+    </div>
+    <div class="col-md-3">
+        <bars chart-data="myData" bar-id="ch-bar-time" width="350" height="250"></bars>
+    </div>
+</div>
+<div class="col-md-12"> 
+    <div class="col-md-6">
+        <!--<bars chart-data="myData" bar-id="ch-bar-time" width="350" height="250"></bars>-->
+    </div>  
     <!--<div>
         <h3>Main panel for user: @model.user.username</h3>
         <h1>Under construction</h1> 
         <img src="/img/underConstruction.jpg" alt="under construction" height="453" width="700"/>
     </div>-->
-
-    <div class="col-md-6">
-        <bars chart-data="myData" id="ch-bar-count"></bars>
-        <bars chart-data="myData" id="ch-bar-distance"></bars>
-        <!--<svg class="chart" id="ch-bar-count"></svg>-->
-        <!--<svg class="chart" id="ch-bar-distance"></svg>-->
-    </div>    
-    
 </div>
