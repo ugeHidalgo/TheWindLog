@@ -6,6 +6,7 @@ angular.module('d3Charts', [])
          scope: {
              myData: '=chartData',
              barId: '@',
+             barData: '@',
              height: '=',
              width: '='
         },
@@ -15,8 +16,8 @@ angular.module('d3Charts', [])
            
            $scope.$watch( 'myData', function (newItems, oldItems) {
                 //removeBars();
-                var a = $scope.barId;
-                drawSessionsTotalChart(newItems, element, $scope.barId, $scope.width, $scope.height);
+                //var a = $scope.barId;
+                drawSessionsTotalChart(newItems, element, $scope.barId, $scope.barData, $scope.width, $scope.height);
             }, true);
          }       
       };      
@@ -27,7 +28,7 @@ function removeBars() {
     d3.selectAll("g").remove();
 };
 
-function drawSessionsTotalChart(data, element, chartId, width, height) { //, fieldData) {
+function drawSessionsTotalChart(data, element, chartId, barData, width, height) { //, fieldData) {
 
     if (data.length === 0) return;
     if (!width) width = 450;
@@ -45,7 +46,7 @@ function drawSessionsTotalChart(data, element, chartId, width, height) { //, fie
                     .domain(data.map( function(d) { return d._id[0].name; })),
         y = d3.scale.linear()    
                     .range([chartHeight, 0])
-                    .domain([0, d3.max(data, function(d) { return sessionDataCount(d, chartId) })]);
+                    .domain([0, d3.max(data, function(d) { return sessionDataCount(d, barData) })]);
 
     var xAxis = d3.svg.axis() //Define axis
                 .scale(x)
@@ -54,7 +55,7 @@ function drawSessionsTotalChart(data, element, chartId, width, height) { //, fie
                 .scale(y)
                 .orient("right")
                 .ticks(d3.max(data, function(d) { return sessionDataCount(d, chartId) }))
-                .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, chartId) })))
+                .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, barData) })))
                 .tickSize (chartWidth);
 
     var chart = d3.select("." + chartId) //element[0] //Center chart using margins                          
@@ -86,7 +87,7 @@ function drawSessionsTotalChart(data, element, chartId, width, height) { //, fie
                 .attr("y",-9)
                 .attr("dy", ".71em")
                 .style("text-anchor","right")
-                .text("Sessions/Spot: " + getChartName(chartId));
+                .text("Sessions/Spot: " + barData);
                     
     chart.selectAll("rect") //Draw bar positioning first and resizing to value with animation
             .data(data)
@@ -97,24 +98,24 @@ function drawSessionsTotalChart(data, element, chartId, width, height) { //, fie
                 .attr("height", 0)
                 .transition().ease("elastic")
                 .attr("height", function(d) {
-                    if (chartId === 'ch-bar-count'){ 
+                    if (barData === 'Count'){ 
                         return chartHeight - y(d.sessionsCount) - 1; 
                     }
-                    if (chartId === 'ch-bar-distance'){ 
+                    if (barData === 'Distance'){ 
                         return chartHeight - y(d.totalDistance) - 1; 
                     }
-                    if (chartId === 'ch-bar-time'){ 
+                    if (barData === 'Time'){ 
                         return chartHeight - y(d.totalTime) - 1; 
                     }
                 })
                 .attr("y", function(d) { 
-                    if (chartId === 'ch-bar-count'){
+                    if (barData === 'Count'){
                         return y(d.sessionsCount);
                     }
-                    if (chartId === 'ch-bar-distance'){
+                    if (barData === 'Distance'){
                         return y(d.totalDistance);
                     }
-                    if (chartId === 'ch-bar-time'){
+                    if (barData === 'Time'){
                         return y(d.totalTime);
                     }
                 })
@@ -135,28 +136,15 @@ function setNumberOfTicksInVertAxis(maxValue) {
     return 5;
 };
 
-function sessionDataCount(d, chartId) { 
-    if (chartId === 'ch-bar-count'){
+function sessionDataCount(d, barData) { 
+    if (barData === 'Count'){
         return d.sessionsCount;
     } 
-    if (chartId === 'ch-bar-distance'){
+    if (barData === 'Distance'){
         return d.totalDistance;
     }
-    if (chartId === 'ch-bar-time'){
+    if (barData === 'Time'){
         return d.totalTime;
-    }
-    return 0;
-};
-
-function getChartName(chartId) { 
-    if (chartId === 'ch-bar-count'){
-        return 'Sessions number';
-    } 
-    if (chartId === 'ch-bar-distance'){
-        return 'Distance';
-    }
-    if (chartId === 'ch-bar-time'){
-        return 'Time';
     }
     return 0;
 };
