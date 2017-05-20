@@ -49,7 +49,34 @@ angular
 
             $scope.$watch( 'displayedCollection', function (newItems, oldItems) {
                 $scope.myData = newItems;
+                $scope.sessionsTotals = recalculateSessionTotals(newItems);
             });
-
         }
     ]);
+
+
+var recalculateSessionTotals = function (data) {
+    var sessionsTotals = [],
+        sessionsTotalsData = {
+            avgSpeed: 0,
+            avgValue: 0,
+            maxSpeed: 0,
+            sessionsCount: 0,
+            totalDistance: 0,
+            totalTime: 0
+        };
+    
+    data.forEach(function(item) {
+        sessionsTotalsData.avgSpeed+= item.avgSpeed * item.sessionsCount;
+        sessionsTotalsData.avgValue+= item.avgValue * item.sessionsCount;
+        if (item.maxSpeed > sessionsTotalsData.maxSpeed) sessionsTotalsData.maxSpeed = item.maxSpeed;
+        sessionsTotalsData.sessionsCount+= item.sessionsCount;
+        sessionsTotalsData.totalDistance+= item.totalDistance;
+        sessionsTotalsData.totalTime+= item.totalTime;
+    });
+
+    sessionsTotalsData.avgSpeed = sessionsTotalsData.avgSpeed / sessionsTotalsData.sessionsCount;
+    sessionsTotalsData.avgValue = sessionsTotalsData.avgValue / sessionsTotalsData.sessionsCount;
+    sessionsTotals.push(sessionsTotalsData);
+    return sessionsTotals;
+};
