@@ -4,7 +4,7 @@
   "description": "A wind sessions logger.",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node server/spec/",
+    "test": "./node_modules/.bin/jasmine-node server/spec/"
     //"postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": {
