@@ -14,8 +14,8 @@
           <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
           <script src="/lib/ngmap/build/scripts/ng-map.min.js"></script>
 
-          <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-          <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+          <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script> 
+          <script src="/src/helpers/d3-tip.js"></script>
           <script src="/src/directives/d3Charts/d3Charts.js"></script>
           <script src="/src/directives/d3Charts/d3BarChart.js"></script>
 
