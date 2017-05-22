@@ -7,8 +7,7 @@ var http = require ('http'),
     flash = require('connect-flash');
     cookieParser = require('cookie-parser')
     expressSession = require('express-session');
-    app = express(),
-    port = process.env.port || 3000;
+    app = express();    
 
 mongoose.connect (dbConfig.url);
 
@@ -40,4 +39,4 @@ controllers.init(app);
 
 var server = http.createServer(app);
 
-server.listen(port);
+server.listen(process.env.port || 5000);
