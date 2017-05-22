@@ -39,4 +39,6 @@ controllers.init(app);
 
 var server = http.createServer(app);
 
-server.listen(process.env.port || 5000);
+server.listen(process.env.PORT || 5000, function() {
+    console.log("%s listening at %s ", server.name, server.url);
+});
