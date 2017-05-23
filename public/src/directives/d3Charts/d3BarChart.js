@@ -62,7 +62,7 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                 .offset([0, 0])
                 .html(function(d) {
                     return "<strong>" + d._id[0].name + "</strong></br>" +
-                            "<strong>" + barData + ":</strong> <span style='color:red'>" + sessionDataCount(d, barData) + "</span>";
+                            "<strong>" + barData + ":</strong> <span style='color:red'>" + sessionDataTipValue(d, barData) + "</span>";
                 });
 
     var chart = d3.select("." + chartId) //element[0] //Center chart using margins                          
@@ -162,6 +162,19 @@ function sessionDataTickLabel(d, barData) {
         return secondsToTime(d);
     }
     return d;
+};
+
+function sessionDataTipValue(d, barData) { 
+    if (barData === 'Count'){
+        return d.sessionsCount;
+    } 
+    if (barData === 'Distance'){
+        return parseFloat(Math.round(d.totalDistance * 100) / 100).toFixed(2);
+    }
+    if (barData === 'Time'){
+        return secondsToTime(d.totalTime);
+    }
+    return 0;
 };
 
 
