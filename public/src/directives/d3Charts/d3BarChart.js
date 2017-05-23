@@ -52,6 +52,7 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
         yAxis = d3.svg.axis()
                 .scale(y)
                 .orient("right")
+                .tickFormat(function(d) { return sessionDataTickLabel(d,barData); })
                 .ticks(d3.max(data, function(d) { return sessionDataCount(d, chartId) }))
                 .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, barData) })))
                 .tickSize (chartWidth);
@@ -154,4 +155,24 @@ function sessionDataCount(d, barData) {
         return d.totalTime;
     }
     return 0;
+};
+
+function sessionDataTickLabel(d, barData) { 
+    if (barData === 'Time'){
+        return secondsToTime(d);
+    }
+    return d;
+};
+
+
+function secondsToTime (secondsAmount) {
+    var days  = 1,
+        hours = Math.floor (secondsAmount / 3600),
+        minutes = Math.floor ((secondsAmount % 3600) / 60),
+        seconds = Math.floor ((secondsAmount % 3600) % 60);
+
+    if (hours<10) hours = '0' + hours;
+    if (minutes<10) minutes = '0' + minutes;
+    if (seconds<10) seconds = '0' + seconds;
+    return hours + ":" + minutes +  ":" + seconds;
 };
