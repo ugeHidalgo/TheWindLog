@@ -5,28 +5,28 @@ d3Charts.directive('bars', function ($window) {
          restrict: 'EA',
          scope: {
              myData: '=chartData',
-             barId: '@',
-             barData: '@',
+             chartId: '@',
+             field: '@',
              height: '=',
              width: '='
         },
-         template: '<svg id="chart" class="{{barId}}"></svg>',
+         template: '<svg id="chart" class="{{chartId}}"></svg>',
          link: function ($scope, element, attrs) {
            var data = $scope.myData;                   
            
            $scope.$watch( 'myData', function (newItems, oldItems) {
-                removeBars($scope.barId);
-                drawSessionsTotalChart(newItems, element, $scope.barId, $scope.barData, $scope.width, $scope.height);
+                removeBars($scope.chartId);
+                drawChart(newItems, element, $scope.chartId, $scope.field, $scope.width, $scope.height);
             }, true);
          }       
       };      
    });
 
-function removeBars(barId) {
-    d3.selectAll("." + barId).selectAll("g").remove();
+function removeBars(chartId) {
+    d3.selectAll("." + chartId).selectAll("g").remove();
 };
 
-function drawSessionsTotalChart(data, element, chartId, barData, width, height) { //, fieldData) {
+function drawChart(data, element, chartId, field, width, height) { //, fieldData) {
 
     if (data.length === 0) return;
     if (!width) width = 450;
@@ -44,7 +44,7 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                     .domain(data.map( function(d) { return d._id[0].name; })),
         y = d3.scale.linear()    
                     .range([chartHeight, 0])
-                    .domain([0, d3.max(data, function(d) { return sessionDataCount(d, barData) })]);
+                    .domain([0, d3.max(data, function(d) { return sessionDataCount(d, field) })]);
 
     var xAxis = d3.svg.axis() //Define axis
                 .scale(x)
@@ -52,9 +52,9 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
         yAxis = d3.svg.axis()
                 .scale(y)
                 .orient("right")
-                .tickFormat(function(d) { return sessionDataTickLabel(d,barData); })
+                .tickFormat(function(d) { return sessionDataTickLabel(d,field); })
                 .ticks(d3.max(data, function(d) { return sessionDataCount(d, chartId) }))
-                .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, barData) })))
+                .ticks(setNumberOfTicksInVertAxis(d3.max(data, function(d) { return sessionDataCount(d, field) })))
                 .tickSize (chartWidth);
 
     var tip = d3.tip()
@@ -62,7 +62,7 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                 .offset([0, 0])
                 .html(function(d) {
                     return "<strong>" + d._id[0].name + "</strong></br>" +
-                            "<strong>" + barData + ":</strong> <span style='color:red'>" + sessionDataTipValue(d, barData) + "</span>";
+                            "<strong>" + field + ":</strong> <span style='color:red'>" + sessionDataTipValue(d, field) + "</span>";
                 });
 
     var chart = d3.select("." + chartId) //element[0] //Center chart using margins                          
@@ -93,7 +93,7 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                 .attr("y",-9)
                 .attr("dy", ".71em")
                 .style("text-anchor","right")
-                .text("Sessions/Spot: " + barData);
+                .text("Sessions/Spot: " + field);
                     
     chart.selectAll("rect") //Draw bar positioning first and resizing to value with animation
             .data(data)
@@ -106,24 +106,24 @@ function drawSessionsTotalChart(data, element, chartId, barData, width, height) 
                 .on('mouseout', tip.hide)
                 .transition().ease("elastic")
                 .attr("height", function(d) {
-                    if (barData === 'Count'){ 
+                    if (field === 'Count'){ 
                         return chartHeight - y(d.sessionsCount) - 1; 
                     }
-                    if (barData === 'Distance'){ 
+                    if (field === 'Distance'){ 
                         return chartHeight - y(d.totalDistance) - 1; 
                     }
-                    if (barData === 'Time'){ 
+                    if (field === 'Time'){ 
                         return chartHeight - y(d.totalTime) - 1; 
                     }
                 })
                 .attr("y", function(d) { 
-                    if (barData === 'Count'){
+                    if (field === 'Count'){
                         return y(d.sessionsCount);
                     }
-                    if (barData === 'Distance'){
+                    if (field === 'Distance'){
                         return y(d.totalDistance);
                     }
-                    if (barData === 'Time'){
+                    if (field === 'Time'){
                         return y(d.totalTime);
                     }
                 });
@@ -144,34 +144,34 @@ function setNumberOfTicksInVertAxis(maxValue) {
     return 5;
 };
 
-function sessionDataCount(d, barData) { 
-    if (barData === 'Count'){
+function sessionDataCount(d, field) { 
+    if (field === 'Count'){
         return d.sessionsCount;
     } 
-    if (barData === 'Distance'){
+    if (field === 'Distance'){
         return d.totalDistance;
     }
-    if (barData === 'Time'){
+    if (field === 'Time'){
         return d.totalTime;
     }
     return 0;
 };
 
-function sessionDataTickLabel(d, barData) { 
-    if (barData === 'Time'){
+function sessionDataTickLabel(d, field) { 
+    if (field === 'Time'){
         return secondsToTime(d);
     }
     return d;
 };
 
-function sessionDataTipValue(d, barData) { 
-    if (barData === 'Count'){
+function sessionDataTipValue(d, field) { 
+    if (field === 'Count'){
         return d.sessionsCount;
     } 
-    if (barData === 'Distance'){
+    if (field === 'Distance'){
         return parseFloat(Math.round(d.totalDistance * 100) / 100).toFixed(2);
     }
-    if (barData === 'Time'){
+    if (field === 'Time'){
         return secondsToTime(d.totalTime);
     }
     return 0;
