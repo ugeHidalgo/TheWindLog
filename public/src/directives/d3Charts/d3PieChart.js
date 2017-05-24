@@ -52,9 +52,16 @@ function drawPieChart(data, element, chartId, field, width, height) {
                 .data(pie(data))
                 .enter()
                 .append('path')
-                .attr('d', arc)
+                //.attr('d', arc)
                 .attr('fill', function(d, i) {
                     return color(i);
+                })
+                .transition().delay(function(d, i) { return i * 50; }).duration(100)
+                .attrTween('d', function(d) {
+                    var i = d3.interpolate(d.startAngle+0.1, d.endAngle);
+                    return function(t) {
+                        d.endAngle = i(t);
+                        return arc(d);
+                    }
                 });
-
 };
