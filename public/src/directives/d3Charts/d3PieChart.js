@@ -56,12 +56,23 @@ function drawPieChart(data, element, chartId, field, width, height) {
                 .attr('fill', function(d, i) {
                     return color(i);
                 })
-                .transition().delay(function(d, i) { return i * 50; }).duration(100)
-                .attrTween('d', function(d) {
-                    var i = d3.interpolate(d.startAngle+0.1, d.endAngle);
-                    return function(t) {
-                        d.endAngle = i(t);
-                        return arc(d);
-                    }
-                });
+
+    /*path.append("text")
+        .attr("transform", function(d) {
+            var c = arc.centroid(d),
+            w = width + c[0],
+            h = height + c[1];
+            return "translate(" + w + "," + h + ")"; 
+        })
+        .attr("text-anchor", "middle")
+        .text(function(d, i) { return data[i]._id[0].name; })*/
+
+        .transition().delay(function(d, i) { return i * 50; }).duration(100)
+        .attrTween('d', function(d) {
+            var i = d3.interpolate(d.startAngle+0.1, d.endAngle);
+            return function(t) {
+                d.endAngle = i(t);
+                return arc(d);
+            }
+        });
 };

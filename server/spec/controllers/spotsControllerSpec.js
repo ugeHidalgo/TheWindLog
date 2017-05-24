@@ -1,4 +1,4 @@
-var serverUrl = 'http://localhost:3000';
+var serverUrl = 'http://localhost:5000';
 var request = require('request');
 
 describe('spotsController tests', function() {
@@ -11,7 +11,7 @@ describe('spotsController tests', function() {
         it('should return a 200 status ', function(done) {
             var url = serverUrl + '/api/spots/ugehidalgo';
 
-            requestWithCookie.post('http://localhost:3000/api/spots/ugehidalgo', {user: 'ugehidalgo', password: 'a'}, done);
+            requestWithCookie.post('http://localhost:5000/api/spots/ugehidalgo', {user: 'ugehidalgo', password: 'a'}, done);
 
             request.get(url, function(error, response, body) { 
                 if (error) console.log(error.message);
