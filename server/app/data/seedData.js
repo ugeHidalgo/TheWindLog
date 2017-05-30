@@ -27,6 +27,10 @@
             name: 'NaishWave', model: 'Naish 8.5', brand: 'Mistral', volume: 85, length: 256, width: 56, year: '2000',
             purchase: new Date('2016-4-30'), price: 0, secondHand: true, active: false, username: defaultUserName,
             maxSpeed: 46.20, avgSpeed: 18.90, distance: 52.32, time: 10675, sessions: 3
+        },{
+            name: 'isonic111', model: 'iSonic', brand: 'Starboard', volume: 111, length: 236, width: 68, year: '2008',
+            purchase: new Date('2017-5-26'), price: 450, secondHand: true, active: true, username: defaultUserName,
+            maxSpeed: 49.7, avgSpeed: 18.90, distance: 52.32, time: 10675, sessions: 3
         }];
 
     seedData.initialSails = [{
@@ -242,6 +246,26 @@
             date: new Date('2017-05-19'), spot: 'Torrenueva', board: 'Rocket95', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
             maxSpeed: 44.7, avgSpeed: 25.5, distance: 54.43, time: 7691, value: 9, windDirection: 'Levante', windPressure: 40, temperature: 23, 
             comment: 'Muy plano y perfecto. Al final pierdo la aleta y me vuelvo como puedo.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-21'), spot: 'Almerimar (Culoperro)', board: 'RRDQuad83', sail: 'NaishF42', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 31.5, avgSpeed: 16.9, distance: 3.66, time: 777, value: 8, windDirection: 'Levante', windPressure: 50, temperature: 24, 
+            comment: 'Racheado entro con 4,2 y salgo a cambiar.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-21'), spot: 'Almerimar (Culoperro)', board: 'RRDQuad83', sail: 'NaishF47', mast: 'P400R', boom: 'B3140', 
+            maxSpeed: 38.2, avgSpeed: 22.5, distance: 28.06, time: 4616, value: 9, windDirection: 'Levante', windPressure: 60, temperature: 24, 
+            comment: 'Racheado cambio a 4.7 y vuelve a subir. Pasado pero bién..',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-26'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 38.8, avgSpeed: 12.5, distance: 23.66, time: 7181, value: 4, windDirection: 'SW', windPressure: 25, temperature: 30, 
+            comment: 'Muy flojo con planeos y zonas paradas..',
+            username: defaultUserName
+        },{
+            date: new Date('2017-05-28'), spot: 'Rules', board: 'isonic111', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 49.7, avgSpeed: 20.8, distance: 37.15, time: 6545, value: 8, windDirection: 'SW', windPressure: 35, temperature: 28, 
+            comment: 'Muy fuerte y al final se quita..',
             username: defaultUserName
         }]
 
