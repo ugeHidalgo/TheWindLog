@@ -134,7 +134,7 @@
             username: defaultUserName
         },{*/
             date: new Date('2017-02-27'), spot: 'Castel', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
-            maxSpeed: 34.7, avgSpeed: 16, distance: 9.2, time: 1814, value: 6, windDirection: 'Poniente', windPressure: 15, temperature: 20, 
+            maxSpeed: 40.8, avgSpeed: 19, distance: 9.2, time: 1814, value: 6, windDirection: 'Poniente', windPressure: 15, temperature: 20, 
             comment: 'Muy racheado en la orilla y mas fuerte con olas dentro. Se acabó pronto.',
             username: defaultUserName
         },{
@@ -154,7 +154,7 @@
             username: defaultUserName
         },{
             date: new Date('2017-03-26'), spot: 'Torrenueva (Futbol)', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
-            maxSpeed: 44.4, avgSpeed: 25, distance: 54.7, time: 6660, value: 10, windDirection: 'Levante', windPressure: 36, temperature: 18, 
+            maxSpeed: 44.4, avgSpeed: 25, distance: 54.7, time: 6616, value: 10, windDirection: 'Levante', windPressure: 36, temperature: 18, 
             comment: 'Perfecto, plano y con viento constante.',
             username: defaultUserName
         },{
@@ -179,7 +179,7 @@
             username: defaultUserName
         },{
             date: new Date('2017-04-13'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
-            maxSpeed: 40.8, avgSpeed: 15.1, distance: 21.4, time: 5033, value: 7, windDirection: 'SW', windPressure: 18, temperature: 26, 
+            maxSpeed: 40.8, avgSpeed: 15.1, distance: 21.4, time: 5153, value: 7, windDirection: 'SW', windPressure: 18, temperature: 26, 
             comment: 'Buen inicio de Rules.',
             username: defaultUserName
         },{
@@ -219,7 +219,7 @@
             username: defaultUserName
         },{
             date: new Date('2017-05-07'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
-            maxSpeed: 36.2, avgSpeed: 12, distance: 14.71, time: 4047, value: 4, windDirection: 'SW', windPressure: 20, temperature: 19, 
+            maxSpeed: 36.2, avgSpeed: 13.1, distance: 14.71, time: 4047, value: 4, windDirection: 'SW', windPressure: 20, temperature: 19, 
             comment: 'Se para al poco de empezar y despues se pone muy fuerte.',
             username: defaultUserName
         },{
