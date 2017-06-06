@@ -214,12 +214,12 @@
             username: defaultUserName
         },{
             date: new Date('2017-05-05'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
-            maxSpeed: 47.7, avgSpeed: 21.4, distance: 33.93, time: 6367, value: 9, windDirection: 'SW', windPressure: 35, temperature: 22, 
+            maxSpeed: 47.7, avgSpeed: 21.4, distance: 36.61, time: 6367, value: 9, windDirection: 'SW', windPressure: 35, temperature: 22, 
             comment: 'Se para al poco de empezar y despues se pone muy fuerte.',
             username: defaultUserName
         },{
             date: new Date('2017-05-07'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
-            maxSpeed: 36.2, avgSpeed: 12, distance: 12, time: 3600, value: 4, windDirection: 'SW', windPressure: 20, temperature: 19, 
+            maxSpeed: 36.2, avgSpeed: 12, distance: 14.71, time: 4047, value: 4, windDirection: 'SW', windPressure: 20, temperature: 19, 
             comment: 'Se para al poco de empezar y despues se pone muy fuerte.',
             username: defaultUserName
         },{
@@ -255,17 +255,27 @@
         },{
             date: new Date('2017-05-21'), spot: 'Almerimar (Culoperro)', board: 'RRDQuad83', sail: 'NaishF47', mast: 'P400R', boom: 'B3140', 
             maxSpeed: 38.2, avgSpeed: 22.5, distance: 28.06, time: 4616, value: 9, windDirection: 'Levante', windPressure: 60, temperature: 24, 
-            comment: 'Racheado cambio a 4.7 y vuelve a subir. Pasado pero bién..',
+            comment: 'Racheado cambio a 4.7 y vuelve a subir. Pasado pero bién.',
             username: defaultUserName
         },{
             date: new Date('2017-05-26'), spot: 'Rules', board: 'Titan', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
             maxSpeed: 38.8, avgSpeed: 12.5, distance: 23.66, time: 7181, value: 4, windDirection: 'SW', windPressure: 25, temperature: 30, 
-            comment: 'Muy flojo con planeos y zonas paradas..',
+            comment: 'Muy flojo con planeos y zonas paradas.',
             username: defaultUserName
         },{
             date: new Date('2017-05-28'), spot: 'Rules', board: 'isonic111', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
             maxSpeed: 49.7, avgSpeed: 20.8, distance: 37.15, time: 6545, value: 8, windDirection: 'SW', windPressure: 35, temperature: 28, 
-            comment: 'Muy fuerte y al final se quita..',
+            comment: 'Muy fuerte y al final se quita.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-06-02'), spot: 'Rules', board: 'isonic111', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 41.7, avgSpeed: 13.6, distance: 27.97, time: 7362, value: 4, windDirection: 'SW', windPressure: 20, temperature: 28, 
+            comment: 'Muy flojo con planeos y zonas paradas.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-06-03'), spot: 'Rules', board: 'isonic111', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 46.6, avgSpeed: 20.0, distance: 60.47, time: 10902, value: 8, windDirection: 'SW', windPressure: 30, temperature: 31, 
+            comment: 'Fuerte con un parón en medio.',
             username: defaultUserName
         }]
 
