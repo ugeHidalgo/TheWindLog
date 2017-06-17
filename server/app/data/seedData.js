@@ -277,6 +277,26 @@
             maxSpeed: 46.6, avgSpeed: 20.0, distance: 60.47, time: 10902, value: 8, windDirection: 'SW', windPressure: 30, temperature: 31, 
             comment: 'Fuerte con un parón en medio.',
             username: defaultUserName
+        },{
+            date: new Date('2017-06-09'), spot: 'Rules', board: 'isonic111', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 42.4, avgSpeed: 18.9, distance: 52.21, time: 9924, value: 8, windDirection: 'SW', windPressure: 20, temperature: 25, 
+            comment: 'Empieza flojo y sube hasta ponerse bien para la 7.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-06-11'), spot: 'Rules', board: 'isonic111', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 48.1, avgSpeed: 23.7, distance: 52.69, time: 7993, value: 8, windDirection: 'SW', windPressure: 25, temperature: 32, 
+            comment: 'Muy constante con una subida en medio.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-06-15'), spot: 'Rules', board: 'isonic111', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 47.8, avgSpeed: 26.3, distance: 73.98, time: 10529, value: 10, windDirection: 'SW', windPressure: 25, temperature: 31, 
+            comment: 'Muy constante y me salgo y sigue.',
+            username: defaultUserName
+        },{
+            date: new Date('2017-06-16'), spot: 'Rules', board: 'isonic111', sail: 'GaC64', mast: 'G430R', boom: 'B3160', 
+            maxSpeed: 48.8, avgSpeed: 24.8, distance: 37.73, time: 5576, value: 7, windDirection: 'SW', windPressure: 30, temperature: 31, 
+            comment: 'Empieza muy fuerte, al limite de ir pasado y va bajando hasta que llueve.',
+            username: defaultUserName
         }]
 
     })(module.exports);
