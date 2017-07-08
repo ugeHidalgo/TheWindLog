@@ -150,8 +150,13 @@ body {
   text-transform: uppercase;
 }
 
+.panel-mypanel {
+    padding: 0px;
+    margin-left: 10px;
+}
+
 .spot-map {
-  height: 450px;
+  height: 480px;
 }
 
 /* Override for smart table (sort order icons)*/
