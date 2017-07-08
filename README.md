@@ -2,6 +2,9 @@
 
 A windsurfing sessions diary implemented using a MEAN stack:
 
+Currently running on Heroku at: https://thewindlog.herokuapp.com/
+
+
 - Server dependencies:
 
     - body-parser
@@ -60,7 +63,7 @@ ___
         bower install
 
 -3 Run:
-    Launch mongodb in a console:
+    Launch mongoDB in a console:
 
         mongod
     
@@ -68,9 +71,14 @@ ___
 
         npm start
 
-    Access site to http://localhost:3000
+    Access site to http://localhost:5000
 
 
 -4 Debug server side with node inspector:
     node --inspect --debug .
     Copiar url y pegar en un browser.
+
+-5 Remote Data base can also be used hosted in mLab (Need to change local db config to remote. See dbConfig.js to change it)
+
+#CSS changes
+Use instead sass files and regenerate CSS using grunt with "grunt watch" command.
