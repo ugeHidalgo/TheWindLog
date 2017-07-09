@@ -145,7 +145,7 @@
                 </div>
             </div>
 
-            <div class="col-md-13 form-group panel panel-primary panel-mypanel">
+            <div id="boards-panel" class="col-md-13 form-group panel panel-primary panel-mypanel">
                 <div class="panel-heading">
                     <h3 class="panel-title">Boards used:</h3>
                 </div>
@@ -156,12 +156,10 @@
                         ng-options="board.name for board in boards | orderBy:'name' track by board._id"
                         required>
                     </select>
-                    <span ng-show="sessionForm.board.$error.required"
-                        class="text-warning">Valor obligatorio.</span>
                 </div>
             </div>
 
-            <div class="col-md-13 form-group panel panel-primary panel-mypanel">
+            <div id="sails-panel" class="col-md-13 form-group panel panel-primary panel-mypanel">
                 <div class="panel-heading">
                     <h3 class="panel-title">Sails used:</h3>
                 </div>
@@ -172,12 +170,10 @@
                         ng-options="sail.name for sail in sails | orderBy:'name' track by sail._id"
                         required>
                     </select>
-                    <span ng-show="sessionForm.sail.$error.required"
-                        class="text-warning">Valor obligatorio.</span>
                 </div>
             </div>
 
-            <div class="col-md-13 form-group panel panel-primary panel-mypanel">
+            <div id="masts-panel" class="col-md-13 form-group panel panel-primary panel-mypanel">
                 <div class="panel-heading">
                     <h3 class="panel-title">Masts used:</h3>
                 </div>
@@ -188,12 +184,10 @@
                         ng-options="mast.name for mast in masts | orderBy:'name' track by mast._id"
                         required>
                     </select>
-                    <span ng-show="sessionForm.mast.$error.required"
-                        class="text-warning">Valor obligatorio.</span>
                 </div>
             </div>
 
-            <div class="col-md-13 form-group panel panel-primary panel-mypanel">
+            <div id="booms-panel" class="col-md-13 form-group panel panel-primary panel-mypanel">
                 <div class="panel-heading">
                     <h3 class="panel-title">Booms used:</h3>
                 </div>
@@ -204,8 +198,6 @@
                         ng-options="boom.name for boom in booms | orderBy:'name' track by boom._id"
                         required>
                     </select>
-                    <span ng-show="sessionForm.boom.$error.required"
-                        class="text-warning">Valor obligatorio.</span>
                 </div>
             </div>
         </div>
