@@ -1,141 +1,150 @@
-<div id="mastForm">
+<div id="mastForm" class="col-md-12">
     <form novalidate name="mastForm" ng-submit="" class="form-horizontal">
+        <div class="col-md-12">
+            <div id="data" class="form-group panel panel-primary panel-mypanel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mast data</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12">  
+                        <wait-cursor display-when="busyIndicator"></wait-cursor>
+                    </div>
 
-        <div id="namesGroup" class="form-group">
-            <div class="col-md-3 col-md-offset-1">
-                <label class="control-label">Name</label>
-                <input class="form-control" type="text" id="name" name="name"
-                    ng-model="mast.name"
-                    required
-                    ng-minlength="3" />
-                <span ng-show="mastForm.name.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-                <span ng-show="mastForm.name.$error.minlength"
-                    class="text-warning">Longitud minima de 3 caracteres.</span>
+                    <div id="namesGroup" class="form-group">
+                        <div class="col-md-3 col-md-offset-1">
+                            <label class="control-label">Name</label>
+                            <input class="form-control" type="text" id="name" name="name"
+                                ng-model="mast.name"
+                                required
+                                ng-minlength="3" />
+                            <span ng-show="mastForm.name.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                            <span ng-show="mastForm.name.$error.minlength"
+                                class="text-warning">Longitud minima de 3 caracteres.</span>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="control-label">Model</label>
+                            <input class="form-control" type="text" id="model" name="model"
+                                ng-model="mast.model"
+                                required />
+                            <span ng-show="mastForm.model.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="control-label">Brand</label>
+                            <input class="form-control" type="text" id="brand" name="brand"
+                                ng-model="mast.brand"
+                                required />
+                            <span ng-show="mastForm.brand.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                        </div>
+                    </div>
+
+                    <div id="dimensionsGroup" class="form-group">
+                        <div class="col-md-1 col-md-offset-1">
+                            <label class="control-label">Year</label>
+                            <input class="form-control" type="text" id="year" name="year"
+                                ng-model="mast.year" />
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Type</label>
+                            <input class="form-control" id="type" name="type"
+                                    ng-model="mast.type"/>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Carbon %</label>
+                            <input class="form-control" id="carbon" name="carbon"
+                                    ng-model="mast.carbon"/>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Length</label>
+                            <input class="form-control" id="length" name="length"
+                                    ng-model="mast.length"/>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">IMCS</label>
+                            <input class="form-control" id="imcs" name="imcs"
+                                    ng-model="mast.imcs"/>
+                        </div>
+                    </div>
+
+                    <div id="statesAndDatesGroup" class="form-group">
+
+                        <div class="col-md-3 date col-md-offset-1">
+                            <label class="control-label">Purchased</label>
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="purchaseDate" 
+                                    is-open="purchasePopUp.opened" datepicker-options="dateOptions" 
+                                    ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" 
+                                            ng-click="openPurchasePopUp()">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Price(€)</label>
+                            <input class="form-control" type="text" id="price" name="price"
+                                ng-model="mast.price" />
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Used</label>
+                            <input class="form-control" type="checkbox" id="secondHand" name="secondHand"
+                                ng-model="mast.secondHand" />
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Active</label>
+                            <input class="form-control" type="checkbox" id="active" name="active"
+                                ng-model="mast.active" />
+                            <span ng-show="mastForm.active.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                        </div>
+                    </div>
+
+                    <div id="memoGroup" class="form-group">
+                        <div class="col-md-10 col-md-offset-1">
+                            <label class="control-label">Observ.</label>
+                            <textarea class="form-control" cols="80" rows="4" id="comment" name="comment"
+                                    ng-model="mast.comment"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="formButtons" class="form-group">
+                        <a class="btn btn-sm btn-default col-md-offset-1"
+                        href="/Materials/Masts/#{{userName}}">
+                            <i class="fa fa-list"></i>
+                            Back to masts list
+                        </a>
+                        <a class="btn btn-sm btn-default col-md-offset-1"
+                        ng-click="newItem(userName)">
+                            <i class="fa fa-edit"></i>
+                            New
+                        </a>
+                        <a class="btn btn-sm btn-default"
+                        ng-click="clearItem()">
+                            <i class="fa fa-eraser"></i>
+                            Clear
+                        </a>
+                        <a class="btn btn-danger btn-sm"
+                        ng-click="saveItem()"
+                        ng-disabled="mastForm.$invalid">
+                            <i class="fa fa-save"></i>
+                            Save
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-md-3">
-                <label class="control-label">Model</label>
-                <input class="form-control" type="text" id="model" name="model"
-                    ng-model="mast.model"
-                    required />
-                <span ng-show="mastForm.model.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-            </div>
-
-            <div class="col-md-3">
-                <label class="control-label">Brand</label>
-                <input class="form-control" type="text" id="brand" name="brand"
-                    ng-model="mast.brand"
-                    required />
-                <span ng-show="mastForm.brand.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-            </div>
-        </div>
-
-        <div id="dimensionsGroup" class="form-group">
-            <div class="col-md-1 col-md-offset-1">
-                <label class="control-label">Year</label>
-                <input class="form-control" type="text" id="year" name="year"
-                    ng-model="mast.year" />
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Type</label>
-                <input class="form-control" id="type" name="type"
-                        ng-model="mast.type"/>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Carbon %</label>
-                <input class="form-control" id="carbon" name="carbon"
-                        ng-model="mast.carbon"/>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Length</label>
-                <input class="form-control" id="length" name="length"
-                        ng-model="mast.length"/>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">IMCS</label>
-                <input class="form-control" id="imcs" name="imcs"
-                        ng-model="mast.imcs"/>
-            </div>
-        </div>
-
-        <div id="statesAndDatesGroup" class="form-group">
-
-            <div class="col-md-3 date col-md-offset-1">
-                <label class="control-label">Purchased</label>
-                <p class="input-group">
-                    <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="purchaseDate" 
-                        is-open="purchasePopUp.opened" datepicker-options="dateOptions" 
-                        ng-required="true" close-text="Close" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" 
-                                ng-click="openPurchasePopUp()">
-                            <i class="glyphicon glyphicon-calendar"></i>
-                        </button>
-                    </span>
-                </p>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Price(€)</label>
-                <input class="form-control" type="text" id="price" name="price"
-                    ng-model="mast.price" />
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Used</label>
-                <input class="form-control" type="checkbox" id="secondHand" name="secondHand"
-                    ng-model="mast.secondHand" />
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Active</label>
-                <input class="form-control" type="checkbox" id="active" name="active"
-                    ng-model="mast.active" />
-                <span ng-show="mastForm.active.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-            </div>
-        </div>
-
-        <div id="memoGroup" class="form-group">
-            <div class="col-md-10 col-md-offset-1">
-                <label class="control-label">Observ.</label>
-                <textarea class="form-control" cols="80" rows="4" id="comment" name="comment"
-                        ng-model="mast.comment"></textarea>
-            </div>
-        </div>
-
-        <div id="formButtons" class="form-group">
-            <a class="btn btn-sm btn-default col-md-offset-1"
-            href="/Materials/Masts/#{{userName}}">
-                <i class="fa fa-list"></i>
-                Back to masts list
-            </a>
-            <a class="btn btn-sm btn-default col-md-offset-1"
-            ng-click="newItem(userName)">
-                <i class="fa fa-edit"></i>
-                New
-            </a>
-            <a class="btn btn-sm btn-default"
-            ng-click="clearItem()">
-                <i class="fa fa-eraser"></i>
-                Clear
-            </a>
-            <a class="btn btn-danger btn-sm"
-            ng-click="saveItem()"
-            ng-disabled="mastForm.$invalid">
-                <i class="fa fa-save"></i>
-                Save
-            </a>
         </div>
     </form>       
-    <div class="col-md-12">  
-        <wait-cursor display-when="busyIndicator"></wait-cursor>
-    </div>
 </div>

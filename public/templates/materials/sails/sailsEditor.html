@@ -1,160 +1,170 @@
-<div id="sailForm">
+<div id="sailForm" class="col-md-12">
     <form novalidate name="sailForm" ng-submit="" class="form-horizontal">
-        <div id="namesGroup" class="form-group">
-            <div class="col-md-3 col-md-offset-1">
-                <label class="control-label">Name</label>
-                <input class="form-control" type="text" id="name" name="name"
-                    ng-model="sail.name"
-                    required
-                    ng-minlength="3" />
-                <span ng-show="sailForm.name.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-                <span ng-show="sailForm.name.$error.minlength"
-                    class="text-warning">Longitud minima de 3 caracteres.</span>
-            </div>
+        <div class="col-md-12">
+            <div id="data" class="form-group panel panel-primary panel-mypanel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Sail data</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12">  
+                        <wait-cursor display-when="busyIndicator"></wait-cursor>
+                    </div> 
+                    
+                    <div id="namesGroup" class="form-group">
+                        <div class="col-md-3 col-md-offset-1">
+                            <label class="control-label">Name</label>
+                            <input class="form-control" type="text" id="name" name="name"
+                                ng-model="sail.name"
+                                required
+                                ng-minlength="3" />
+                            <span ng-show="sailForm.name.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                            <span ng-show="sailForm.name.$error.minlength"
+                                class="text-warning">Longitud minima de 3 caracteres.</span>
+                        </div>
 
-            <div class="col-md-3">
-                <label class="control-label">Model</label>
-                <input class="form-control" type="text" id="model" name="model"
-                    ng-model="sail.model"
-                    required />
-                <span ng-show="sailForm.model.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-            </div>
+                        <div class="col-md-3">
+                            <label class="control-label">Model</label>
+                            <input class="form-control" type="text" id="model" name="model"
+                                ng-model="sail.model"
+                                required />
+                            <span ng-show="sailForm.model.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                        </div>
 
-            <div class="col-md-3">
-                <label class="control-label">Brand</label>
-                <input class="form-control" type="text" id="brand" name="brand"
-                    ng-model="sail.brand"
-                    required />
-                <span ng-show="sailForm.brand.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
+                        <div class="col-md-3">
+                            <label class="control-label">Brand</label>
+                            <input class="form-control" type="text" id="brand" name="brand"
+                                ng-model="sail.brand"
+                                required />
+                            <span ng-show="sailForm.brand.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                        </div>
+                    </div>
+
+                    <div id="dimensionsGroup" class="form-group">
+                        <div class="col-md-1 col-md-offset-1">
+                            <label class="control-label">Year</label>
+                            <input class="form-control" type="text" id="year" name="year"
+                                ng-model="sail.year" />
+                        </div>
+
+                        <div class="col-md-1 col-md-offset-1">
+                            <label class="control-label">Size</label>
+                            <input class="form-control" id="size" name="size"
+                                    ng-model="sail.size"/>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Mast</label>
+                            <input class="form-control" id="mast" name="mast"
+                                    ng-model="sail.mast"/>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">IMCS</label>
+                            <input class="form-control" id="imcs" name="imcs"
+                                    ng-model="sail.imcs"/>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Adapter</label>
+                            <input class="form-control" id="adapter" name="adapter"
+                                    ng-model="sail.adapter"/>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Boom</label>
+                            <input class="form-control" id="boom" name="boom"
+                                    ng-model="sail.boom"/>
+                        </div>
+
+                        <div class="col-md-1 col-md-offset-1">
+                            <label class="control-label">Battens</label>
+                            <input class="form-control" type="text" id="battens" name="battens"
+                                ng-model="sail.battens" />
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Cams</label>
+                            <input class="form-control" id="cams" name="cams"
+                                    ng-model="sail.cams"/>
+                        </div>
+                    </div>
+
+                    <div id="statesAndDatesGroup" class="form-group">
+
+                        <div class="col-md-3 date col-md-offset-1">
+                            <label class="control-label">Purchased</label>
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="purchaseDate" 
+                                    is-open="purchasePopUp.opened" datepicker-options="dateOptions" 
+                                    ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" 
+                                            ng-click="openPurchasePopUp()">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                            <span ng-show="sailForm.name.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Price(€)</label>
+                            <input class="form-control" type="text" id="price" name="price"
+                                ng-model="sail.price" />
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Used</label>
+                            <input class="form-control" type="checkbox" id="secondHand" name="secondHand"
+                                ng-model="sail.secondHand" />
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="control-label">Active</label>
+                            <input class="form-control" type="checkbox" id="active" name="active"
+                                ng-model="sail.active" />
+                            <span ng-show="sailForm.active.$error.required"
+                                class="text-warning">Valor obligatorio.</span>
+                        </div>
+                    </div>
+
+                    <div id="memoGroup" class="form-group">
+                        <div class="col-md-10 col-md-offset-1">
+                            <label class="control-label">Observ.</label>
+                            <textarea class="form-control" cols="80" rows="4" id="comment" name="comment"
+                                    ng-model="sail.comment"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="formButtons" class="form-group">
+                        <a class="btn btn-sm btn-default col-md-offset-1"
+                        href="/Materials/Sails/#{{userName}}">
+                            <i class="fa fa-list"></i>
+                            Back to sails list
+                        </a>
+                        <a class="btn btn-sm btn-default col-md-offset-1"
+                        ng-click="newItem(userName)">
+                            <i class="fa fa-edit"></i>
+                            New
+                        </a>
+                        <a class="btn btn-sm btn-default"
+                        ng-click="clearItem()">
+                            <i class="fa fa-eraser"></i>
+                            Clear
+                        </a>
+                        <a class="btn btn-danger btn-sm"
+                        ng-click="saveItem()"
+                        ng-disabled="sailForm.$invalid">
+                            <i class="fa fa-save"></i>
+                            Save
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div id="dimensionsGroup" class="form-group">
-            <div class="col-md-1 col-md-offset-1">
-                <label class="control-label">Year</label>
-                <input class="form-control" type="text" id="year" name="year"
-                    ng-model="sail.year" />
-            </div>
-
-            <div class="col-md-1 col-md-offset-1">
-                <label class="control-label">Size</label>
-                <input class="form-control" id="size" name="size"
-                        ng-model="sail.size"/>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Mast</label>
-                <input class="form-control" id="mast" name="mast"
-                        ng-model="sail.mast"/>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">IMCS</label>
-                <input class="form-control" id="imcs" name="imcs"
-                        ng-model="sail.imcs"/>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Adapter</label>
-                <input class="form-control" id="adapter" name="adapter"
-                        ng-model="sail.adapter"/>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Boom</label>
-                <input class="form-control" id="boom" name="boom"
-                        ng-model="sail.boom"/>
-            </div>
-
-            <div class="col-md-1 col-md-offset-1">
-                <label class="control-label">Battens</label>
-                <input class="form-control" type="text" id="battens" name="battens"
-                    ng-model="sail.battens" />
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Cams</label>
-                <input class="form-control" id="cams" name="cams"
-                        ng-model="sail.cams"/>
-            </div>
-        </div>
-
-        <div id="statesAndDatesGroup" class="form-group">
-
-            <div class="col-md-3 date col-md-offset-1">
-                <label class="control-label">Purchased</label>
-                <p class="input-group">
-                    <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="purchaseDate" 
-                        is-open="purchasePopUp.opened" datepicker-options="dateOptions" 
-                        ng-required="true" close-text="Close" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" 
-                                ng-click="openPurchasePopUp()">
-                            <i class="glyphicon glyphicon-calendar"></i>
-                        </button>
-                    </span>
-                </p>
-                <span ng-show="sailForm.name.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Price(€)</label>
-                <input class="form-control" type="text" id="price" name="price"
-                    ng-model="sail.price" />
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Used</label>
-                <input class="form-control" type="checkbox" id="secondHand" name="secondHand"
-                    ng-model="sail.secondHand" />
-            </div>
-
-            <div class="col-md-1">
-                <label class="control-label">Active</label>
-                <input class="form-control" type="checkbox" id="active" name="active"
-                    ng-model="sail.active" />
-                <span ng-show="sailForm.active.$error.required"
-                    class="text-warning">Valor obligatorio.</span>
-            </div>
-        </div>
-
-        <div id="memoGroup" class="form-group">
-            <div class="col-md-10 col-md-offset-1">
-                <label class="control-label">Observ.</label>
-                <textarea class="form-control" cols="80" rows="4" id="comment" name="comment"
-                        ng-model="sail.comment"></textarea>
-            </div>
-        </div>
-
-        <div id="formButtons" class="form-group">
-            <a class="btn btn-sm btn-default col-md-offset-1"
-            href="/Materials/Sails/#{{userName}}">
-                <i class="fa fa-list"></i>
-                Back to sails list
-            </a>
-            <a class="btn btn-sm btn-default col-md-offset-1"
-            ng-click="newItem(userName)">
-                <i class="fa fa-edit"></i>
-                New
-            </a>
-            <a class="btn btn-sm btn-default"
-            ng-click="clearItem()">
-                <i class="fa fa-eraser"></i>
-                Clear
-            </a>
-            <a class="btn btn-danger btn-sm"
-            ng-click="saveItem()"
-            ng-disabled="sailForm.$invalid">
-                <i class="fa fa-save"></i>
-                Save
-            </a>
-        </div>
-    </form> 
-    <div class="col-md-12">  
-        <wait-cursor display-when="busyIndicator"></wait-cursor>
-    </div>      
+    </form>      
 </div>

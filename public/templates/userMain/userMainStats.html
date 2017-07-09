@@ -1,22 +1,36 @@
-<div class="col-md-12">  
-    <wait-cursor display-when="busyIndicator"></wait-cursor>
-    <div class="col-md-3">
-        <bars chart-data="myData" chart-id="ch-bar-count" field="Count" width="300" height="250"></bars>
-    </div>  
-    <div class="col-md-3">
-        <bars chart-data="myData" chart-id="ch-bar-distance" field="Distance" width="300" height="250"></bars>
+<div class="col-md-12">    
+    <div id="data" class="form-group panel panel-primary panel-mypanel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Session totals</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">  
+                <wait-cursor display-when="busyIndicator"></wait-cursor>
+            </div>
+            <div class="col-md-12"> 
+                <div class="col-md-3">
+                    <bars chart-data="myData" chart-id="ch-bar-count" field="Count" width="300" height="250"></bars>
+                </div>
+
+                <div class="col-md-3">
+                    <bars chart-data="myData" chart-id="ch-bar-distance" field="Distance" width="300" height="250"></bars>
+                </div>
+
+                <div class="col-md-3">
+                    <bars chart-data="myData" chart-id="ch-bar-time" field="Time" width="300" height="250"></bars>
+                </div>
+            </div>
+
+            <div class="col-md-12"> 
+                <div class="col-md-6">
+                    <pie-chart chart-data="myData" chart-id="ch-pie-distance" field="Count" width="300" height="250"></pie-chart>        
+                </div>  
+                <!--<div>
+                    <h3>Main panel for user: @model.user.username</h3>
+                    <h1>Under construction</h1> 
+                    <img src="/img/underConstruction.jpg" alt="under construction" height="453" width="700"/>
+                </div>-->
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <bars chart-data="myData" chart-id="ch-bar-time" field="Time" width="300" height="250"></bars>
-    </div>
-</div>
-<div class="col-md-12"> 
-    <div class="col-md-6">
-        <pie-chart chart-data="myData" chart-id="ch-pie-distance" field="Count" width="300" height="250"></pie-chart>        
-    </div>  
-    <!--<div>
-        <h3>Main panel for user: @model.user.username</h3>
-        <h1>Under construction</h1> 
-        <img src="/img/underConstruction.jpg" alt="under construction" height="453" width="700"/>
-    </div>-->
 </div>
